@@ -8,9 +8,9 @@
 
 典型模块：
 
-- trade capture
-- market data
-- pricing engine
+- [[Trade Capture]]
+- [[Market Data Pipeline]]
+- [[Pricing Engine]]
 - risk engine
 - reporting
 
@@ -26,9 +26,11 @@
 - [[Pricing Engine]]
 - [[Risk Platform]]
 - [[Distributed Computing]]
+- [[Workflow Orchestration]]
+- [[Data Lineage]]
 
 从哪里继续看：
 
-- 知识库内建议连着看 [[Risk Platform]]、[[Risk Calculation System]]
-- 工程领域可看 event-driven architecture、data lineage、workflow orchestration
+- 知识库内建议连着看 [[Trade Lifecycle]]、[[Risk Platform]]、[[Risk Calculation System]]
+- 工程领域可看 [[Event-Driven Architecture]]、[[Data Lineage]]、[[Workflow Orchestration]]
 - 面试场景可把这篇当作系统设计题提纲

@@ -21,6 +21,7 @@
 
 - 知识库内继续看 [[Value at Risk]]、[[PnL Explain]]
 - 数据工程方向可看 time-series database、event time、data replay
+- 平台流转可继续看 [[Market Data Pipeline]] 和 [[Data Lineage]]
 - 统计方法可看 volatility modeling 和 stationarity 入门资料
 
 相关：

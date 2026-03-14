@@ -47,16 +47,26 @@ tags: [finance, quant, investment-banking]
 ### Financial Data
 
 - [[Market Data]]
+- [[Market Data Pipeline]]
+- [[Reference Data]]
 - [[Time Series Data]]
 - [[PnL Explain]]
 
 ### Trading Technology
 
+- [[Trade Capture]]
+- [[Trade Lifecycle]]
 - [[Pricing Engine]]
 - [[Risk Platform]]
 - [[Distributed Computing]]
 - [[Risk Calculation System]]
 - [[Trading System Architecture]]
+- [[Workflow Orchestration]]
+- [[Event-Driven Architecture]]
+- [[Message Queue]]
+- [[Microservices and APIs]]
+- [[Data Lineage]]
+- [[Batch Processing]]
 
 ### Notes
 

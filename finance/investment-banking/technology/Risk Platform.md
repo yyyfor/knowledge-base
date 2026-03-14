@@ -14,8 +14,8 @@ Risk Platform 不是单个模型，而是一整套支持风险数据采集、计
 
 典型模块：
 
-- position feed and trade capture
-- market data ingestion
+- position feed and [[Trade Capture]]
+- [[Market Data Pipeline]]
 - calculation grid
 - aggregation and reporting
 - controls and exception management
@@ -25,9 +25,11 @@ Risk Platform 不是单个模型，而是一整套支持风险数据采集、计
 - [[Market Risk]]
 - [[Risk Aggregation]]
 - [[Risk Calculation System]]
+- [[Batch Processing]]
+- [[Workflow Orchestration]]
 
 从哪里继续看：
 
-- 知识库内推荐继续看 [[Trading System Architecture]]、[[Distributed Computing]]
+- 知识库内推荐继续看 [[Trading System Architecture]]、[[Distributed Computing]]、[[Batch Processing]]
 - 工程资料可查 risk data model、risk cube、batch orchestration 和 entitlement control
 - 面试准备可直接看 [[Quant Interview Notes]]
