@@ -29,6 +29,7 @@ tags: [finance, quant, investment-banking]
 - [[Valuation]]
 - [[CVA]]
 - [[FVA]]
+- [[MVA]]
 - [[XVA]]
 
 ### Financial Data
@@ -48,4 +49,3 @@ tags: [finance, quant, investment-banking]
 ### Notes
 
 - [[Quant Interview Notes]]
-
