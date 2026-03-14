@@ -11,6 +11,7 @@
 - [[Value at Risk]]
 - [[Greeks]]
 - [[Stress Testing]]
+- [[Expected Exposure]]
 
 常见风险因子：
 
@@ -25,6 +26,6 @@
 
 从哪里继续看：
 
-- 知识库内顺着看 [[Value at Risk]]、[[Stress Testing]]、[[Risk Aggregation]]
+- 知识库内顺着看 [[Value at Risk]]、[[Stress Testing]]、[[Risk Aggregation]]、[[Expected Exposure]]
 - 入门可看 Jorion 的市场风险和 VaR 资料
 - 系统落地方向可继续看 [[Risk Platform]] 和 [[Risk Calculation System]]

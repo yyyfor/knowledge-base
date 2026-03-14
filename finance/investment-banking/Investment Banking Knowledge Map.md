@@ -12,8 +12,16 @@ tags: [finance, quant, investment-banking]
 ### Quant Finance
 
 - [[Derivatives]]
+- [[Options]]
+- [[Futures and Forwards]]
+- [[Swaps]]
+- [[Structured Products]]
 - [[Derivatives Pricing]]
+- [[Black-Scholes Model]]
+- [[Binomial Tree Model]]
 - [[Monte Carlo Simulation]]
+- [[Local Volatility Model]]
+- [[Stochastic Volatility Model]]
 - [[Volatility Surface]]
 - [[Yield Curve]]
 
@@ -23,6 +31,8 @@ tags: [finance, quant, investment-banking]
 - [[Value at Risk]]
 - [[Risk Aggregation]]
 - [[Stress Testing]]
+- [[Counterparty Credit Risk]]
+- [[Expected Exposure]]
 
 ### Valuation
 
@@ -31,6 +41,8 @@ tags: [finance, quant, investment-banking]
 - [[FVA]]
 - [[MVA]]
 - [[XVA]]
+- [[Collateral and CSA]]
+- [[Initial Margin]]
 
 ### Financial Data
 

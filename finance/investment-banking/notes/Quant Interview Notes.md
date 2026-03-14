@@ -13,6 +13,7 @@
 - VaR and stress testing
 - XVA overview
 - system design for risk platforms
+- product examples like options, swaps, and structured products
 
 相关：
 
@@ -25,3 +26,4 @@
 - 按主题回链到 [[Derivatives]]、[[Market Risk]]、[[XVA]]
 - 准备面试时优先把每个缩写扩写全称、业务意义、输入输出、系统位置四件事说清楚
 - 如果要继续扩写，这篇最适合整理“高频问题 + 标准答案骨架”
+- 具体产品题可以再链接 [[Options]]、[[Swaps]]、[[Structured Products]]

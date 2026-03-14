@@ -23,6 +23,8 @@
 - [[Derivatives]]
 - [[Derivatives Pricing]]
 - [[Market Data]]
+- [[Local Volatility Model]]
+- [[Stochastic Volatility Model]]
 
 从哪里继续看：
 

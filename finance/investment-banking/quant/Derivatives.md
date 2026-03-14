@@ -8,10 +8,10 @@
 
 常见类型：
 
-- Options
-- Futures
-- Swaps
-- Structured Products
+- [[Options]]
+- [[Futures and Forwards]]
+- [[Swaps]]
+- [[Structured Products]]
 
 实务上常见区分：
 
@@ -26,6 +26,6 @@
 
 从哪里继续看：
 
-- 知识库内先看 [[Derivatives Pricing]]、[[Greeks]]、[[Valuation]]
+- 知识库内先看 [[Options]]、[[Swaps]]、[[Derivatives Pricing]]、[[Greeks]]、[[Valuation]]
 - 入门教材可看 John Hull 的 *Options, Futures, and Other Derivatives*
 - 偏交易直觉的介绍可看 Natenberg 的 *Option Volatility & Pricing*

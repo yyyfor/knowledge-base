@@ -29,3 +29,4 @@
 - 知识库内可继续看 [[Risk Aggregation]]、[[PnL Explain]]
 - 监管视角可了解 Basel stress testing、CCAR
 - 技术视角可继续看 scenario generation、shock application 和 revaluation engine
+- 复杂产品场景可结合 [[Structured Products]] 与 [[Initial Margin]] 一起理解

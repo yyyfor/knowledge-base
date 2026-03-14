@@ -25,9 +25,11 @@ Risk Metrics
 
 - [[Derivatives Pricing]]
 - [[Risk Calculation System]]
+- [[Black-Scholes Model]]
+- [[Monte Carlo Simulation]]
 
 从哪里继续看：
 
 - 知识库内建议看 [[Distributed Computing]]、[[Trading System Architecture]]
 - 工程实现可查 pricing library、model registry、cache strategy 和 batch orchestration
-- 若偏定量方法，返回看 [[Derivatives Pricing]] 和 [[Monte Carlo Simulation]]
+- 若偏定量方法，返回看 [[Derivatives Pricing]]、[[Black-Scholes Model]] 和 [[Monte Carlo Simulation]]

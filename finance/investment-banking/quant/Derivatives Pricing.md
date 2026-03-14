@@ -8,21 +8,23 @@
 
 常见方法：
 
-- Black Scholes
-- Binomial Tree
+- [[Black-Scholes Model]]
+- [[Binomial Tree Model]]
 - Monte Carlo
 
 这些方法的典型适用场景：
 
-- Black Scholes：适合欧式期权等闭式解问题
-- Binomial Tree：适合早行权和离散时间结构
-- Monte Carlo：适合路径依赖和高维问题
+- [[Black-Scholes Model]]：适合欧式期权等闭式解问题
+- [[Binomial Tree Model]]：适合早行权和离散时间结构
+- [[Monte Carlo Simulation]]：适合路径依赖和高维问题
 
 相关主题：
 
 - [[Greeks]]
 - [[Pricing Engine]]
 - [[Risk Calculation]]
+- [[Local Volatility Model]]
+- [[Stochastic Volatility Model]]
 
 从哪里继续看：
 
