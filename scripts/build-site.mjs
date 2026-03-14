@@ -1,7 +1,9 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 
-const repoRoot = path.resolve("/Users/ming/Documents/github/knowledge-base");
+const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+const repoRoot = path.resolve(scriptDir, "..");
 const contentRoot = path.join(repoRoot, "finance", "investment-banking");
 const outputRoot = path.join(repoRoot, "docs");
 const staticRoot = path.join(repoRoot, "site");
@@ -294,4 +296,3 @@ for (const note of notes) {
 }
 
 fs.writeFileSync(path.join(outputRoot, "index.html"), buildIndex(notes));
-
