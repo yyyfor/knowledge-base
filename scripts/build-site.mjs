@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, "..");
-const contentRoot = path.join(repoRoot, "finance", "investment-banking");
+const contentRoot = path.join(repoRoot, "knowledge-domains");
 const outputRoot = path.join(repoRoot, "docs");
 const staticRoot = path.join(repoRoot, "site");
 
@@ -194,7 +194,7 @@ function renderMarkdown(note, notesByTitle, backlinksByTitle) {
       <aside class="sidebar">
         <div class="sidebar-block">
           <div class="eyebrow">Knowledge Base</div>
-          <a class="home-link" href="${relativeHref(outputHtmlPath(note), path.join(outputRoot, "index.html"))}">Investment Banking</a>
+          <a class="home-link" href="${relativeHref(outputHtmlPath(note), path.join(outputRoot, "index.html"))}">Knowledge Base Home</a>
         </div>
         <div class="sidebar-block">
           <div class="sidebar-title">Current Note</div>
@@ -214,7 +214,7 @@ function renderMarkdown(note, notesByTitle, backlinksByTitle) {
 }
 
 function buildIndex(notes) {
-  const rootNote = notes.find((note) => note.title === "Investment Banking Knowledge Map");
+  const rootNote = notes.find((note) => note.title === "Knowledge Base Map");
   const grouped = new Map();
   for (const note of notes) {
     const group = note.relDirSegments[0] || "root";
@@ -238,16 +238,16 @@ function buildIndex(notes) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Investment Banking Knowledge Base</title>
+    <title>Knowledge Base</title>
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
     <main class="landing">
       <div class="hero">
         <div class="eyebrow">GitHub Pages Preview</div>
-        <h1>Investment Banking Knowledge Base</h1>
+        <h1>Knowledge Base</h1>
         <p>远端预览站点，按 Obsidian 笔记结构生成，支持基础双链跳转与反向链接浏览。</p>
-        <a class="primary-link" href="${rootNote ? relativeHref(path.join(outputRoot, "index.html"), outputHtmlPath(rootNote)) : "#"}">Open Knowledge Map</a>
+        <a class="primary-link" href="${rootNote ? relativeHref(path.join(outputRoot, "index.html"), outputHtmlPath(rootNote)) : "#"}">Open Root Map</a>
       </div>
       <div class="grid">
         ${sections}

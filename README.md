@@ -1,6 +1,6 @@
 # Knowledge Base
 
-This repository contains an Obsidian-style investment banking knowledge base and a static preview site for GitHub Pages.
+This repository contains Obsidian-style knowledge directories, including investment banking notes and Google Generative AI Leader Certification review notes, plus a static preview site for GitHub Pages.
 
 ## Local preview build
 
