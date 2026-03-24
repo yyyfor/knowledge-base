@@ -10,4 +10,5 @@ LiteRT 是 Google 在 edge AI 场景中常见的轻量运行时概念。
 
 - [[Model Selection Criteria]]
 - [[Google AI Product Stack]]
-
+- [[Gemini Nano]]
+- [[Google Cloud Infrastructure for GenAI]]

@@ -12,9 +12,15 @@ Model Garden 是 Google 的模型库。
 - open models
 - third-party models
 
+课程里常见示例：
+
+- [[Gemini]]
+- [[Gemma]]
+- [[Imagen]]
+- [[Veo]]
+
 相关：
 
 - [[Vertex AI]]
 - [[Gemini]]
 - [[Model Selection Criteria]]
-

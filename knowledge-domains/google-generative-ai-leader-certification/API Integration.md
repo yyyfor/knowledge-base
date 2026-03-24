@@ -14,6 +14,12 @@ API Integration 指应用通过 API 与模型或工具进行连接。
 - authorization
 - model inference
 
+课程补充中常见的集成方式：
+
+- direct API calls
+- [[Google AI APIs]]
+- [[Low-Code and No-Code AI Tools]]
+
 相关：
 
 - [[AI Agent]]

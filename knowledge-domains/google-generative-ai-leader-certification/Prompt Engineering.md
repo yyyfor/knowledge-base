@@ -15,8 +15,10 @@ Prompt Engineering 是通过设计提示词来引导模型输出。
 常见方法：
 
 - zero-shot
+- one-shot
 - few-shot
 - chain-of-thought
+- prompt chaining
 
 官方补充里常与 prompt 一起出现的参数控制：
 
