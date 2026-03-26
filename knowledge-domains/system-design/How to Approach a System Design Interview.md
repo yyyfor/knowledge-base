@@ -12,9 +12,15 @@ system design 面试最重要的是结构化表达，而不是背现成答案。
 6. discuss trade-offs
 7. cover reliability, monitoring, and security
 
+表达建议：
+
+- 不要一上来就堆组件
+- 先讲流量模型、SLA、一致性要求和容灾目标
+- 再解释为什么要这样分层
+
 相关：
 
 - [[What is System Design]]
 - [[System Design Trade-offs]]
 - [[Observability in System Design]]
-
+- [[Design a 10 Million QPS System]]

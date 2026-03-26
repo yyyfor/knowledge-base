@@ -6,9 +6,16 @@
 
 它既是系统保护措施，也是公平性和成本控制机制。常见策略包括 token bucket、leaky bucket 和 fixed/sliding window。
 
+在大规模系统里，限流通常分层执行：
+
+- gateway-level limiting
+- endpoint-level limiting
+- user or tenant-level limiting
+- downstream load shedding
+
 相关：
 
 - [[API Gateway and Service Boundaries]]
 - [[Latency and Throughput]]
 - [[Design a Notification System]]
-
+- [[Graceful Degradation and Load Shedding]]

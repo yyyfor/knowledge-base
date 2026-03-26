@@ -28,6 +28,10 @@ tags: [system-design, architecture, engineering]
 - [[Data Partitioning and Sharding]]
 - [[Replication and Fault Tolerance]]
 - [[Rate Limiting]]
+- [[Graceful Degradation and Load Shedding]]
+- [[Capacity Estimation for System Design]]
+- [[Multi-Level Caching Strategies]]
+- [[Bottleneck Analysis in Distributed Systems]]
 
 ## Typical Scenarios
 
@@ -37,9 +41,9 @@ tags: [system-design, architecture, engineering]
 - [[Design a Search System]]
 - [[Design a Recommendation System]]
 - [[Design a File Storage System]]
+- [[Design a 10 Million QPS System]]
 
 ## Interview Preparation
 
 - [[How to Approach a System Design Interview]]
 - [[System Design Trade-offs]]
-
