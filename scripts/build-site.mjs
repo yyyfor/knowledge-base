@@ -508,31 +508,10 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
           </div>
         </section>
 
-        <section class="detail-section">
-          <h2>详细说明</h2>
-          <div class="detail-stack">
-            ${renderCardList(details.body, note, notesByTitle)}
-          </div>
-        </section>
-
-        <section class="detail-section">
-          <h2>适用场景</h2>
-          <div class="detail-grid">
-            ${renderCardList(details.useCases, note, notesByTitle)}
-          </div>
-        </section>
-
-        <section class="detail-section">
-          <h2>常见误区</h2>
-          <div class="detail-grid">
-            ${renderCardList(details.pitfalls, note, notesByTitle)}
-          </div>
-        </section>
-
-        <section class="detail-section">
-          <h2>面试回答方式</h2>
-          <div class="detail-stack">
-            ${renderCardList(details.interview, note, notesByTitle)}
+        <section class="detail-section detail-section-raw detail-section-raw-featured">
+          <h2>原始笔记</h2>
+          <div class="detail-raw-markdown">
+            ${rawBody}
           </div>
         </section>
 
@@ -546,13 +525,6 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
         <section class="detail-section">
           <h2>补充内容</h2>
           ${renderLinkedChips(uniqueRelated, note, notesByTitle, "No supplemental topics yet.")}
-        </section>
-
-        <section class="detail-section detail-section-raw">
-          <h2>原始笔记</h2>
-          <div class="detail-raw-markdown">
-            ${rawBody}
-          </div>
         </section>
       </main>
     </div>
@@ -594,7 +566,7 @@ function buildIndex(notes) {
       <div class="hero">
         <div class="eyebrow">GitHub Pages Preview</div>
         <h1>Knowledge Base</h1>
-        <p>知识库详情页现在会先给结构化概述，再保留原始 Markdown 笔记，方便快速复习和继续深挖。</p>
+        <p>知识库页面现在优先突出原始笔记，同时保留关键要点和补充内容，方便快速跳转和继续深挖。</p>
         <a class="primary-link" href="${rootNote ? relativeHref(path.join(outputRoot, "index.html"), outputHtmlPath(rootNote)) : "#"}">Open Root Map</a>
       </div>
       <div class="grid">

@@ -47,3 +47,4 @@ tags: [system-design, architecture, engineering]
 
 - [[How to Approach a System Design Interview]]
 - [[System Design Trade-offs]]
+- [[System Design Offer-Level Playbook]]
