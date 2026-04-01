@@ -8,6 +8,44 @@ const contentRoot = path.join(repoRoot, "knowledge-domains");
 const outputRoot = path.join(repoRoot, "docs");
 const staticRoot = path.join(repoRoot, "site");
 
+const domainProfiles = {
+  "investment-banking": {
+    label: "Investment Banking",
+    workflow: "定价、风险、估值和交易技术",
+    scenario: "适用于衍生品定价、风险计量、估值调整和交易平台场景。",
+    pitfall: "常见误区是只背公式或术语，不说明它在交易、风险或平台链路里的实际作用。",
+    interview: "回答时先讲业务语境，再讲模型、数据、系统和风险控制如何串起来。"
+  },
+  "system-design": {
+    label: "System Design",
+    workflow: "需求澄清、架构拆分、容量规划和稳定性治理",
+    scenario: "适用于需要拆组件、扩容量、降延迟或提可靠性的系统设计场景。",
+    pitfall: "常见误区是只堆组件名，却没有说明请求链路、数据流和 trade-off。",
+    interview: "回答时先澄清约束，再讲主链路、瓶颈、可靠性和演进路径。"
+  },
+  "quant-programmer-roadmap": {
+    label: "Quant Programmer",
+    workflow: "研究、回测、生产化和性能优化",
+    scenario: "适用于量化研究、数据处理、风险分析和性能优化相关场景。",
+    pitfall: "常见误区是只谈数学或只谈代码，没有把数据质量、实验设计和工程落地放在一起。",
+    interview: "回答时先讲问题背景，再讲数据链路、算法直觉、复杂度和工程实现。"
+  },
+  "investing-and-asset-allocation": {
+    label: "Investing and Asset Allocation",
+    workflow: "长期目标设定、组合配置、再平衡和行为纪律",
+    scenario: "适用于长期投资、资产配置、风险管理和行为纪律相关场景。",
+    pitfall: "常见误区是把投资简化成择时或选股，忽略目标、风险承受力、成本和纪律。",
+    interview: "回答时先讲目标和约束，再讲配置逻辑、风险控制和长期执行。"
+  },
+  "google-generative-ai-leader-certification": {
+    label: "Google GenAI Leader",
+    workflow: "业务落地、模型选择、检索增强、工具编排和治理",
+    scenario: "适用于企业知识问答、检索增强生成、AI agent 和办公提效相关场景。",
+    pitfall: "常见误区是只谈模型能力，不说明数据来源、权限、安全、延迟和成本。",
+    interview: "回答时先讲业务价值，再讲模型、检索、工具和治理各自负责什么。"
+  }
+};
+
 function walk(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   const files = [];
@@ -39,11 +77,87 @@ function stripFrontmatter(content) {
 }
 
 function escapeHtml(value) {
-  return value
+  return String(value || "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+function normalizeText(text) {
+  return String(text || "")
+    .replace(/\r\n/g, "\n")
+    .replace(/\[\[([^\]]+)\]\]/g, "$1")
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function normalizeKey(text) {
+  return normalizeText(text)
+    .toLowerCase()
+    .replace(/[“”"'‘’`]/g, "")
+    .replace(/[。！？!?.,，；;:：()\[\]{}<>/\\\-_]/g, "")
+    .trim();
+}
+
+function dedupeTextList(items, limit) {
+  const result = [];
+  const seen = new Set();
+  for (const item of items || []) {
+    const text = normalizeText(item);
+    const key = normalizeKey(text);
+    if (!text || !key || seen.has(key)) {
+      continue;
+    }
+    seen.add(key);
+    result.push(text);
+    if (limit && result.length >= limit) {
+      break;
+    }
+  }
+  return result;
+}
+
+function splitSentences(text) {
+  return normalizeText(text)
+    .split(/[。！？!?；;\n]+/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function pickSentences(text, keywords, limit) {
+  const sentences = splitSentences(text);
+  const picked = [];
+  for (const sentence of sentences) {
+    if (keywords.some((keyword) => sentence.includes(keyword))) {
+      picked.push(sentence);
+    }
+    if (picked.length >= limit) {
+      break;
+    }
+  }
+  return picked;
+}
+
+function ensureMinimumItems(items, minimum, fallbacks) {
+  const result = dedupeTextList(items);
+  for (const fallback of fallbacks || []) {
+    if (result.length >= minimum) {
+      break;
+    }
+    const text = normalizeText(fallback);
+    if (text && !result.includes(text)) {
+      result.push(text);
+    }
+  }
+  return dedupeTextList(result).slice(0, Math.max(minimum, result.length));
+}
+
+function extractWikiTitles(content) {
+  const matches = [...String(content || "").matchAll(/\[\[([^\]]+)\]\]/g)];
+  return dedupeTextList(matches.map((match) => match[1].trim()), 12);
 }
 
 function slugSegments(relPath) {
@@ -54,13 +168,34 @@ function outputHtmlPath(note) {
   return path.join(outputRoot, ...note.relDirSegments, `${note.baseName}.html`);
 }
 
+function relativeHref(fromFile, toFile) {
+  const rel = path.relative(path.dirname(fromFile), toFile).split(path.sep).join("/");
+  return encodeURI(rel);
+}
+
+function groupKey(note) {
+  return note.relDirSegments[0] || "root";
+}
+
+function groupLabel(note) {
+  const key = groupKey(note);
+  return domainProfiles[key]?.label || key;
+}
+
+function folderLabel(note) {
+  return note.relDirSegments.slice(1).join(" / ") || "Root";
+}
+
 function outputHref(note) {
   return `/${slugSegments(path.relative(repoRoot, outputHtmlPath(note))).join("/")}`;
 }
 
-function relativeHref(fromFile, toFile) {
-  const rel = path.relative(path.dirname(fromFile), toFile).split(path.sep).join("/");
-  return encodeURI(rel);
+function noteHrefFromTitle(currentNote, targetTitle, notesByTitle) {
+  const target = notesByTitle.get(targetTitle);
+  if (!target) {
+    return "";
+  }
+  return relativeHref(outputHtmlPath(currentNote), outputHtmlPath(target));
 }
 
 function inlineFormat(text, note, notesByTitle) {
@@ -77,14 +212,13 @@ function inlineFormat(text, note, notesByTitle) {
   return html;
 }
 
-function renderMarkdown(note, notesByTitle, backlinksByTitle) {
+function renderMarkdownBody(note, notesByTitle) {
   const lines = stripFrontmatter(note.content).replace(/\r\n/g, "\n").split("\n");
   const html = [];
   let i = 0;
 
   while (i < lines.length) {
-    const line = lines[i];
-    const trimmed = line.trim();
+    const trimmed = lines[i].trim();
 
     if (!trimmed) {
       i += 1;
@@ -150,8 +284,7 @@ function renderMarkdown(note, notesByTitle, backlinksByTitle) {
 
     const paragraph = [];
     while (i < lines.length) {
-      const current = lines[i];
-      const currentTrimmed = current.trim();
+      const currentTrimmed = lines[i].trim();
       if (
         !currentTrimmed ||
         /^#{1,6}\s/.test(currentTrimmed) ||
@@ -166,20 +299,164 @@ function renderMarkdown(note, notesByTitle, backlinksByTitle) {
       i += 1;
     }
 
-    const paragraphHtml = paragraph
-      .join("<br />")
-      .replace(/  <br \/>/g, "<br />")
-      .replace(/  /g, "&nbsp;&nbsp;");
-    html.push(`<p>${inlineFormat(paragraphHtml, note, notesByTitle)}</p>`);
+    html.push(`<p>${inlineFormat(paragraph.join("<br />"), note, notesByTitle)}</p>`);
   }
 
-  const backlinks = backlinksByTitle.get(note.title) || [];
-  const backlinksHtml =
-    backlinks.length === 0
-      ? "<p class=\"muted\">No backlinks yet.</p>"
-      : `<ul>${backlinks
-          .map((source) => `<li><a href="${relativeHref(outputHtmlPath(note), outputHtmlPath(source))}">${escapeHtml(source.title)}</a></li>`)
-          .join("")}</ul>`;
+  return html.join("\n");
+}
+
+function isStandaloneLabel(line) {
+  const trimmed = line.trim();
+  if (!trimmed) return false;
+  if (trimmed.startsWith("#")) return false;
+  if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) return false;
+  if (!(trimmed.endsWith("：") || trimmed.endsWith(":"))) return false;
+  return trimmed.length <= 48;
+}
+
+function stripLabel(line) {
+  return normalizeText(line.replace(/[：:]$/, ""));
+}
+
+function parseStructuredNote(note, notesByTitle) {
+  const content = stripFrontmatter(note.content).replace(/\r\n/g, "\n");
+  const lines = content.split("\n");
+  const blocks = [];
+  let currentLabel = "";
+  let buffer = [];
+
+  const flushText = () => {
+    const joined = normalizeText(buffer.join(" "));
+    if (joined) {
+      blocks.push({ type: "text", label: currentLabel, text: joined });
+    }
+    buffer = [];
+  };
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      flushText();
+      continue;
+    }
+    if (/^#{1,6}\s+/.test(trimmed)) {
+      flushText();
+      currentLabel = "";
+      continue;
+    }
+    if (isStandaloneLabel(trimmed)) {
+      flushText();
+      currentLabel = stripLabel(trimmed);
+      continue;
+    }
+    if (/^[-*]\s+/.test(trimmed)) {
+      flushText();
+      blocks.push({ type: "bullet", label: currentLabel, text: normalizeText(trimmed.replace(/^[-*]\s+/, "")) });
+      continue;
+    }
+    buffer.push(trimmed);
+  }
+  flushText();
+
+  const paragraphs = blocks.filter((block) => block.type === "text");
+  const bullets = blocks.filter((block) => block.type === "bullet");
+  const summary = paragraphs[0]?.text || note.title;
+  const body = dedupeTextList(paragraphs.slice(1, 4).map((block) => block.text), 3);
+  const relatedLabelPattern = /^(相关|补充|继续看|从哪里继续看|从这里继续看|from where to continue|backlinks)$/i;
+  const points = [];
+  const related = [];
+
+  for (const bullet of bullets) {
+    if (relatedLabelPattern.test(bullet.label)) {
+      related.push(...extractWikiTitles(bullet.text));
+      continue;
+    }
+    points.push(bullet.text);
+    related.push(...extractWikiTitles(bullet.text));
+  }
+
+  const explicitLinks = extractWikiTitles(content);
+  const profile = domainProfiles[groupKey(note)] || domainProfiles["system-design"];
+  const combined = [summary, ...body, ...points].join("。");
+  const useCases = ensureMinimumItems(
+    pickSentences(combined, ["适合", "用于", "场景", "常见", "通常", "如果", "当", "需要"], 2),
+    2,
+    [
+      profile.scenario,
+      `如果题目涉及 ${note.title}，最好同时说明它在 ${profile.workflow} 里的位置和上下游关系。`
+    ]
+  );
+  const pitfalls = ensureMinimumItems(
+    pickSentences(combined, ["不要", "不是", "避免", "误区", "风险", "难点", "容易", "注意"], 2),
+    2,
+    [
+      profile.pitfall,
+      `另一个误区是只会定义 ${note.title}，却不说明它为什么重要、何时适用以及代价是什么。`
+    ]
+  );
+
+  const primaryLinks = dedupeTextList([...related, ...explicitLinks].filter((title) => title !== note.title), 12);
+  const interview = groupKey(note) === "system-design"
+    ? [
+        "开场：先复述业务目标和约束，不要直接堆组件。",
+        `沟通：优先问清流量规模、数据规模、一致性要求和失败处理，再决定 ${note.title} 应该放在系统哪一层。`,
+        `分析：围绕请求链路、数据流、瓶颈和 trade-off 拆解 ${note.title}，而不是只给定义。`,
+        `解决：给出一版可运行方案，再深挖 1 到 2 个关键风险点，例如缓存一致性、分片、限流或回压。`,
+        `Trade-off：说明为什么当前场景选这个方案，以及它对延迟、正确性、复杂度和成本的影响。`,
+        "收尾：最后补充监控指标、故障场景和下一步演进路线。"
+      ]
+    : [
+        `开场：先用一句话定义 ${note.title}，再说明它在 ${profile.workflow} 里的位置。`,
+        `沟通：先确认题目关注的是业务目标、工程实现、风险控制还是长期决策。`,
+        `分析：把 ${note.title} 拆成核心作用、输入输出、常见场景和限制条件四块。`,
+        `解决：顺着一个真实流程解释 ${note.title} 如何被使用，以及它会影响哪一步结果。`,
+        `收尾：最后补一句常见误区、风险点或它和相邻主题的关系。`
+      ];
+
+  return {
+    summary,
+    body: body.length ? body : [summary],
+    points: dedupeTextList(points, 6),
+    related: primaryLinks,
+    useCases,
+    pitfalls,
+    interview
+  };
+}
+
+function renderLinkedChips(items, note, notesByTitle, emptyText) {
+  if (!items.length) {
+    return `<p class="muted">${escapeHtml(emptyText)}</p>`;
+  }
+  return `<div class="detail-chip-row">${items
+    .map((title) => {
+      const href = noteHrefFromTitle(note, title, notesByTitle);
+      return href
+        ? `<a class="detail-chip detail-chip-link" href="${href}">${escapeHtml(title)}</a>`
+        : `<span class="detail-chip">${escapeHtml(title)}</span>`;
+    })
+    .join("")}</div>`;
+}
+
+function renderCardList(items, note, notesByTitle, mode = "text") {
+  return items
+    .map((item) => {
+      if (mode === "link") {
+        const href = noteHrefFromTitle(note, item, notesByTitle);
+        const content = href ? `<a href="${href}">${escapeHtml(item)}</a>` : escapeHtml(item);
+        return `<div class="detail-card detail-card-link">${content}</div>`;
+      }
+      return `<div class="detail-card">${inlineFormat(item, note, notesByTitle)}</div>`;
+    })
+    .join("\n");
+}
+
+function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
+  const details = parseStructuredNote(note, notesByTitle);
+  const backlinks = (backlinksByTitle.get(note.title) || []).map((source) => source.title);
+  const uniqueBacklinks = dedupeTextList(backlinks, 12);
+  const uniqueRelated = dedupeTextList(details.related, 12);
+  const rawBody = renderMarkdownBody(note, notesByTitle);
 
   return `<!doctype html>
 <html lang="zh-CN">
@@ -199,14 +476,84 @@ function renderMarkdown(note, notesByTitle, backlinksByTitle) {
         <div class="sidebar-block">
           <div class="sidebar-title">Current Note</div>
           <div class="sidebar-note">${escapeHtml(note.title)}</div>
+          <div class="sidebar-meta">${escapeHtml(groupLabel(note))}</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-title">补充内容</div>
+          ${renderLinkedChips(uniqueRelated, note, notesByTitle, "No supplemental topics yet.")}
         </div>
         <div class="sidebar-block">
           <div class="sidebar-title">Backlinks</div>
-          ${backlinksHtml}
+          ${renderLinkedChips(uniqueBacklinks, note, notesByTitle, "No backlinks yet.")}
         </div>
       </aside>
-      <main class="content">
-        ${html.join("\n")}
+      <main class="content detail-content">
+        <section class="detail-hero">
+          <div class="eyebrow">${escapeHtml(groupLabel(note))}</div>
+          <h1>${escapeHtml(note.title)}</h1>
+          <p class="detail-summary">${inlineFormat(details.summary, note, notesByTitle)}</p>
+          <div class="detail-meta-grid">
+            <div class="detail-meta-card">
+              <div class="detail-meta-label">Domain</div>
+              <div class="detail-meta-value">${escapeHtml(groupLabel(note))}</div>
+            </div>
+            <div class="detail-meta-card">
+              <div class="detail-meta-label">Folder</div>
+              <div class="detail-meta-value">${escapeHtml(folderLabel(note))}</div>
+            </div>
+            <div class="detail-meta-card">
+              <div class="detail-meta-label">Source</div>
+              <div class="detail-meta-value">${escapeHtml(path.relative(repoRoot, note.file))}</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <h2>详细说明</h2>
+          <div class="detail-stack">
+            ${renderCardList(details.body, note, notesByTitle)}
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <h2>适用场景</h2>
+          <div class="detail-grid">
+            ${renderCardList(details.useCases, note, notesByTitle)}
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <h2>常见误区</h2>
+          <div class="detail-grid">
+            ${renderCardList(details.pitfalls, note, notesByTitle)}
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <h2>面试回答方式</h2>
+          <div class="detail-stack">
+            ${renderCardList(details.interview, note, notesByTitle)}
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <h2>关键要点</h2>
+          <div class="detail-grid">
+            ${renderCardList(details.points.length ? details.points : [details.summary], note, notesByTitle)}
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <h2>补充内容</h2>
+          ${renderLinkedChips(uniqueRelated, note, notesByTitle, "No supplemental topics yet.")}
+        </section>
+
+        <section class="detail-section detail-section-raw">
+          <h2>原始笔记</h2>
+          <div class="detail-raw-markdown">
+            ${rawBody}
+          </div>
+        </section>
       </main>
     </div>
   </body>
@@ -217,7 +564,7 @@ function buildIndex(notes) {
   const rootNote = notes.find((note) => note.title === "Knowledge Base Map");
   const grouped = new Map();
   for (const note of notes) {
-    const group = note.relDirSegments[0] || "root";
+    const group = groupKey(note);
     if (!grouped.has(group)) grouped.set(group, []);
     grouped.get(group).push(note);
   }
@@ -225,11 +572,12 @@ function buildIndex(notes) {
   const sections = Array.from(grouped.entries())
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([group, groupNotes]) => {
+      const label = domainProfiles[group]?.label || group;
       const items = groupNotes
         .sort((a, b) => a.title.localeCompare(b.title))
         .map((note) => `<li><a href="${relativeHref(path.join(outputRoot, "index.html"), outputHtmlPath(note))}">${escapeHtml(note.title)}</a></li>`)
         .join("");
-      return `<section class="card"><h2>${escapeHtml(group)}</h2><ul>${items}</ul></section>`;
+      return `<section class="card"><h2>${escapeHtml(label)}</h2><ul>${items}</ul></section>`;
     })
     .join("\n");
 
@@ -246,7 +594,7 @@ function buildIndex(notes) {
       <div class="hero">
         <div class="eyebrow">GitHub Pages Preview</div>
         <h1>Knowledge Base</h1>
-        <p>远端预览站点，按 Obsidian 笔记结构生成，支持基础双链跳转与反向链接浏览。</p>
+        <p>知识库详情页现在会先给结构化概述，再保留原始 Markdown 笔记，方便快速复习和继续深挖。</p>
         <a class="primary-link" href="${rootNote ? relativeHref(path.join(outputRoot, "index.html"), outputHtmlPath(rootNote)) : "#"}">Open Root Map</a>
       </div>
       <div class="grid">
@@ -267,7 +615,7 @@ const notes = markdownFiles.map((file) => {
     content: fs.readFileSync(file, "utf8"),
     title: baseName,
     baseName,
-    relDirSegments: relDir ? relDir.split(path.sep) : [],
+    relDirSegments: relDir ? relDir.split(path.sep) : []
   };
 });
 
@@ -292,7 +640,7 @@ fs.writeFileSync(path.join(outputRoot, ".nojekyll"), "");
 for (const note of notes) {
   const filePath = outputHtmlPath(note);
   ensureDir(path.dirname(filePath));
-  fs.writeFileSync(filePath, renderMarkdown(note, notesByTitle, backlinksByTitle));
+  fs.writeFileSync(filePath, renderStructuredNote(note, notesByTitle, backlinksByTitle));
 }
 
 fs.writeFileSync(path.join(outputRoot, "index.html"), buildIndex(notes));
