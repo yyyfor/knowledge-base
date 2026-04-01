@@ -23,6 +23,13 @@ const domainProfiles = {
     pitfall: "常见误区是只堆组件名，却没有说明请求链路、数据流和 trade-off。",
     interview: "回答时先澄清约束，再讲主链路、瓶颈、可靠性和演进路径。"
   },
+  "coding-interview-playbook": {
+    label: "Coding Interview",
+    workflow: "题目澄清、问题建模、求解优化和 follow-up 沟通",
+    scenario: "适用于 LeetCode、白板题、现场 coding 和需要一边建模一边表达的编码面试场景。",
+    pitfall: "常见误区是一上来写代码，没有先澄清约束、建立模型和讲复杂度。",
+    interview: "回答时先澄清约束，再讲建模、brute force、优化、复杂度和 edge case。"
+  },
   "quant-programmer-roadmap": {
     label: "Quant Programmer",
     workflow: "研究、回测、生产化和性能优化",

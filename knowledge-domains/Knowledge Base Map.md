@@ -5,7 +5,7 @@ tags: [knowledge-base]
 
 # Knowledge Base Map
 
-这个仓库目前包含五个主要知识目录：
+这个仓库目前包含六个主要知识目录：
 
 ## Domain Libraries
 
@@ -14,6 +14,7 @@ tags: [knowledge-base]
 - [[Quant Programmer Roadmap]]
 - [[Investing and Asset Allocation Knowledge Map]]
 - [[System Design Knowledge Map]]
+- [[Coding Interview Knowledge Map]]
 
 ## Suggested Paths
 
@@ -22,3 +23,5 @@ tags: [knowledge-base]
 - 成为量化程序员：从 [[Quant Programmer Roadmap]] 开始
 - 投资与资产配置：从 [[Investing and Asset Allocation Knowledge Map]] 开始
 - 系统设计学习：从 [[System Design Knowledge Map]] 开始
+
+- 编码面试与算法题：从 [[Coding Interview Knowledge Map]] 开始
