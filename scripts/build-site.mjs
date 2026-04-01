@@ -445,6 +445,54 @@ function renderLinkedChips(items, note, notesByTitle, emptyText) {
     .join("")}</div>`;
 }
 
+function renderSidebarDirectory(note, notesByTitle) {
+  const notes = [...notesByTitle.values()];
+  const currentGroup = groupKey(note);
+  const groupMap = new Map();
+
+  for (const candidate of notes) {
+    const candidateGroup = groupKey(candidate);
+    if (currentGroup !== "root" && candidateGroup !== currentGroup) {
+      continue;
+    }
+
+    const bucketKey = currentGroup === "root" ? candidateGroup : folderLabel(candidate);
+    if (!groupMap.has(bucketKey)) {
+      groupMap.set(bucketKey, []);
+    }
+    groupMap.get(bucketKey).push(candidate);
+  }
+
+  const groups = [...groupMap.entries()]
+    .filter(([bucketKey, items]) => bucketKey && items.length)
+    .sort((a, b) => a[0].localeCompare(b[0], "en"));
+
+  if (!groups.length) {
+    return `<p class="muted">No directory items yet.</p>`;
+  }
+
+  return `<div class="sidebar-directory">${groups
+    .map(([bucketKey, items]) => {
+      const title = currentGroup === "root"
+        ? (domainProfiles[bucketKey]?.label || bucketKey)
+        : (bucketKey === "Root" ? `${groupLabel(note)} Overview` : bucketKey);
+      const links = items
+        .sort((a, b) => a.title.localeCompare(b.title, "en"))
+        .map((item) => {
+          const href = relativeHref(outputHtmlPath(note), outputHtmlPath(item));
+          const currentClass = item.title === note.title ? " is-current" : "";
+          return `<a class="sidebar-directory-link${currentClass}" href="${href}">${escapeHtml(item.title)}</a>`;
+        })
+        .join("");
+
+      return `<div class="sidebar-directory-group">
+        <div class="sidebar-directory-group-title">${escapeHtml(title)}</div>
+        <div class="sidebar-directory-links">${links}</div>
+      </div>`;
+    })
+    .join("")}</div>`;
+}
+
 function renderCardList(items, note, notesByTitle, mode = "text") {
   return items
     .map((item) => {
@@ -464,6 +512,7 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
   const uniqueBacklinks = dedupeTextList(backlinks, 12);
   const uniqueRelated = dedupeTextList(details.related, 12);
   const rawBody = renderMarkdownBody(note, notesByTitle);
+  const directoryHtml = renderSidebarDirectory(note, notesByTitle);
 
   return `<!doctype html>
 <html lang="zh-CN">
@@ -484,6 +533,10 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
           <div class="sidebar-title">Current Note</div>
           <div class="sidebar-note">${escapeHtml(note.title)}</div>
           <div class="sidebar-meta">${escapeHtml(groupLabel(note))}</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-title">目录</div>
+          ${directoryHtml}
         </div>
         <div class="sidebar-block">
           <div class="sidebar-title">补充内容</div>

@@ -405,3 +405,50 @@ code {
 .detail-content .detail-section-raw-featured {
   box-shadow: 0 14px 34px rgba(40, 32, 20, 0.08);
 }
+
+
+.sidebar-directory {
+  display: grid;
+  gap: 14px;
+}
+
+.sidebar-directory-group + .sidebar-directory-group {
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.sidebar-directory-group-title {
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.sidebar-directory-links {
+  display: grid;
+  gap: 8px;
+  max-height: 280px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.sidebar-directory-link {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(17, 38, 27, 0.05);
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.sidebar-directory-link:hover {
+  text-decoration: none;
+  background: rgba(216, 255, 97, 0.2);
+}
+
+.sidebar-directory-link.is-current {
+  background: linear-gradient(180deg, rgba(216, 255, 97, 0.28), rgba(238, 247, 221, 0.92));
+  border: 1px solid rgba(120, 164, 56, 0.22);
+  font-weight: 700;
+}
