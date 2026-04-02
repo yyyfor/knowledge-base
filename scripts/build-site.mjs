@@ -623,6 +623,54 @@ function renderSidebarDirectory(note, notesByTitle) {
     .join("")}</div>`;
 }
 
+function buildLinearDirectoryItems(note, notesByTitle) {
+  const groups = buildDirectoryGroups(note, notesByTitle);
+  const ordered = [];
+  const seen = new Set();
+
+  for (const group of groups) {
+    for (const item of group.items || []) {
+      if (!item || seen.has(item.title)) {
+        continue;
+      }
+      seen.add(item.title);
+      ordered.push(item);
+    }
+  }
+
+  return ordered;
+}
+
+function renderPrevNextNavigation(note, notesByTitle) {
+  const ordered = buildLinearDirectoryItems(note, notesByTitle);
+  const index = ordered.findIndex((item) => item.title === note.title);
+  if (index === -1) {
+    return "";
+  }
+
+  const previous = index > 0 ? ordered[index - 1] : null;
+  const next = index < ordered.length - 1 ? ordered[index + 1] : null;
+  if (!previous && !next) {
+    return "";
+  }
+
+  const renderLink = (label, item, direction) => {
+    if (!item) {
+      return `<div class="pager-card pager-card-empty"></div>`;
+    }
+    const href = relativeHref(outputHtmlPath(note), outputHtmlPath(item));
+    return `<a class="pager-card pager-card-${direction}" href="${href}">
+      <span class="pager-label">${label}</span>
+      <span class="pager-title">${escapeHtml(item.title)}</span>
+    </a>`;
+  };
+
+  return `<nav class="detail-pager" aria-label="Page navigation">
+    ${renderLink('上一页', previous, 'prev')}
+    ${renderLink('下一页', next, 'next')}
+  </nav>`;
+}
+
 function renderCardList(items, note, notesByTitle, mode = "text") {
   return items
     .map((item) => {
@@ -643,6 +691,7 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
   const uniqueRelated = dedupeTextList(details.related, 12);
   const rawBody = renderMarkdownBody(note, notesByTitle);
   const directoryHtml = renderSidebarDirectory(note, notesByTitle);
+  const pagerHtml = renderPrevNextNavigation(note, notesByTitle);
 
   return `<!doctype html>
 <html lang="zh-CN">
@@ -749,6 +798,8 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
           <h2>补充内容</h2>
           ${renderLinkedChips(uniqueRelated, note, notesByTitle, "No supplemental topics yet.")}
         </section>
+
+        ${pagerHtml}
       </main>
     </div>
   </body>
