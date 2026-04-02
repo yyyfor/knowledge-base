@@ -1,12 +1,30 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { createRequire } from "module";
 
+const require = createRequire(import.meta.url);
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, "..");
 const contentRoot = path.join(repoRoot, "knowledge-domains");
 const outputRoot = path.join(repoRoot, "docs");
 const staticRoot = path.join(repoRoot, "site");
+const miniappKnowledgePath = "/Users/ming/Documents/github/office-ratio-miniapp/miniprogram/data/knowledge-content.generated.js";
+let miniappKnowledgeContent = {};
+try {
+  miniappKnowledgeContent = require(miniappKnowledgePath);
+} catch (error) {
+  miniappKnowledgeContent = {};
+}
+
+const miniappDomainMap = {
+  "investment-banking": "investment-banking",
+  "system-design": "system-design",
+  "coding-interview-playbook": "coding-interview",
+  "quant-programmer-roadmap": "quant-programmer",
+  "investing-and-asset-allocation": "investing-allocation",
+  "google-generative-ai-leader-certification": "genai-leader"
+};
 
 const domainProfiles = {
   "investment-banking": {
@@ -431,6 +449,51 @@ function parseStructuredNote(note, notesByTitle) {
   };
 }
 
+function resolveNoteDetails(note, notesByTitle) {
+  const parsed = parseStructuredNote(note, notesByTitle);
+  const miniappDomainId = miniappDomainMap[groupKey(note)];
+  const sectionTitle = noteSectionLookup.get(`${groupKey(note)}::${note.title}`);
+  const generated = miniappKnowledgeContent?.[miniappDomainId]?.[sectionTitle]?.[note.title];
+
+  if (!generated) {
+    return Object.assign({ solutions: [] }, parsed);
+  }
+
+  return {
+    summary: generated.summary || parsed.summary,
+    body: Array.isArray(generated.body) && generated.body.length ? dedupeTextList(generated.body, 6) : parsed.body,
+    points: Array.isArray(generated.points) && generated.points.length ? dedupeTextList(generated.points, 12) : parsed.points,
+    related: Array.isArray(generated.related) && generated.related.length ? dedupeTextList(generated.related, 12) : parsed.related,
+    useCases: Array.isArray(generated.useCases) && generated.useCases.length ? dedupeTextList(generated.useCases, 6) : parsed.useCases,
+    pitfalls: Array.isArray(generated.pitfalls) && generated.pitfalls.length ? dedupeTextList(generated.pitfalls, 6) : parsed.pitfalls,
+    interview: Array.isArray(generated.interview) && generated.interview.length ? dedupeTextList(generated.interview, 12) : parsed.interview,
+    solutions: Array.isArray(generated.solutions) ? generated.solutions : []
+  };
+}
+
+function renderSolutions(note, details) {
+  if (!details.solutions || !details.solutions.length) {
+    return "";
+  }
+
+  return `
+        <section class="detail-section detail-section-code">
+          <h2>经典解法（Kotlin）</h2>
+          <div class="detail-solution-list">
+            ${details.solutions.map((solution) => `
+            <article class="detail-solution-card">
+              <div class="detail-solution-head">
+                <h3>${escapeHtml(solution.title || "Solution")}</h3>
+                <span class="detail-solution-language">${escapeHtml(solution.language || "Kotlin")}</span>
+              </div>
+              ${solution.strategy ? `<p class="detail-solution-text">${escapeHtml(solution.strategy)}</p>` : ""}
+              ${solution.complexity ? `<p class="detail-solution-meta">${escapeHtml(solution.complexity)}</p>` : ""}
+              <pre class="detail-code-block"><code>${escapeHtml(solution.code || "")}</code></pre>
+            </article>`).join("")}
+          </div>
+        </section>`;
+}
+
 function renderLinkedChips(items, note, notesByTitle, emptyText) {
   if (!items.length) {
     return `<p class="muted">${escapeHtml(emptyText)}</p>`;
@@ -574,7 +637,7 @@ function renderCardList(items, note, notesByTitle, mode = "text") {
 }
 
 function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
-  const details = parseStructuredNote(note, notesByTitle);
+  const details = resolveNoteDetails(note, notesByTitle);
   const backlinks = (backlinksByTitle.get(note.title) || []).map((source) => source.title);
   const uniqueBacklinks = dedupeTextList(backlinks, 12);
   const uniqueRelated = dedupeTextList(details.related, 12);
@@ -680,6 +743,8 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
           </div>
         </section>` : ""}
 
+        ${renderSolutions(note, details)}
+
         <section class="detail-section">
           <h2>补充内容</h2>
           ${renderLinkedChips(uniqueRelated, note, notesByTitle, "No supplemental topics yet.")}
@@ -746,6 +811,14 @@ const notes = markdownFiles.map((file) => {
 
 const notesByTitle = new Map(notes.map((note) => [note.title, note]));
 const directoryOrder = buildDirectoryOrder(notesByTitle);
+const noteSectionLookup = new Map();
+for (const [group, sections] of directoryOrder.entries()) {
+  for (const section of sections) {
+    for (const title of section.noteTitles) {
+      noteSectionLookup.set(`${group}::${title}`, section.title);
+    }
+  }
+}
 const backlinksByTitle = new Map(notes.map((note) => [note.title, []]));
 
 for (const note of notes) {
