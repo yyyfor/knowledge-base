@@ -8,11 +8,11 @@ Caching 通过提前保存热点数据来降低延迟和后端压力。
 
 高并发场景中的典型问题：
 
-- cache penetration
-- cache breakdown
-- cache avalanche
-- hot key overload
-- large value overhead
+- [[Cache Penetration]]
+- [[Cache Breakdown]]
+- [[Cache Avalanche]]
+- [[Hot Key Overload]]
+- [[Large Value Overhead]]
 
 相关：
 

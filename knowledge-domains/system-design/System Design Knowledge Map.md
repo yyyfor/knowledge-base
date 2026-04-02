@@ -33,6 +33,18 @@ tags: [system-design, architecture, engineering]
 - [[Multi-Level Caching Strategies]]
 - [[Bottleneck Analysis in Distributed Systems]]
 
+## Caching Failure Modes
+
+- [[Cache Penetration]]
+- [[Cache Breakdown]]
+- [[Cache Avalanche]]
+- [[Hot Key Overload]]
+- [[Large Value Overhead]]
+- [[Hot Key Split]]
+- [[Request Coalescing]]
+- [[Cache Prewarming]]
+- [[Logical Expiration and Background Refresh]]
+
 ## Typical Scenarios
 
 - [[Design a URL Shortener]]

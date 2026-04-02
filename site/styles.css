@@ -452,3 +452,42 @@ code {
   border: 1px solid rgba(120, 164, 56, 0.22);
   font-weight: 700;
 }
+
+.detail-section-explain {
+  background: linear-gradient(180deg, rgba(251, 248, 242, 0.96), rgba(244, 238, 226, 0.92));
+}
+
+.detail-section-application {
+  background: linear-gradient(180deg, rgba(238, 247, 221, 0.42), rgba(251, 248, 242, 0.94));
+}
+
+.detail-section-warning {
+  background: linear-gradient(180deg, rgba(242, 223, 212, 0.32), rgba(251, 248, 242, 0.94));
+}
+
+.detail-section-guide {
+  background: linear-gradient(180deg, rgba(92, 192, 255, 0.12), rgba(251, 248, 242, 0.94));
+}
+
+.detail-stack .detail-card {
+  background: rgba(246, 241, 230, 0.82);
+}
+
+.detail-card-link {
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.detail-card-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(40, 32, 20, 0.08);
+}
+
+.detail-card-link a {
+  display: block;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.detail-card-link a:hover {
+  text-decoration: none;
+}

@@ -15,13 +15,13 @@
 
 重点治理问题：
 
-- cache penetration
-- cache breakdown
-- cache avalanche
-- hot key split
-- request coalescing
-- prewarming
-- logical expiration and background refresh
+- [[Cache Penetration]]
+- [[Cache Breakdown]]
+- [[Cache Avalanche]]
+- [[Hot Key Split]]
+- [[Request Coalescing]]
+- [[Cache Prewarming]]
+- [[Logical Expiration and Background Refresh]]
 
 相关：
 

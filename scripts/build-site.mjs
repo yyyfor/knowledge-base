@@ -445,39 +445,106 @@ function renderLinkedChips(items, note, notesByTitle, emptyText) {
     .join("")}</div>`;
 }
 
-function renderSidebarDirectory(note, notesByTitle) {
-  const notes = [...notesByTitle.values()];
-  const currentGroup = groupKey(note);
-  const groupMap = new Map();
+function parseDirectorySections(note) {
+  const sections = [];
+  let currentSection = null;
+  const lines = stripFrontmatter(note.content).replace(/\r\n/g, "\n").split("\n");
 
-  for (const candidate of notes) {
-    const candidateGroup = groupKey(candidate);
-    if (currentGroup !== "root" && candidateGroup !== currentGroup) {
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line) {
       continue;
     }
 
-    const bucketKey = currentGroup === "root" ? candidateGroup : folderLabel(candidate);
-    if (!groupMap.has(bucketKey)) {
-      groupMap.set(bucketKey, []);
+    const headingMatch = line.match(/^##\s+(.+)$/);
+    if (headingMatch) {
+      currentSection = {
+        title: normalizeText(headingMatch[1]),
+        noteTitles: []
+      };
+      sections.push(currentSection);
+      continue;
     }
-    groupMap.get(bucketKey).push(candidate);
+
+    const noteMatch = line.match(/^-\s+\[\[([^\]]+)\]\]$/);
+    if (noteMatch) {
+      if (!currentSection) {
+        currentSection = {
+          title: "Overview",
+          noteTitles: []
+        };
+        sections.push(currentSection);
+      }
+      currentSection.noteTitles.push(normalizeText(noteMatch[1]));
+    }
   }
 
-  const groups = [...groupMap.entries()]
-    .filter(([bucketKey, items]) => bucketKey && items.length)
-    .sort((a, b) => a[0].localeCompare(b[0], "en"));
+  return sections.filter((section) => section.noteTitles.length);
+}
+
+function buildDirectoryOrder(notesByTitle) {
+  const order = new Map();
+  const rootMap = notesByTitle.get("Knowledge Base Map");
+  if (rootMap) {
+    order.set("root", parseDirectorySections(rootMap));
+  }
+
+  for (const note of notesByTitle.values()) {
+    if (!note.title.endsWith("Knowledge Map") || note.title === "Knowledge Base Map") {
+      continue;
+    }
+    order.set(groupKey(note), parseDirectorySections(note));
+  }
+
+  return order;
+}
+
+function buildDirectoryGroups(note, notesByTitle) {
+  const currentGroup = groupKey(note);
+  const sections = directoryOrder.get(currentGroup);
+  if (sections && sections.length) {
+    if (currentGroup === "root") {
+      return sections
+        .map((section) => ({
+          title: section.title,
+          items: section.noteTitles
+            .map((title) => notesByTitle.get(title))
+            .filter(Boolean)
+        }))
+        .filter((section) => section.items.length);
+    }
+
+    return sections
+      .map((section) => ({
+        title: section.title,
+        items: section.noteTitles
+          .map((title) => notesByTitle.get(title))
+          .filter((candidate) => candidate && groupKey(candidate) === currentGroup)
+      }))
+      .filter((section) => section.items.length);
+  }
+
+  const notes = [...notesByTitle.values()].filter((candidate) => groupKey(candidate) === currentGroup);
+  if (!notes.length) {
+    return [];
+  }
+
+  return [{
+    title: currentGroup === "root" ? "Overview" : `${groupLabel(note)} Overview`,
+    items: notes.sort((a, b) => a.title.localeCompare(b.title, "en"))
+  }];
+}
+
+function renderSidebarDirectory(note, notesByTitle) {
+  const groups = buildDirectoryGroups(note, notesByTitle);
 
   if (!groups.length) {
     return `<p class="muted">No directory items yet.</p>`;
   }
 
   return `<div class="sidebar-directory">${groups
-    .map(([bucketKey, items]) => {
-      const title = currentGroup === "root"
-        ? (domainProfiles[bucketKey]?.label || bucketKey)
-        : (bucketKey === "Root" ? `${groupLabel(note)} Overview` : bucketKey);
-      const links = items
-        .sort((a, b) => a.title.localeCompare(b.title, "en"))
+    .map((group) => {
+      const links = group.items
         .map((item) => {
           const href = relativeHref(outputHtmlPath(note), outputHtmlPath(item));
           const currentClass = item.title === note.title ? " is-current" : "";
@@ -486,7 +553,7 @@ function renderSidebarDirectory(note, notesByTitle) {
         .join("");
 
       return `<div class="sidebar-directory-group">
-        <div class="sidebar-directory-group-title">${escapeHtml(title)}</div>
+        <div class="sidebar-directory-group-title">${escapeHtml(group.title)}</div>
         <div class="sidebar-directory-links">${links}</div>
       </div>`;
     })
@@ -575,12 +642,43 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
           </div>
         </section>
 
+        <section class="detail-section detail-section-explain">
+          <h2>详细说明</h2>
+          <div class="detail-stack">
+            ${renderCardList(details.body.length ? details.body : [details.summary], note, notesByTitle)}
+          </div>
+        </section>
+
         <section class="detail-section">
           <h2>关键要点</h2>
           <div class="detail-grid">
-            ${renderCardList(details.points.length ? details.points : [details.summary], note, notesByTitle)}
+            ${renderCardList(details.points.length ? details.points : [details.summary], note, notesByTitle, "link")}
           </div>
         </section>
+
+        ${details.useCases.length ? `
+        <section class="detail-section detail-section-application">
+          <h2>适用场景</h2>
+          <div class="detail-stack">
+            ${renderCardList(details.useCases, note, notesByTitle)}
+          </div>
+        </section>` : ""}
+
+        ${details.pitfalls.length ? `
+        <section class="detail-section detail-section-warning">
+          <h2>常见误区</h2>
+          <div class="detail-stack">
+            ${renderCardList(details.pitfalls, note, notesByTitle)}
+          </div>
+        </section>` : ""}
+
+        ${details.interview.length ? `
+        <section class="detail-section detail-section-guide">
+          <h2>面试回答方式</h2>
+          <div class="detail-stack">
+            ${renderCardList(details.interview, note, notesByTitle)}
+          </div>
+        </section>` : ""}
 
         <section class="detail-section">
           <h2>补充内容</h2>
@@ -594,23 +692,18 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
 
 function buildIndex(notes) {
   const rootNote = notes.find((note) => note.title === "Knowledge Base Map");
-  const grouped = new Map();
-  for (const note of notes) {
-    const group = groupKey(note);
-    if (!grouped.has(group)) grouped.set(group, []);
-    grouped.get(group).push(note);
-  }
+  const rootSections = directoryOrder.get("root") || [];
 
-  const sections = Array.from(grouped.entries())
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([group, groupNotes]) => {
-      const label = domainProfiles[group]?.label || group;
-      const items = groupNotes
-        .sort((a, b) => a.title.localeCompare(b.title))
+  const sections = rootSections
+    .map((section) => {
+      const items = section.noteTitles
+        .map((title) => notesByTitle.get(title))
+        .filter(Boolean)
         .map((note) => `<li><a href="${relativeHref(path.join(outputRoot, "index.html"), outputHtmlPath(note))}">${escapeHtml(note.title)}</a></li>`)
         .join("");
-      return `<section class="card"><h2>${escapeHtml(label)}</h2><ul>${items}</ul></section>`;
+      return items ? `<section class="card"><h2>${escapeHtml(section.title)}</h2><ul>${items}</ul></section>` : "";
     })
+    .filter(Boolean)
     .join("\n");
 
   return `<!doctype html>
@@ -652,6 +745,7 @@ const notes = markdownFiles.map((file) => {
 });
 
 const notesByTitle = new Map(notes.map((note) => [note.title, note]));
+const directoryOrder = buildDirectoryOrder(notesByTitle);
 const backlinksByTitle = new Map(notes.map((note) => [note.title, []]));
 
 for (const note of notes) {
