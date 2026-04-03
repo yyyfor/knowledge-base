@@ -13,10 +13,12 @@
 - liquidity
 - market impact
 - exchange matching
+- AMM vs CLOB price formation
+- adverse selection and inventory risk
 
 相关：
 
 - [[Low-Latency and Performance Engineering]]
 - [[Trade Capture]]
 - [[Risk Platform]]
-
+- [[Prediction Markets and LMSR]]

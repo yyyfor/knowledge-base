@@ -44,6 +44,7 @@ tags: [quant, programming, roadmap]
 - [[Backtesting and Research Workflow]]
 - [[Machine Learning for Quants]]
 - [[Research Reproducibility]]
+- [[Quant Trading Foundations from Prediction Markets]]
 
 ### Career Preparation
 
