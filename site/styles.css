@@ -347,6 +347,32 @@ code {
   margin: 28px 0;
 }
 
+.detail-raw-code {
+  margin: 18px 0;
+}
+
+.detail-raw-code-language {
+  display: inline-flex;
+  margin-bottom: 8px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(17, 38, 27, 0.08);
+  color: rgba(17, 38, 27, 0.72);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.detail-raw-markdown pre {
+  margin: 0;
+}
+
+.detail-raw-markdown pre code {
+  background: transparent;
+  padding: 0;
+}
+
 .muted,
 .broken-link {
   color: var(--muted);

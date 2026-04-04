@@ -250,6 +250,24 @@ function renderMarkdownBody(note, notesByTitle) {
       continue;
     }
 
+    if (/^```/.test(trimmed)) {
+      const language = trimmed.slice(3).trim();
+      const codeLines = [];
+      i += 1;
+      while (i < lines.length && !/^```/.test(lines[i].trim())) {
+        codeLines.push(lines[i]);
+        i += 1;
+      }
+      if (i < lines.length && /^```/.test(lines[i].trim())) {
+        i += 1;
+      }
+      const languageLabel = language ? `<div class="detail-raw-code-language">${escapeHtml(language)}</div>` : "";
+      html.push(
+        `<div class="detail-raw-code">${languageLabel}<pre class="detail-code-block"><code>${escapeHtml(codeLines.join("\n"))}</code></pre></div>`
+      );
+      continue;
+    }
+
     if (/^#{1,6}\s/.test(trimmed)) {
       const level = trimmed.match(/^#+/)[0].length;
       const text = trimmed.slice(level).trim();
