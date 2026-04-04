@@ -22,9 +22,9 @@ Binary search 不只是“在有序数组里找数”，更重要的是识别单
 
 ## Typical Problems and Solutions
 
-- Binary Search / Search Insert Position: 在有序数组上维护闭区间或半开区间不变式，比较 `mid` 和目标值后收缩左右边界，最终返回命中位置或插入点。
-- Find First and Last Position of Element in Sorted Array: 分别做两次 binary search，第一次找左边界，第二次找右边界，关键是边界条件写清。
-- Koko Eating Bananas: 对“吃香蕉速度”这个答案空间二分。定义判定函数为“在 `h` 小时内能否吃完”，因为速度越大越可行，满足单调性。
+- Binary Search / Search Insert Position: 在有序数组上维护闭区间或半开区间不变式，比较 `mid` 和目标值后收缩左右边界，最终返回命中位置或插入点。时间复杂度 `O(log n)`，空间复杂度 `O(1)`。
+- Find First and Last Position of Element in Sorted Array: 分别做两次 binary search，第一次找左边界，第二次找右边界，关键是边界条件写清。时间复杂度 `O(log n)`，空间复杂度 `O(1)`。
+- Koko Eating Bananas: 对“吃香蕉速度”这个答案空间二分。定义判定函数为“在 `h` 小时内能否吃完”，因为速度越大越可行，满足单调性。时间复杂度 `O(n log M)`，空间复杂度 `O(1)`，其中 `M` 是最大堆大小。
 
 ## Kotlin Template
 

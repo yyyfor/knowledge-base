@@ -22,9 +22,9 @@ Monotonic stack 适合解决“下一个更大/更小元素”以及区间边界
 
 ## Typical Problems and Solutions
 
-- Next Greater Element: 维护递减栈，当前元素一旦更大，就持续弹出栈中更小元素，并把当前值记为它们的下一个更大元素。
-- Daily Temperatures: 栈中存索引并保持温度递减。当前温度更高时弹栈，利用索引差得到等待天数。
-- Largest Rectangle in Histogram: 维护递增栈来找每个柱子左右两侧第一个更小元素，从而确定以它为高的最大宽度。
+- Next Greater Element: 维护递减栈，当前元素一旦更大，就持续弹出栈中更小元素，并把当前值记为它们的下一个更大元素。时间复杂度 `O(n)`，空间复杂度 `O(n)`。
+- Daily Temperatures: 栈中存索引并保持温度递减。当前温度更高时弹栈，利用索引差得到等待天数。时间复杂度 `O(n)`，空间复杂度 `O(n)`。
+- Largest Rectangle in Histogram: 维护递增栈来找每个柱子左右两侧第一个更小元素，从而确定以它为高的最大宽度。时间复杂度 `O(n)`，空间复杂度 `O(n)`。
 
 ## Kotlin Template
 

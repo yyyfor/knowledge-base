@@ -22,9 +22,9 @@ tags: [coding-interview]
 
 ## Typical Problems and Solutions
 
-- Word Ladder: 把每次变一个字符视为一条等权边，用 BFS 从起点按层扩张，第一次到达终点时步数最短。
-- Network Delay Time: 边权非负，用 Dijkstra 维护源点到各节点的当前最短距离，每次弹出距离最小的未确定节点继续松弛邻边。
-- 0-1 Matrix / Rotting Oranges 一类最短步数题: 若每步代价相同，可用多源 BFS，把所有初始源点一起入队并向外分层扩散。
+- Word Ladder: 把每次变一个字符视为一条等权边，用 BFS 从起点按层扩张，第一次到达终点时步数最短。常见做法时间复杂度约为 `O(N * L * 26)`，空间复杂度 `O(N)`，其中 `L` 是单词长度。
+- Network Delay Time: 边权非负，用 Dijkstra 维护源点到各节点的当前最短距离，每次弹出距离最小的未确定节点继续松弛邻边。时间复杂度 `O((V + E) log V)`，空间复杂度 `O(V + E)`。
+- 0-1 Matrix / Rotting Oranges 一类最短步数题: 若每步代价相同，可用多源 BFS，把所有初始源点一起入队并向外分层扩散。时间复杂度 `O(mn)`，空间复杂度 `O(mn)`。
 
 ## Kotlin Template
 

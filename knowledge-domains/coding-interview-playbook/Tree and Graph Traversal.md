@@ -22,9 +22,9 @@ DFS 更适合递归展开、路径回溯和子树聚合，BFS 更适合按层遍
 
 ## Typical Problems and Solutions
 
-- Binary Tree Level Order Traversal: 用 BFS 和 queue 按层推进。每轮先记录当前层节点数，再逐个弹出并把左右孩子入队。
-- Number of Islands: 把每个陆地格子视为图节点，用 DFS 或 BFS 淹没整块连通区域。每发现一个未访问陆地，岛屿计数加一。
-- Clone Graph: 用 DFS/BFS 遍历原图，并用 hashmap 保存 `原节点 -> 新节点` 映射，避免重复拷贝和环导致的无限递归。
+- Binary Tree Level Order Traversal: 用 BFS 和 queue 按层推进。每轮先记录当前层节点数，再逐个弹出并把左右孩子入队。时间复杂度 `O(n)`，空间复杂度 `O(w)`，其中 `w` 是树的最大层宽，最坏为 `O(n)`。
+- Number of Islands: 把每个陆地格子视为图节点，用 DFS 或 BFS 淹没整块连通区域。每发现一个未访问陆地，岛屿计数加一。时间复杂度 `O(mn)`，空间复杂度 `O(mn)`，递归栈或队列最坏会到整个网格规模。
+- Clone Graph: 用 DFS/BFS 遍历原图，并用 hashmap 保存 `原节点 -> 新节点` 映射，避免重复拷贝和环导致的无限递归。时间复杂度 `O(V + E)`，空间复杂度 `O(V)`。
 
 ## Kotlin Template
 

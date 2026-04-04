@@ -22,9 +22,9 @@ tags: [coding-interview]
 
 ## Typical Problems and Solutions
 
-- Merge Intervals: 先按起点排序，再维护当前合并区间；若新区间起点不超过当前终点就合并，否则把当前区间写入答案并开启新区间。
-- Insert Interval: 把新区间插入到已排序区间集中，分三段处理：左侧不重叠、与新区间重叠、右侧不重叠。
-- Non-overlapping Intervals: 按结束时间排序后做 greedy，尽量保留结束更早的区间，从而为后续区间留下更大空间，删除数最小。
+- Merge Intervals: 先按起点排序，再维护当前合并区间；若新区间起点不超过当前终点就合并，否则把当前区间写入答案并开启新区间。时间复杂度 `O(n log n)`，空间复杂度 `O(n)`，若允许原地覆盖可进一步优化。
+- Insert Interval: 把新区间插入到已排序区间集中，分三段处理：左侧不重叠、与新区间重叠、右侧不重叠。时间复杂度 `O(n)`，空间复杂度 `O(n)`。
+- Non-overlapping Intervals: 按结束时间排序后做 greedy，尽量保留结束更早的区间，从而为后续区间留下更大空间，删除数最小。时间复杂度 `O(n log n)`，空间复杂度 `O(1)` 到 `O(log n)`，取决于排序实现。
 
 ## Kotlin Template
 
