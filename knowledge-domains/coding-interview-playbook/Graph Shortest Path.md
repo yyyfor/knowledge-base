@@ -20,6 +20,50 @@ tags: [coding-interview]
 - distance relaxation is the core step
 - priority queue often appears in weighted cases
 
+## Typical Problems and Solutions
+
+- Word Ladder: 把每次变一个字符视为一条等权边，用 BFS 从起点按层扩张，第一次到达终点时步数最短。
+- Network Delay Time: 边权非负，用 Dijkstra 维护源点到各节点的当前最短距离，每次弹出距离最小的未确定节点继续松弛邻边。
+- 0-1 Matrix / Rotting Oranges 一类最短步数题: 若每步代价相同，可用多源 BFS，把所有初始源点一起入队并向外分层扩散。
+
+## Kotlin Template
+
+```kotlin
+import java.util.PriorityQueue
+
+fun networkDelayTime(times: Array<IntArray>, n: Int, k: Int): Int {
+    val graph = Array(n + 1) { mutableListOf<Pair<Int, Int>>() }
+    for ((u, v, w) in times) {
+        graph[u].add(v to w)
+    }
+
+    val dist = IntArray(n + 1) { Int.MAX_VALUE }
+    dist[k] = 0
+    val pq = PriorityQueue<Pair<Int, Int>>(compareBy { it.second })
+    pq.offer(k to 0)
+
+    while (pq.isNotEmpty()) {
+        val (node, cost) = pq.poll()
+        if (cost > dist[node]) continue
+
+        for ((next, weight) in graph[node]) {
+            val newCost = cost + weight
+            if (newCost < dist[next]) {
+                dist[next] = newCost
+                pq.offer(next to newCost)
+            }
+        }
+    }
+
+    var answer = 0
+    for (node in 1..n) {
+        if (dist[node] == Int.MAX_VALUE) return -1
+        answer = maxOf(answer, dist[node])
+    }
+    return answer
+}
+```
+
 ## Supplemental Topics
 
 - [[Tree and Graph Traversal]]

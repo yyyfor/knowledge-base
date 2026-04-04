@@ -20,6 +20,37 @@ tags: [coding-interview]
 - track current end boundary
 - clarify closed vs open interval semantics
 
+## Typical Problems and Solutions
+
+- Merge Intervals: 先按起点排序，再维护当前合并区间；若新区间起点不超过当前终点就合并，否则把当前区间写入答案并开启新区间。
+- Insert Interval: 把新区间插入到已排序区间集中，分三段处理：左侧不重叠、与新区间重叠、右侧不重叠。
+- Non-overlapping Intervals: 按结束时间排序后做 greedy，尽量保留结束更早的区间，从而为后续区间留下更大空间，删除数最小。
+
+## Kotlin Template
+
+```kotlin
+fun merge(intervals: Array<IntArray>): Array<IntArray> {
+    if (intervals.isEmpty()) return emptyArray()
+
+    intervals.sortBy { it[0] }
+    val merged = mutableListOf<IntArray>()
+    var current = intervals[0].clone()
+
+    for (i in 1 until intervals.size) {
+        val next = intervals[i]
+        if (next[0] <= current[1]) {
+            current[1] = maxOf(current[1], next[1])
+        } else {
+            merged.add(current)
+            current = next.clone()
+        }
+    }
+
+    merged.add(current)
+    return merged.toTypedArray()
+}
+```
+
 ## Supplemental Topics
 
 - [[Greedy]]
