@@ -689,6 +689,46 @@ function renderPrevNextNavigation(note, notesByTitle) {
   </nav>`;
 }
 
+function renderPagerShortcutScript() {
+  return `<script>
+    (() => {
+      const isEditableTarget = (target) => {
+        if (!target || !(target instanceof HTMLElement)) {
+          return false;
+        }
+        if (target.isContentEditable) {
+          return true;
+        }
+        const tagName = target.tagName;
+        return tagName === "INPUT" || tagName === "TEXTAREA" || tagName === "SELECT";
+      };
+
+      document.addEventListener("keydown", (event) => {
+        if (!event.metaKey || event.ctrlKey || event.altKey || event.shiftKey || isEditableTarget(event.target)) {
+          return;
+        }
+
+        let selector = "";
+        if (event.key === "ArrowLeft") {
+          selector = ".pager-card-prev";
+        } else if (event.key === "ArrowRight") {
+          selector = ".pager-card-next";
+        } else {
+          return;
+        }
+
+        const link = document.querySelector(selector);
+        if (!(link instanceof HTMLAnchorElement) || !link.href) {
+          return;
+        }
+
+        event.preventDefault();
+        window.location.href = link.href;
+      });
+    })();
+  </script>`;
+}
+
 function renderCardList(items, note, notesByTitle, mode = "text") {
   return items
     .map((item) => {
@@ -820,6 +860,7 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
         ${pagerHtml}
       </main>
     </div>
+    ${renderPagerShortcutScript()}
   </body>
 </html>`;
 }
