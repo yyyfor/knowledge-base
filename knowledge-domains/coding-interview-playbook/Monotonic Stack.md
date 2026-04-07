@@ -13,6 +13,8 @@ Monotonic stack 适合解决“下一个更大/更小元素”以及区间边界
 
 高分回答要说明为什么一个元素一旦被弹出，就不再可能成为后面答案的一部分。这个解释决定你是否真的理解了单调栈如何把朴素 O(n²) 扫描降到 O(n)。
 
+中等题示例：Daily Temperatures。题目是给你每日气温数组，返回每一天还要等几天才会出现更高温度；如果之后不会升温则返回 0。核心是维护一个按温度递减的索引栈，让当前更高温度去结算之前的答案。
+
 ## Key Points
 
 - maintain monotonic increasing or decreasing order
@@ -26,7 +28,7 @@ Monotonic stack 适合解决“下一个更大/更小元素”以及区间边界
 - Daily Temperatures: 栈中存索引并保持温度递减。当前温度更高时弹栈，利用索引差得到等待天数。时间复杂度 `O(n)`，空间复杂度 `O(n)`。
 - Largest Rectangle in Histogram: 维护递增栈来找每个柱子左右两侧第一个更小元素，从而确定以它为高的最大宽度。时间复杂度 `O(n)`，空间复杂度 `O(n)`。
 
-## Kotlin Template
+## Kotlin Solution
 
 ```kotlin
 fun dailyTemperatures(temperatures: IntArray): IntArray {

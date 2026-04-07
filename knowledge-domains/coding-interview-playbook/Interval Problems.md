@@ -13,6 +13,8 @@ tags: [coding-interview]
 
 回答时要先澄清区间是闭区间还是开区间、是否已排序、是否允许原地修改，以及结果是要合并区间、统计重叠还是找最少删除数。
 
+中等题示例：Merge Intervals。题目是给你若干区间，合并所有重叠区间后返回结果。最经典的解法是先按起点排序，再维护当前合并段的右边界。
+
 ## Key Points
 
 - sort by start time first
@@ -26,7 +28,7 @@ tags: [coding-interview]
 - Insert Interval: 把新区间插入到已排序区间集中，分三段处理：左侧不重叠、与新区间重叠、右侧不重叠。时间复杂度 `O(n)`，空间复杂度 `O(n)`。
 - Non-overlapping Intervals: 按结束时间排序后做 greedy，尽量保留结束更早的区间，从而为后续区间留下更大空间，删除数最小。时间复杂度 `O(n log n)`，空间复杂度 `O(1)` 到 `O(log n)`，取决于排序实现。
 
-## Kotlin Template
+## Kotlin Solution
 
 ```kotlin
 fun merge(intervals: Array<IntArray>): Array<IntArray> {

@@ -13,6 +13,8 @@ tags: [coding-interview]
 
 DFS 更适合递归展开、路径回溯和子树聚合，BFS 更适合按层遍历、最短步数和从源点逐层扩展。高分关键不是背遍历模板，而是知道为什么当前题要用这个遍历顺序。
 
+中等题示例：Number of Islands。题目是给你一个由 `'1'` 和 `'0'` 组成的二维网格，`'1'` 代表陆地、`'0'` 代表海水，要求返回岛屿数量。核心是每发现一块未访问陆地，就用 DFS 或 BFS 一次性淹没整块连通区域。
+
 ## Key Points
 
 - DFS / BFS
@@ -26,7 +28,7 @@ DFS 更适合递归展开、路径回溯和子树聚合，BFS 更适合按层遍
 - Number of Islands: 把每个陆地格子视为图节点，用 DFS 或 BFS 淹没整块连通区域。每发现一个未访问陆地，岛屿计数加一。时间复杂度 `O(mn)`，空间复杂度 `O(mn)`，递归栈或队列最坏会到整个网格规模。
 - Clone Graph: 用 DFS/BFS 遍历原图，并用 hashmap 保存 `原节点 -> 新节点` 映射，避免重复拷贝和环导致的无限递归。时间复杂度 `O(V + E)`，空间复杂度 `O(V)`。
 
-## Kotlin Template
+## Kotlin Solution
 
 ```kotlin
 class TreeNode(var `val`: Int) {

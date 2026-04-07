@@ -13,6 +13,8 @@ tags: [coding-interview]
 
 这类题的高分点在于你能解释“为什么这个最短路模型成立”，以及优先队列、visited 状态和距离更新规则如何配合。
 
+中等题示例：Network Delay Time。题目是给你一个带非负权的有向图和起点 `k`，要求计算信号传播到所有节点所需的最短总时间；若有节点不可达则返回 `-1`。标准解法是 Dijkstra：最小堆每次弹出当前最短距离节点，并对邻边做 relaxation。
+
 ## Key Points
 
 - unweighted shortest path often uses BFS
@@ -26,7 +28,7 @@ tags: [coding-interview]
 - Network Delay Time: 边权非负，用 Dijkstra 维护源点到各节点的当前最短距离，每次弹出距离最小的未确定节点继续松弛邻边。时间复杂度 `O((V + E) log V)`，空间复杂度 `O(V + E)`。
 - 0-1 Matrix / Rotting Oranges 一类最短步数题: 若每步代价相同，可用多源 BFS，把所有初始源点一起入队并向外分层扩散。时间复杂度 `O(mn)`，空间复杂度 `O(mn)`。
 
-## Kotlin Template
+## Kotlin Solution
 
 ```kotlin
 import java.util.PriorityQueue
