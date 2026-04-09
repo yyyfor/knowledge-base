@@ -953,3 +953,15 @@ for (const note of notes) {
 }
 
 fs.writeFileSync(path.join(outputRoot, "index.html"), buildIndex(notes));
+
+// Run content validation
+console.log('\n🔍 Running content validation...');
+try {
+  const { execSync } = require('child_process');
+  execSync('node scripts/validate-content.js knowledge-domains', {
+    cwd: repoRoot,
+    stdio: 'inherit'
+  });
+} catch (error) {
+  console.warn('⚠️  Content validation failed, but site was built successfully');
+}

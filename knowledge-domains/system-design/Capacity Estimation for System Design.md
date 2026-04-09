@@ -1,3 +1,11 @@
+---
+title: Capacity Estimation for System Design
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Capacity Estimation for System Design
 
 容量估算不是为了得到精确数字，而是为了证明你理解系统压力会落到哪里。

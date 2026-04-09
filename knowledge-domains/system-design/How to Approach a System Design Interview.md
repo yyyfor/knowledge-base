@@ -1,3 +1,11 @@
+---
+title: How to Approach a System Design Interview
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # How to Approach a System Design Interview
 
 system design 面试最重要的是结构化表达，而不是背现成答案。

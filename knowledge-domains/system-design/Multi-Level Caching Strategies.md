@@ -1,3 +1,11 @@
+---
+title: Multi-Level Caching Strategies
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Multi-Level Caching Strategies
 
 高 QPS 系统里的缓存通常不是单层，而是多层协同。

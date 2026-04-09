@@ -1,3 +1,11 @@
+---
+title: System Design Trade-offs
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # System Design Trade-offs
 
 几乎所有 system design 题的本质都是 trade-off。

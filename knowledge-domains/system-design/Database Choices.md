@@ -1,3 +1,11 @@
+---
+title: Database Choices
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Database Choices
 
 数据库选型取决于访问模式，而不是流行度。

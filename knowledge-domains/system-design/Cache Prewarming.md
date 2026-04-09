@@ -1,3 +1,11 @@
+---
+title: Cache Prewarming
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Cache Prewarming
 
 Cache prewarming 指的是在正式流量到来前，主动把高概率会被访问的数据装入缓存，降低冷启动和大流量开场时的回源压力。

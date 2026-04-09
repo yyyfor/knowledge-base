@@ -1,3 +1,11 @@
+---
+title: Design a Search System
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Design a Search System
 
 搜索系统考察的不是“会不会用 Elasticsearch”，而是你能不能把 indexing、retrieval、ranking、freshness 和 latency 这几条链路讲成一个完整系统。最稳的答法，是先明确你做的是通用文档搜索、站内商品搜索还是垂类检索，然后再把系统拆成 ingest、index、query、ranking 和 serving 五段。

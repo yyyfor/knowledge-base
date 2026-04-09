@@ -1,3 +1,11 @@
+---
+title: Design a 10 Million QPS System
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Design a 10 Million QPS System
 
 设计 1000 万 QPS 系统时，关键不是让数据库硬扛 1000 万，而是把真正落到最昂贵资源上的请求压到极低比例。

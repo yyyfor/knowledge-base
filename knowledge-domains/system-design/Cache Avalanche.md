@@ -1,3 +1,11 @@
+---
+title: Cache Avalanche
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Cache Avalanche
 
 Cache avalanche 指的是大量缓存 key 在同一时间段集中失效，导致回源请求成片涌向数据库或下游服务。

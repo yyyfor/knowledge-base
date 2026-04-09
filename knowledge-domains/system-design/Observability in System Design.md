@@ -1,3 +1,11 @@
+---
+title: Observability in System Design
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Observability in System Design
 
 可观测性决定你能不能真正运营一个系统。

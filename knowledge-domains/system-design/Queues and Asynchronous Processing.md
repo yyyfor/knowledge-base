@@ -1,3 +1,11 @@
+---
+title: Queues and Asynchronous Processing
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Queues and Asynchronous Processing
 
 队列和异步处理用于削峰、解耦和提升吞吐。

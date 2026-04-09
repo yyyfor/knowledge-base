@@ -1,3 +1,11 @@
+---
+title: Design a URL Shortener
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Design a URL Shortener
 
 URL shortener 是很经典的 system design 入门题，因为它看起来简单，但刚好能把 ID 生成、读多写少、缓存、存储和可用性这些基础能力讲清楚。它不是“做一个很短的字符串”这么简单，而是要说明怎样在高读流量下稳定完成短链创建、跳转和统计。
@@ -28,6 +36,135 @@ URL shortener 是很经典的 system design 入门题，因为它看起来简单
 - 然后给一个 baseline：API Gateway 后面拆成 URL Service、Redirect Service、Metadata Store、Cache 和 Analytics Pipeline。
 - 深挖时优先讲 redirect 主链路、short code 生成策略、缓存层次和数据库唯一性约束，而不是泛泛列组件。
 - 收尾时补一下恶意链接治理、TTL、监控指标和未来如何从单库扩展到分片。
+
+## System Architecture
+
+```mermaid
+graph TB
+    User[User]
+    CDN[CDN/Edge Cache]
+    LB[Load Balancer]
+    API[API Gateway]
+    Create[Create Service]
+    Redirect[Redirect Service]
+    Cache[Redis Cache]
+    DB[(Database)]
+    MQ[Message Queue]
+    Analytics[Analytics Service]
+
+    User -->|Create Short URL| CDN
+    User -->|Redirect| CDN
+    CDN --> LB
+    LB --> API
+
+    API --> Create
+    API --> Redirect
+
+    Create --> Cache
+    Create --> DB
+    Create --> MQ
+
+    Redirect --> Cache
+    Redirect -->|Cache Miss| DB
+
+    MQ --> Analytics
+
+    style CDN fill:#e1f5ff
+    style Cache fill:#fff4e1
+    style DB fill:#f0f0f0
+    style Analytics fill:#ffe1f5
+```
+
+## Short Code Generation Flow
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant API
+    participant IDGen
+    participant DB
+    participant Cache
+
+    Client->>API: POST /shorten
+    API->>IDGen: Generate Unique ID
+    IDGen->>DB: Reserve ID Range
+    DB-->>IDGen: ID Range [1000-2000]
+    IDGen-->>API: ID: 12345
+    API->>API: Base62 Encode -> "dnh"
+    API->>DB: Save Mapping
+    API->>Cache: Cache URL Mapping
+    API-->>Client: https://short.ly/dnh
+```
+
+## Redirect Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant CDN
+    participant Cache
+    participant DB
+    participant Analytics
+
+    User->>CDN: GET /dnh
+    CDN->>Cache: Get Long URL
+    alt Cache Hit
+        Cache-->>CDN: https://example.com/long-url
+        CDN-->>User: 301 Redirect
+        CDN->>Analytics: Async Track Click
+    else Cache Miss
+        Cache->>DB: Query Long URL
+        DB-->>Cache: https://example.com/long-url
+        Cache-->>CDN: https://example.com/long-url
+        CDN-->>User: 301 Redirect
+        CDN->>Cache: Populate Cache
+        CDN->>Analytics: Async Track Click
+    end
+```
+
+## Database Schema
+
+```mermaid
+erDiagram
+    URL_MAPPING {
+        bigint id PK
+        varchar short_code UK "Base62 encoded"
+        text long_url
+        datetime created_at
+        datetime expires_at
+        bigint user_id FK
+        varchar custom_alias
+    }
+
+    ANALYTICS {
+        bigint id PK
+        bigint url_mapping_id FK
+        ip_address
+        user_agent
+        referrer
+        country
+        clicked_at
+    }
+
+    URL_MAPPING ||--o{ ANALYTICS : "has many"
+```
+
+## Key Components
+
+- **API Gateway**: 路由、限流、认证
+- **Create Service**: 处理短链创建，ID 生成和存储
+- **Redirect Service**: 处理短链跳转，高 QPS 读取
+- **Cache Layer**: Redis 缓存热点短链，CDN 缓存跳转结果
+- **Database**: 存储短链映射关系，支持分片
+- **Message Queue**: 异步处理点击统计和分析
+- **Analytics Service**: 点击分析、报表生成
+
+## ID Generation Strategies
+
+- **Database Auto-increment**: 简单但单点，可配合号段分配
+- **Snowflake**: 分布式唯一 ID，包含时间戳和机器 ID
+- **UUID**: 全局唯一但较长，不适合短链
+- **Custom Base62**: 将数字 ID 转换为更短的字符串
 
 相关：
 

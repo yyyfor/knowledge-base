@@ -1,3 +1,11 @@
+---
+title: Cache Breakdown
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Cache Breakdown
 
 Cache breakdown 指的是某个非常热点的 key 在失效瞬间被大量并发请求同时打到数据库，导致下游瞬时被压垮。

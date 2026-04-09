@@ -1,3 +1,11 @@
+---
+title: Hot Key Overload
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Hot Key Overload
 
 Hot key overload 指的是极少数 key 承担了异常高的访问量，导致缓存节点、应用实例或下游依赖在这些 key 上出现局部过载。

@@ -1,3 +1,11 @@
+---
+title: Event-Driven Architecture for System Design
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Event-Driven Architecture for System Design
 
 事件驱动架构通过事件而不是同步调用连接系统。

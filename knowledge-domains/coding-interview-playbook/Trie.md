@@ -1,6 +1,9 @@
 ---
 title: Trie
-tags: [coding-interview]
+tags: ["coding-interview"]
+difficulty: intermediate
+estimated_time: 2 min
+last_reviewed: 2026-04-09
 ---
 
 # Trie

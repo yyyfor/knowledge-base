@@ -1,6 +1,12 @@
 ---
 title: System Design Knowledge Map
-tags: [system-design, architecture, engineering]
+tags: ["system-design", "architecture", "engineering", "scalability"]
+difficulty: intermediate
+estimated_time: 30 min
+last_reviewed: 2025-04-09
+prerequisites: ["[What is System Design]"]
+scale: ["million-users", "billion-users"]
+related_companies: ["Google", "Meta", "Amazon", "Uber"]
 ---
 
 # System Design Knowledge Map

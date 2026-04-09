@@ -1,6 +1,9 @@
 ---
 title: Coding Interview Playbook
-tags: [coding-interview]
+tags: ["coding-interview"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
 ---
 
 # Coding Interview Playbook

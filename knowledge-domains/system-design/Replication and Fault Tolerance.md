@@ -1,3 +1,11 @@
+---
+title: Replication and Fault Tolerance
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Replication and Fault Tolerance
 
 复制和容错是高可用系统的基本能力。

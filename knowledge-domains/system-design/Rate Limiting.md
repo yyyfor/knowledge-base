@@ -1,3 +1,11 @@
+---
+title: Rate Limiting
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Rate Limiting
 
 限流用于保护系统免于被突发流量、恶意请求或滥用压垮。

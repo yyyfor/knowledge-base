@@ -1,3 +1,11 @@
+---
+title: Design an Expedia-like Travel Booking System
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 2 min
+last_reviewed: 2026-04-09
+---
+
 # Design an Expedia-like Travel Booking System
 
 Expedia 类 system design 的核心，不是把旅游业务讲得多全，而是你能不能把高并发搜索、多供应商聚合、强一致预订和最终一致订单链路讲清楚。最稳的答法，是先把系统拆成 Search、Pricing、Booking、Payment 和 Order 五段，再明确哪些地方追求低延迟，哪些地方追求强一致。

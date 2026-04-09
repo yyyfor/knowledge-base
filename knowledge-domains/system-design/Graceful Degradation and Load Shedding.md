@@ -1,3 +1,11 @@
+---
+title: Graceful Degradation and Load Shedding
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Graceful Degradation and Load Shedding
 
 高并发系统不是保证所有请求都成功，而是保证核心请求优先活下来。

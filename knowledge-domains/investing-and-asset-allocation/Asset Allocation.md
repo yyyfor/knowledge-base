@@ -1,3 +1,12 @@
+---
+title: Asset Allocation
+tags: [investing, asset-allocation, portfolio-management]
+difficulty: beginner
+estimated_time: 20 min
+last_reviewed: 2025-04-09
+prerequisites: [[Diversification]]
+---
+
 # Asset Allocation
 
 资产配置决定了长期投资结果的大部分轮廓。

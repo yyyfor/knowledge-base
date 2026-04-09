@@ -1,3 +1,11 @@
+---
+title: Scalability
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Scalability
 
 Scalability 是系统在负载增长时仍能维持服务能力的能力。

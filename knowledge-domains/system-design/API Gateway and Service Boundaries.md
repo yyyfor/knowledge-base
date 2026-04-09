@@ -1,3 +1,11 @@
+---
+title: API Gateway and Service Boundaries
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # API Gateway and Service Boundaries
 
 服务边界和 API gateway 设计决定系统如何演化。

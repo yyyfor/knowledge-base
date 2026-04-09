@@ -1,3 +1,11 @@
+---
+title: Logical Expiration and Background Refresh
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Logical Expiration and Background Refresh
 
 Logical expiration and background refresh 是一种“读请求继续拿旧值，刷新在后台完成”的缓存策略，用来降低热点 key 过期时的抖动和尾延迟。

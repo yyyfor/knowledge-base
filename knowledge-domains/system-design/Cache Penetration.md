@@ -1,3 +1,11 @@
+---
+title: Cache Penetration
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Cache Penetration
 
 Cache penetration 指的是请求反复查询“本来就不存在”的数据，结果每次都穿透缓存打到数据库或下游服务。

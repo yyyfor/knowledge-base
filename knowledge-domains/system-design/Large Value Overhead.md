@@ -1,3 +1,11 @@
+---
+title: Large Value Overhead
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Large Value Overhead
 
 Large value overhead 指的是单个缓存 value 过大，导致网络传输、序列化、反序列化和内存占用成本异常高。

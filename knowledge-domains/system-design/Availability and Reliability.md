@@ -1,3 +1,11 @@
+---
+title: Availability and Reliability
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Availability and Reliability
 
 Availability 关注系统“能不能用”，reliability 关注系统“结果是否稳定可信”。

@@ -1,3 +1,11 @@
+---
+title: System Design Principles
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # System Design Principles
 
 系统设计的核心是围绕约束做权衡，而不是追求某个“标准答案”。

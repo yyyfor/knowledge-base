@@ -1,3 +1,11 @@
+---
+title: Request Coalescing
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Request Coalescing
 
 Request coalescing 指的是在缓存失效或回源阶段，把同一份数据的并发请求合并成一次实际回源，其余请求等待或复用结果。

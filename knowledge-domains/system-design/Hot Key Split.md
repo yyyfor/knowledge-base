@@ -1,3 +1,11 @@
+---
+title: Hot Key Split
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Hot Key Split
 
 Hot key split 是针对单个热点 key 过载的一种治理手法：把同一份热点数据拆成多个副本或多个访问入口，分散到不同节点或不同请求路径上。

@@ -1,3 +1,11 @@
+---
+title: System Design Offer-Level Playbook
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 3 min
+last_reviewed: 2026-04-09
+---
+
 # System Design Offer-Level Playbook
 
 System design 面试不是在回答孤立问题，而是在约束下主导一场设计讨论。高质量回答的关键，不是组件越多越好，而是你能否稳定地把节奏控住：先问准问题，再做规模估算，再给高层设计，再把瓶颈、trade-off、failure handling 和演进路径讲透。

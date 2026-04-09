@@ -1,3 +1,11 @@
+---
+title: What is System Design
+tags: ["system-design", "architecture"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # What is System Design
 
 System design 是把产品需求转化为可扩展、可维护、可运营的软件系统结构的过程。
