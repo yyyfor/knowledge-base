@@ -1,13 +1,13 @@
 ---
-title: System Design Fundamentals - Self Assessment
+title: System Design Fundamentals Quiz
 tags: [system-design, quiz, assessment]
 difficulty: intermediate
 estimated_time: 45 min
-last_reviewed: 2025-04-09
+last_reviewed: 2026-04-09
 prerequisites: [[What is System Design], [System Design Principles]]
 ---
 
-# System Design Fundamentals - Self Assessment
+# System Design Fundamentals Quiz
 
 评估你对系统设计基础概念的理解和应用能力。
 

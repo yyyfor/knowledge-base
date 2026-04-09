@@ -3,11 +3,11 @@ title: 2-Month Coding Interview Track
 tags: [coding-interview, learning-track, algorithms]
 difficulty: intermediate
 estimated_time: 2 months
-last_reviewed: 2025-04-09
+last_reviewed: 2026-04-09
 prerequisites: [[Array and String Patterns]]
 ---
 
-# 2-Month Coding Interview Coding Interview Track
+# 2-Month Coding Interview Track
 
 从算法基础到面试高分表现的结构化学习路径。适合准备技术面试，或希望系统提升算法和数据结构能力的开发者。
 
@@ -397,4 +397,4 @@ prerequisites: [[Array and String Patterns]]
 
 **或选择其他track**:
 - [[3-Month System Design Track]]
-- [[3-Month Quant Programming Track]]
+- 3-Month Quant Programming Track（规划中）

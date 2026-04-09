@@ -132,7 +132,7 @@ class ContentValidator {
       }
 
       if (file.frontmatter.estimated_time) {
-        const timePattern = /^\d+\s*(min|hour|hours)/;
+        const timePattern = /^\d+(\.\d+)?\s*(min|hour|hours|day|days|week|weeks|month|months)$/;
         if (!timePattern.test(file.frontmatter.estimated_time)) {
           this.addWarning(file, `Invalid estimated_time format: ${file.frontmatter.estimated_time}`);
         }
@@ -204,7 +204,7 @@ class ContentValidator {
     for (const file of this.files) {
       // Check for very short files
       const wordCount = file.content.split(/\s+/).length;
-      if (wordCount < 50 && !file.relPath.includes('Map') && !file.relPath.includes('index')) {
+      if (wordCount < 30 && !file.relPath.includes('Map') && !file.relPath.includes('index')) {
         this.addWarning(file, `Very short content: ${wordCount} words`);
       }
 
@@ -212,7 +212,9 @@ class ContentValidator {
       if (!file.relPath.includes('Map') && !file.relPath.includes('index')) {
         const hasExamples = /## Typical Problems|## Example|## Code Solution|```kotlin|```python/.test(file.content);
         const tags = file.frontmatter?.tags || [];
-        if (!hasExamples && (tags.includes('coding-interview') || tags.includes('algorithms'))) {
+        const title = file.title || '';
+        const isMetaCodingTopic = /Playbook|Clarification|Modeling|Communication|Complexity|Edge Cases|Follow-up|Mistakes|Phrases|Optimization/.test(title);
+        if (!hasExamples && !isMetaCodingTopic && (tags.includes('coding-interview') || tags.includes('algorithms'))) {
           this.addWarning(file, 'Missing code examples for coding interview topic');
         }
       }

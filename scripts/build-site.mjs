@@ -439,21 +439,28 @@ function parseStructuredNote(note, notesByTitle) {
   );
 
   const primaryLinks = dedupeTextList([...related, ...explicitLinks].filter((title) => title !== note.title), 12);
+  const supplemental = ensureMinimumItems(
+    pickSentences(combined, ["局限", "区别", "trade-off", "如果", "为什么", "代价", "影响"], 2),
+    2,
+    [
+      `延伸思路：把 ${note.title} 和 ${(primaryLinks.slice(0, 2).join("、") || folderLabel(note))} 的边界说清楚，通常比重复定义更有价值。`,
+      `继续深挖时，优先补它的输入、输出、适用边界和代价，这些往往才是面试官真正会追问的部分。`
+    ]
+  );
   const interview = groupKey(note) === "system-design"
     ? [
-        "开场：先复述业务目标和约束，不要直接堆组件。",
-        `沟通：优先问清流量规模、数据规模、一致性要求和失败处理，再决定 ${note.title} 应该放在系统哪一层。`,
-        `分析：围绕请求链路、数据流、瓶颈和 trade-off 拆解 ${note.title}，而不是只给定义。`,
-        `解决：给出一版可运行方案，再深挖 1 到 2 个关键风险点，例如缓存一致性、分片、限流或回压。`,
-        `Trade-off：说明为什么当前场景选这个方案，以及它对延迟、正确性、复杂度和成本的影响。`,
-        "收尾：最后补充监控指标、故障场景和下一步演进路线。"
+        `面试官在听：你是否知道 ${note.title} 解决哪类系统约束，而不是只会背定义。`,
+        "候选人开场：先复述业务目标和约束，不要直接堆组件。",
+        `展开顺序：需求/约束 -> 请求链路或数据流 -> 关键瓶颈 -> trade-off -> 监控与演进。`,
+        `追问准备：优先准备流量规模、数据规模、一致性要求、失败处理，以及它和相邻模式的边界。`,
+        "高分信号：答案里既有架构选择，也有观测指标和故障处理。"
       ]
     : [
-        `开场：先用一句话定义 ${note.title}，再说明它在 ${profile.workflow} 里的位置。`,
-        `沟通：先确认题目关注的是业务目标、工程实现、风险控制还是长期决策。`,
-        `分析：把 ${note.title} 拆成核心作用、输入输出、常见场景和限制条件四块。`,
-        `解决：顺着一个真实流程解释 ${note.title} 如何被使用，以及它会影响哪一步结果。`,
-        `收尾：最后补一句常见误区、风险点或它和相邻主题的关系。`
+        `面试官在听：你是否理解 ${note.title} 解决什么问题、何时适用、代价是什么。`,
+        `候选人开场：先用一句话定义 ${note.title}，再说明它在 ${profile.workflow} 里的位置。`,
+        "展开顺序：定义 -> 真实场景 -> 输入输出或关键机制 -> 限制和取舍。",
+        `追问准备：准备说明它和相邻主题的边界，以及条件变化时你的判断会不会变。`,
+        "高分信号：答案不只停在概念层，而是能顺着一个真实流程讲到落地。"
       ];
 
   return {
@@ -463,6 +470,7 @@ function parseStructuredNote(note, notesByTitle) {
     related: primaryLinks,
     useCases,
     pitfalls,
+    supplemental,
     interview
   };
 }
@@ -484,6 +492,7 @@ function resolveNoteDetails(note, notesByTitle) {
     related: Array.isArray(generated.related) && generated.related.length ? dedupeTextList(generated.related, 12) : parsed.related,
     useCases: Array.isArray(generated.useCases) && generated.useCases.length ? dedupeTextList(generated.useCases, 6) : parsed.useCases,
     pitfalls: Array.isArray(generated.pitfalls) && generated.pitfalls.length ? dedupeTextList(generated.pitfalls, 6) : parsed.pitfalls,
+    supplemental: Array.isArray(generated.supplemental) && generated.supplemental.length ? dedupeTextList(generated.supplemental, 6) : parsed.supplemental,
     interview: Array.isArray(generated.interview) && generated.interview.length ? dedupeTextList(generated.interview, 12) : parsed.interview,
     solutions: Array.isArray(generated.solutions) ? generated.solutions : []
   };
@@ -776,8 +785,8 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
           ${directoryHtml}
         </div>
         <div class="sidebar-block">
-          <div class="sidebar-title">补充内容</div>
-          ${renderLinkedChips(uniqueRelated, note, notesByTitle, "No supplemental topics yet.")}
+          <div class="sidebar-title">相关条目</div>
+          ${renderLinkedChips(uniqueRelated, note, notesByTitle, "No related topics yet.")}
         </div>
         <div class="sidebar-block">
           <div class="sidebar-title">Backlinks</div>
@@ -850,11 +859,19 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
           </div>
         </section>` : ""}
 
+        ${details.supplemental && details.supplemental.length ? `
+        <section class="detail-section">
+          <h2>补充内容</h2>
+          <div class="detail-stack">
+            ${renderCardList(details.supplemental, note, notesByTitle)}
+          </div>
+        </section>` : ""}
+
         ${renderSolutions(note, details)}
 
         <section class="detail-section">
-          <h2>补充内容</h2>
-          ${renderLinkedChips(uniqueRelated, note, notesByTitle, "No supplemental topics yet.")}
+          <h2>相关条目</h2>
+          ${renderLinkedChips(uniqueRelated, note, notesByTitle, "No related topics yet.")}
         </section>
 
         ${pagerHtml}

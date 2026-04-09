@@ -1,12 +1,12 @@
 ---
-title: Knowledge Base Glossary
+title: Glossary
 tags: [glossary, reference]
 difficulty: beginner
 estimated_time: 1 hour
-last_reviewed: 2025-04-09
+last_reviewed: 2026-04-09
 ---
 
-# Knowledge Base Glossary
+# Glossary
 
 A comprehensive glossary of technical terms, concepts, and terminology used across the knowledge base.
 

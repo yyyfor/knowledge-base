@@ -1,11 +1,14 @@
 ---
 title: Knowledge Base Map
-tags: [knowledge-base]
+tags: ["knowledge-base"]
+difficulty: beginner
+estimated_time: 10 min
+last_reviewed: 2026-04-09
 ---
 
 # Knowledge Base Map
 
-这个仓库目前包含六个主要知识目录：
+这个仓库目前包含七个主要知识目录，以及若干索引、学习路径和练习材料。
 
 ## Domain Libraries
 
@@ -15,6 +18,24 @@ tags: [knowledge-base]
 - [[Investing and Asset Allocation Knowledge Map]]
 - [[System Design Knowledge Map]]
 - [[Coding Interview Knowledge Map]]
+- [[Career Development Knowledge Map]]
+
+## Reference Tools
+
+- [[Topic Index]]
+- [[Glossary]]
+- [[Learning Tracks]]
+
+## Structured Tracks
+
+- [[2-Month Coding Interview Track]]
+- [[3-Month System Design Track]]
+- [[System Design for Quant Trading Systems]]
+
+## Practice and Review
+
+- [[Two Sum Pattern Quiz]]
+- [[System Design Fundamentals Quiz]]
 
 ## Suggested Paths
 

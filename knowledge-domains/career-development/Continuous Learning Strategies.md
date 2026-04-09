@@ -3,7 +3,7 @@ title: Continuous Learning Strategies
 tags: [career, learning, professional-development]
 difficulty: beginner
 estimated_time: 25 min
-last_reviewed: 2025-04-09
+last_reviewed: 2026-04-09
 ---
 
 # Continuous Learning Strategies
@@ -308,9 +308,9 @@ val skills = listOf(
 ## Related Topics
 
 - [[Career Development for Technical Professionals]]
-- [[Time Management and Productivity]]
-- [[Goal Setting and Planning]]
-- [[Technical Writing]]
+- Time management and productivity habits
+- Goal setting and planning
+- Technical writing
 
 ## Key Takeaways
 

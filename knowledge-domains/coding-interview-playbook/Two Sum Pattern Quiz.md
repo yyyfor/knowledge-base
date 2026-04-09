@@ -1,13 +1,13 @@
 ---
-title: Two Sum Pattern - Self Assessment
+title: Two Sum Pattern Quiz
 tags: [coding-interview, quiz, practice]
 difficulty: beginner
 estimated_time: 30 min
-last_reviewed: 2025-04-09
+last_reviewed: 2026-04-09
 prerequisites: [[Two Sum Pattern]]
 ---
 
-# Two Sum Pattern - Self Assessment
+# Two Sum Pattern Quiz
 
 测试你对Two Sum模式和哈希表应用的理解程度。
 

@@ -3,7 +3,7 @@ title: Technical Leadership
 tags: [career, leadership, technical-lead]
 difficulty: intermediate
 estimated_time: 35 min
-last_reviewed: 2025-04-09
+last_reviewed: 2026-04-09
 ---
 
 # Technical Leadership
@@ -288,10 +288,10 @@ graph TB
 ## Related Topics
 
 - [[Career Development for Technical Professionals]]
-- [[People Management]]
-- [[Mentoring and Coaching]]
-- [[Building and Leading Teams]]
-- [[Technical Writing]]
+- People management
+- Mentoring and coaching
+- Building and leading teams
+- Technical writing
 - [[Cross-functional Collaboration]]
 
 ## Further Reading

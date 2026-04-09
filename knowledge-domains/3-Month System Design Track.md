@@ -3,7 +3,7 @@ title: 3-Month System Design Track
 tags: [system-design, learning-track, roadmap]
 difficulty: intermediate
 estimated_time: 3 months
-last_reviewed: 2025-04-09
+last_reviewed: 2026-04-09
 prerequisites: [[What is System Design]]
 ---
 
@@ -349,4 +349,4 @@ prerequisites: [[What is System Design]]
 
 **或选择其他track**:
 - [[2-Month Coding Interview Track]]
-- [[3-Month Quant Programming Track]]
+- 3-Month Quant Programming Track（规划中）

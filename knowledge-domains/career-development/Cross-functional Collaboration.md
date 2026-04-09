@@ -3,7 +3,7 @@ title: Cross-functional Collaboration
 tags: [career, collaboration, communication, leadership]
 difficulty: intermediate
 estimated_time: 30 min
-last_reviewed: 2025-04-09
+last_reviewed: 2026-04-09
 ---
 
 # Cross-functional Collaboration
@@ -239,8 +239,8 @@ graph TB
 ## Related Topics
 
 - [[Technical Leadership]]
-- [[Effective Meetings]]
-- [[Public Speaking and Presentations]]
+- Effective meetings
+- Public speaking and presentations
 - [[Career Development for Technical Professionals]]
 
 ## Further Reading

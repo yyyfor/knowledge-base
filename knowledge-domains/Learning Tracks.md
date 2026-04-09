@@ -1,12 +1,12 @@
 ---
-title: Learning Tracks Guide
+title: Learning Tracks
 tags: [learning, tracks, curriculum, roadmap]
 difficulty: beginner
 estimated_time: 30 min
-last_reviewed: 2025-04-09
+last_reviewed: 2026-04-09
 ---
 
-# Learning Tracks Guide
+# Learning Tracks
 
 本目录提供不同技术领域和职业阶段的结构化学习路径，包含明确的时间表、里程碑和评估标准。
 
@@ -15,16 +15,16 @@ last_reviewed: 2025-04-09
 ### Technical Skills
 - **[[3-Month System Design Track]]** - 从基础概念到复杂系统设计
 - **[[2-Month Coding Interview Track]]** - 算法、数据结构和面试技巧
-- **[[3-Month Quant Programming Track]]** - 金融工程与量化交易基础
-- **[[1-Month Investment Banking Track]]** - 投行核心知识与技能
+- **3-Month Quant Programming Track** - 规划中的金融工程与量化交易基础路径
+- **1-Month Investment Banking Track** - 规划中的投行核心知识与技能路径
 
 ### Career Development
-- **[[Career Advancement Track]]** - 从初级到高级工程师的发展路径
-- **[[Leadership Development Track]]** - 技术领导力和管理能力培养
+- **Career Advancement Track** - 规划中的从初级到高级工程师的发展路径
+- **Leadership Development Track** - 规划中的技术领导力和管理能力培养路径
 
 ### Specialized Skills
-- **[[6-Week Machine Learning Track]]** - ML基础到实战应用
-- **[[4-Week DevOps Track]]** - CI/CD、容器化和云原生
+- **6-Week Machine Learning Track** - 规划中的 ML 基础到实战应用路径
+- **4-Week DevOps Track** - 规划中的 CI/CD、容器化和云原生路径
 
 ## How to Use These Tracks
 

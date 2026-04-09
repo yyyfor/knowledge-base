@@ -1,12 +1,12 @@
 ---
-title: Knowledge Base Index
+title: Topic Index
 tags: [index, reference]
 difficulty: beginner
 estimated_time: 30 min
-last_reviewed: 2025-04-09
+last_reviewed: 2026-04-09
 ---
 
-# Knowledge Base Topic Index
+# Topic Index
 
 Browse topics by category, difficulty, time commitment, and learning path.
 
@@ -22,7 +22,7 @@ Browse topics by category, difficulty, time commitment, and learning path.
 - [[Tree and Graph Traversal]] - 25 min - Intermediate
 - [[Backtracking]] - 20 min - Intermediate
 - [[Greedy]] - 15 min - Intermediate
-- [[Sliding Window]] - 20 min - Intermediate
+- Sliding window pattern - see [[Array and String Patterns]] - 20 min - Intermediate
 
 **Data Structures:**
 - [[Hashing and Frequency Maps]] - 15 min - Beginner

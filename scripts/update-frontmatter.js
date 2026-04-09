@@ -124,10 +124,18 @@ function main() {
   const stat = fs.statSync(targetPath);
 
   if (stat.isDirectory()) {
-    const files = fs.readdirSync(targetPath).filter(f => f.endsWith('.md'));
-    for (const file of files) {
-      updateFrontmatter(path.join(targetPath, file));
-    }
+    const walk = (dir) => {
+      const entries = fs.readdirSync(dir, { withFileTypes: true });
+      for (const entry of entries) {
+        const fullPath = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+          walk(fullPath);
+        } else if (entry.isFile() && entry.name.endsWith('.md')) {
+          updateFrontmatter(fullPath);
+        }
+      }
+    };
+    walk(targetPath);
   } else if (targetPath.endsWith('.md')) {
     updateFrontmatter(targetPath);
   } else {
