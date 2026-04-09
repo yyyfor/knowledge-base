@@ -68,7 +68,25 @@ const domainProfiles = {
     scenario: "适用于企业知识问答、检索增强生成、AI agent 和办公提效相关场景。",
     pitfall: "常见误区是只谈模型能力，不说明数据来源、权限、安全、延迟和成本。",
     interview: "回答时先讲业务价值，再讲模型、检索、工具和治理各自负责什么。"
+  },
+  "career-development": {
+    label: "Career Development",
+    workflow: "目标设定、个人节奏、影响力建设和职业决策",
+    scenario: "适用于职业规划、晋升准备、求职切换和长期成长相关场景。",
+    pitfall: "常见误区是把职业发展理解成单纯刷技术点，而忽略业务影响、沟通和可见度。",
+    interview: "回答时先讲目标和阶段，再讲证据、动作和结果。"
   }
+};
+
+const rootTitleGroupMap = {
+  "Career Development for Technical Professionals": "career-development",
+  "Production-Ready Algorithm Implementation": "coding-interview-playbook",
+  "System Design for Quant Trading Systems": "system-design",
+  Architecture: "investment-banking",
+  Data: "investment-banking",
+  Quant: "investment-banking",
+  Risk: "investment-banking",
+  Technology: "investment-banking"
 };
 
 function walk(dir) {
@@ -199,7 +217,7 @@ function relativeHref(fromFile, toFile) {
 }
 
 function groupKey(note) {
-  return note.relDirSegments[0] || "root";
+  return note.relDirSegments[0] || rootTitleGroupMap[note.title] || "root";
 }
 
 function groupLabel(note) {
@@ -237,6 +255,18 @@ function inlineFormat(text, note, notesByTitle) {
   return html;
 }
 
+function renderMermaidBootstrap() {
+  return `<script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({
+      startOnLoad: true,
+      securityLevel: "loose",
+      theme: "neutral",
+      flowchart: { useMaxWidth: true, htmlLabels: true }
+    });
+  </script>`;
+}
+
 function renderMarkdownBody(note, notesByTitle) {
   const lines = stripFrontmatter(note.content).replace(/\r\n/g, "\n").split("\n");
   const html = [];
@@ -260,6 +290,12 @@ function renderMarkdownBody(note, notesByTitle) {
       }
       if (i < lines.length && /^```/.test(lines[i].trim())) {
         i += 1;
+      }
+      if (language.toLowerCase() === "mermaid") {
+        html.push(
+          `<div class="detail-mermaid-block"><div class="detail-raw-code-language">mermaid</div><pre class="mermaid">${escapeHtml(codeLines.join("\n"))}</pre></div>`
+        );
+        continue;
       }
       const languageLabel = language ? `<div class="detail-raw-code-language">${escapeHtml(language)}</div>` : "";
       html.push(
@@ -330,6 +366,7 @@ function renderMarkdownBody(note, notesByTitle) {
       const currentTrimmed = lines[i].trim();
       if (
         !currentTrimmed ||
+        /^```/.test(currentTrimmed) ||
         /^#{1,6}\s/.test(currentTrimmed) ||
         currentTrimmed === "---" ||
         currentTrimmed === "***" ||
@@ -342,7 +379,7 @@ function renderMarkdownBody(note, notesByTitle) {
       i += 1;
     }
 
-    html.push(`<p>${inlineFormat(paragraph.join("<br />"), note, notesByTitle)}</p>`);
+    html.push(`<p>${paragraph.map((line) => inlineFormat(line, note, notesByTitle)).join("<br />")}</p>`);
   }
 
   return html.join("\n");
@@ -367,6 +404,7 @@ function parseStructuredNote(note, notesByTitle) {
   const blocks = [];
   let currentLabel = "";
   let buffer = [];
+  let inCodeBlock = false;
 
   const flushText = () => {
     const joined = normalizeText(buffer.join(" "));
@@ -378,6 +416,14 @@ function parseStructuredNote(note, notesByTitle) {
 
   for (const line of lines) {
     const trimmed = line.trim();
+    if (/^```/.test(trimmed)) {
+      flushText();
+      inCodeBlock = !inCodeBlock;
+      continue;
+    }
+    if (inCodeBlock) {
+      continue;
+    }
     if (!trimmed) {
       flushText();
       continue;
@@ -475,6 +521,62 @@ function parseStructuredNote(note, notesByTitle) {
   };
 }
 
+function isKnowledgeMapNote(title) {
+  return title === "Knowledge Base Map" || /Knowledge Map$/.test(title);
+}
+
+function isRoadmapNote(title) {
+  return (
+    title === "Learning Tracks" ||
+    /Track$/.test(title) ||
+    /Roadmap$/.test(title) ||
+    /Learning Sequence/.test(title)
+  );
+}
+
+function isQuizNote(title) {
+  return /Quiz$/.test(title) || /Mock Exam Questions/.test(title);
+}
+
+function isOverviewNote(title) {
+  return ["Architecture", "Data", "Quant", "Risk", "Technology", "Glossary", "Topic Index"].includes(title);
+}
+
+function noteSectionPolicy(note) {
+  const title = note.title;
+  const group = groupKey(note);
+  const mapLike = isKnowledgeMapNote(title) || isRoadmapNote(title) || isQuizNote(title) || isOverviewNote(title);
+  const isCareer = group === "career-development";
+  const allowUseCases = !mapLike && !isCareer;
+  const allowPitfalls = allowUseCases && !isCareer;
+  const allowInterview =
+    !mapLike &&
+    !isCareer &&
+    (
+      group === "system-design" ||
+      group === "coding-interview-playbook" ||
+      /Interview|Offer-Level|Playbook/.test(title)
+    );
+  const allowSupplemental = !isQuizNote(title);
+
+  return {
+    useCases: allowUseCases,
+    pitfalls: allowPitfalls,
+    interview: allowInterview,
+    supplemental: allowSupplemental
+  };
+}
+
+function applySectionPolicy(details, note) {
+  const policy = noteSectionPolicy(note);
+  return Object.assign({}, details, {
+    useCases: policy.useCases ? details.useCases : [],
+    pitfalls: policy.pitfalls ? details.pitfalls : [],
+    interview: policy.interview ? details.interview : [],
+    supplemental: policy.supplemental ? details.supplemental : []
+  });
+}
+
 function resolveNoteDetails(note, notesByTitle) {
   const parsed = parseStructuredNote(note, notesByTitle);
   const miniappDomainId = miniappDomainMap[groupKey(note)];
@@ -482,10 +584,10 @@ function resolveNoteDetails(note, notesByTitle) {
   const generated = miniappKnowledgeContent?.[miniappDomainId]?.[sectionTitle]?.[note.title];
 
   if (!generated) {
-    return Object.assign({ solutions: [] }, parsed);
+    return applySectionPolicy(Object.assign({ solutions: [] }, parsed), note);
   }
 
-  return {
+  return applySectionPolicy({
     summary: generated.summary || parsed.summary,
     body: Array.isArray(generated.body) && generated.body.length ? dedupeTextList(generated.body, 6) : parsed.body,
     points: Array.isArray(generated.points) && generated.points.length ? dedupeTextList(generated.points, 12) : parsed.points,
@@ -495,7 +597,7 @@ function resolveNoteDetails(note, notesByTitle) {
     supplemental: Array.isArray(generated.supplemental) && generated.supplemental.length ? dedupeTextList(generated.supplemental, 6) : parsed.supplemental,
     interview: Array.isArray(generated.interview) && generated.interview.length ? dedupeTextList(generated.interview, 12) : parsed.interview,
     solutions: Array.isArray(generated.solutions) ? generated.solutions : []
-  };
+  }, note);
 }
 
 function renderSolutions(note, details) {
@@ -767,6 +869,7 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${escapeHtml(note.title)}</title>
     <link rel="stylesheet" href="${relativeHref(outputHtmlPath(note), path.join(outputRoot, "assets", "styles.css"))}" />
+    ${renderMermaidBootstrap()}
   </head>
   <body>
     <div class="layout">

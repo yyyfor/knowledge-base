@@ -351,6 +351,19 @@ code {
   margin: 18px 0;
 }
 
+.detail-mermaid-block {
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(246, 241, 230, 0.96), rgba(240, 245, 233, 0.92));
+  border: 1px solid rgba(17, 38, 27, 0.08);
+  overflow-x: auto;
+}
+
+.detail-mermaid-block .mermaid {
+  min-width: min-content;
+}
+
 .detail-raw-code-language {
   display: inline-flex;
   margin-bottom: 8px;
