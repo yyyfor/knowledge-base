@@ -1,3 +1,11 @@
+---
+title: Linux and Developer Tooling
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Linux and Developer Tooling
 
 很多量化开发环境最终都运行在 Linux 和命令行工具链上。

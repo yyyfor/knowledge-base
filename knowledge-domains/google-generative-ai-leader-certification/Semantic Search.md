@@ -1,3 +1,11 @@
+---
+title: Semantic Search
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Semantic Search
 
 Semantic Search 是理解语义而不是只匹配关键词的搜索方式。

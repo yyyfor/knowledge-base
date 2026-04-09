@@ -1,3 +1,11 @@
+---
+title: Multimodal Model
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Multimodal Model
 
 Multimodal Model 能同时处理多种模态输入或输出，例如文本、图像、音频和代码。

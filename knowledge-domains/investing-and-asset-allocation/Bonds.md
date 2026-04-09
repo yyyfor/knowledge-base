@@ -1,3 +1,11 @@
+---
+title: Bonds
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Bonds
 
 债券通常在组合里承担稳定器和现金流管理角色。

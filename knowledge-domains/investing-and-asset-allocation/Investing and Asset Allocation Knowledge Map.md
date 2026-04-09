@@ -1,6 +1,9 @@
 ---
 title: Investing and Asset Allocation Knowledge Map
-tags: [investing, asset-allocation, portfolio]
+tags: ["investing", "asset-allocation", "portfolio"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
 ---
 
 # Investing and Asset Allocation Knowledge Map

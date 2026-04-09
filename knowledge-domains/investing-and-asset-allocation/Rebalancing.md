@@ -1,3 +1,11 @@
+---
+title: Rebalancing
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Rebalancing
 
 再平衡是把组合权重拉回目标配置的过程。

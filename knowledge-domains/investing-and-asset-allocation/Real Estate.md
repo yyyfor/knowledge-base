@@ -1,3 +1,11 @@
+---
+title: Real Estate
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Real Estate
 
 房地产在资产配置中通常兼具收益、通胀对冲和分散化作用。

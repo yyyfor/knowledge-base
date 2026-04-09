@@ -1,3 +1,11 @@
+---
+title: Greeks
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Greeks
 
 Greeks 衡量价格对市场变量变化的敏感度。

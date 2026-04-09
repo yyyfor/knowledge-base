@@ -1,3 +1,11 @@
+---
+title: Batch Processing
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Batch Processing
 
 Batch Processing 是按固定时间窗口或任务批次处理大量数据和计算的方式。

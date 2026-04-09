@@ -1,6 +1,9 @@
 ---
 title: Google Generative AI Leader Certification Knowledge Map
-tags: [ai, genai, google, certification]
+tags: ["ai", "genai", "google", "certification"]
+difficulty: intermediate
+estimated_time: 2 min
+last_reviewed: 2026-04-09
 ---
 
 # Google Generative AI Leader Certification Knowledge Map

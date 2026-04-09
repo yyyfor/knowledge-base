@@ -1,3 +1,11 @@
+---
+title: LiteRT
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # LiteRT
 
 LiteRT 是 Google 在 edge AI 场景中常见的轻量运行时概念。

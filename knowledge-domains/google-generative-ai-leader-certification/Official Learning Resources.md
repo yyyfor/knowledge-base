@@ -1,3 +1,11 @@
+---
+title: Official Learning Resources
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Official Learning Resources
 
 这页用于汇总 PDF 中出现的官方学习资料和补充链接，便于对照复习范围。

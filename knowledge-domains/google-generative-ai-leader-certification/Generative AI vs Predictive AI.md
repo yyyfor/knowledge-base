@@ -1,3 +1,11 @@
+---
+title: Generative AI vs Predictive AI
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Generative AI vs Predictive AI
 
 Generative AI 关注生成内容，Predictive AI 关注分类、预测或打分。

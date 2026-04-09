@@ -3,7 +3,7 @@ title: Two Sum Pattern
 tags: ["coding-interview", "algorithms", "hashing"]
 difficulty: beginner
 estimated_time: 15 min
-last_reviewed: 2025-04-09
+last_reviewed: 2026-04-09
 prerequisites: ["[Array and String Patterns]"]
 related_problems: ["LeetCode 1", "LeetCode 15", "LeetCode 167"]
 time_complexity: O(n)

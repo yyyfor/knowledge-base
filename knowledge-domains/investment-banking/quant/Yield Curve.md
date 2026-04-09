@@ -1,3 +1,11 @@
+---
+title: Yield Curve
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Yield Curve
 
 收益率曲线描述不同期限利率工具的收益率水平。

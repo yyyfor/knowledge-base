@@ -1,3 +1,11 @@
+---
+title: Gemini for Workspace
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Gemini for Workspace
 
 Gemini for Workspace 是嵌入 Gmail、Docs、Sheets、Slides 等产品中的 AI 助手。

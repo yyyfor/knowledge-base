@@ -1,3 +1,11 @@
+---
+title: Behavioral Biases in Investing
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Behavioral Biases in Investing
 
 很多投资错误是认知偏差导致的，而不是信息不足。

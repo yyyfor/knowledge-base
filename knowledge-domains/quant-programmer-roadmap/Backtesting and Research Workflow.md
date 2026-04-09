@@ -1,3 +1,11 @@
+---
+title: Backtesting and Research Workflow
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Backtesting and Research Workflow
 
 研究流程决定你的策略结论是否可信。

@@ -1,10 +1,10 @@
 ---
 title: Asset Allocation
-tags: [investing, asset-allocation, portfolio-management]
+tags: ["investing", "asset-allocation", "portfolio-management"]
 difficulty: beginner
 estimated_time: 20 min
-last_reviewed: 2025-04-09
-prerequisites: [[Diversification]]
+last_reviewed: 2026-04-09
+prerequisites: ["[Diversification]"]
 ---
 
 # Asset Allocation

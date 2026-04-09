@@ -1,6 +1,9 @@
 ---
 title: Investment Banking Knowledge Map
-tags: [finance, quant, investment-banking]
+tags: ["finance", "quant", "investment-banking"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
 ---
 
 # Investment Banking Knowledge Map

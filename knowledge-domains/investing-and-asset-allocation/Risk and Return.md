@@ -1,3 +1,11 @@
+---
+title: Risk and Return
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Risk and Return
 
 收益从来不是免费的，风险是换取长期回报的重要来源。

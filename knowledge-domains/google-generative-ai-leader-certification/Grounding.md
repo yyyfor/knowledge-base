@@ -1,3 +1,11 @@
+---
+title: Grounding
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Grounding
 
 Grounding 是让模型基于可信数据源回答问题。

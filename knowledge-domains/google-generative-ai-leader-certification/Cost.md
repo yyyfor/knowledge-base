@@ -1,3 +1,11 @@
+---
+title: Cost
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Cost
 
 Cost 是企业部署和调用模型时的综合成本。

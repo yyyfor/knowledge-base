@@ -1,3 +1,11 @@
+---
+title: Personal Investment Policy Statement
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Personal Investment Policy Statement
 
 个人投资政策声明是把投资原则写成明确规则的文档。

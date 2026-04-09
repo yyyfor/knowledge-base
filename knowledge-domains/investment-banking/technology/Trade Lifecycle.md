@@ -1,3 +1,11 @@
+---
+title: Trade Lifecycle
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Trade Lifecycle
 
 Trade Lifecycle 指一笔交易从成交到到期或终止的完整系统和业务流程。

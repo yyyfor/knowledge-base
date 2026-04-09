@@ -1,3 +1,11 @@
+---
+title: Derivatives for Quant Developers
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Derivatives for Quant Developers
 
 量化程序员至少需要掌握主流衍生品和它们的定价、风险输入输出。

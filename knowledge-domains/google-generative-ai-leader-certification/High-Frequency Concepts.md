@@ -1,3 +1,11 @@
+---
+title: High-Frequency Concepts
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # High-Frequency Concepts
 
 如果复习时间有限，这些概念应当最优先掌握。

@@ -1,3 +1,11 @@
+---
+title: Counterparty Credit Risk
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Counterparty Credit Risk
 
 Counterparty Credit Risk 指交易对手在合约到期前违约，导致未结清合约产生损失的风险。

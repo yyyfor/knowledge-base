@@ -1,3 +1,11 @@
+---
+title: Stress Testing
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Stress Testing
 
 压力测试用于评估极端市场情景下的损失表现。

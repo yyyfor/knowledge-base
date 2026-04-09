@@ -1,3 +1,11 @@
+---
+title: Software Engineering for Quants
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Software Engineering for Quants
 
 量化程序员不是只写 notebook，而是要交付可维护的软件。

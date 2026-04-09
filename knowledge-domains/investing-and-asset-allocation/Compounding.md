@@ -1,3 +1,11 @@
+---
+title: Compounding
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Compounding
 
 复利是长期投资最重要的底层机制之一。

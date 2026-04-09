@@ -1,3 +1,11 @@
+---
+title: Distributed Computing
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Distributed Computing
 
 风险计算通常需要大规模计算。

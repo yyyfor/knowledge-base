@@ -1,3 +1,11 @@
+---
+title: Knowledge Cutoff
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Knowledge Cutoff
 
 Knowledge Cutoff 指模型训练数据所覆盖时间范围的边界。

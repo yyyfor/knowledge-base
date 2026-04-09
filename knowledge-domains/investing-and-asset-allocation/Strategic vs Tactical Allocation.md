@@ -1,3 +1,11 @@
+---
+title: Strategic vs Tactical Allocation
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Strategic vs Tactical Allocation
 
 Strategic allocation 是长期基准配置，tactical allocation 是短中期偏离。

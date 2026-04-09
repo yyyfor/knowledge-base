@@ -1,3 +1,11 @@
+---
+title: Diversification
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Diversification
 
 分散化的目标不是消除所有风险，而是避免把结果押在单一风险来源上。

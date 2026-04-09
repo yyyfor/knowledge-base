@@ -1,3 +1,11 @@
+---
+title: Stochastic Volatility Model
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Stochastic Volatility Model
 
 Stochastic Volatility Model 假设波动率本身也是一个随机过程。

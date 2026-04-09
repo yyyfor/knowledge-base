@@ -1,3 +1,11 @@
+---
+title: Foundation Model
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Foundation Model
 
 Foundation Model 是在大规模数据上预训练、可适配多任务的通用模型。

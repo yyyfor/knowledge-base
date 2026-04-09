@@ -1,3 +1,11 @@
+---
+title: Exam Guide and Weighting
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Exam Guide and Weighting
 
 根据官方 study guide，考试重点并不是平均分布，而是更偏业务落地、产品理解和企业采用。

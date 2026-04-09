@@ -1,3 +1,11 @@
+---
+title: API Integration
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # API Integration
 
 API Integration 指应用通过 API 与模型或工具进行连接。

@@ -1,3 +1,11 @@
+---
+title: Pre-trained Model
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Pre-trained Model
 
 Pre-trained Model 是已经在大规模数据上完成初始训练的模型。

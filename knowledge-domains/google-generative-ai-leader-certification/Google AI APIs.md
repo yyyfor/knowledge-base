@@ -1,3 +1,11 @@
+---
+title: Google AI APIs
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Google AI APIs
 
 Google Cloud 的 GenAI offering 还包括一组可直接调用的 AI API。

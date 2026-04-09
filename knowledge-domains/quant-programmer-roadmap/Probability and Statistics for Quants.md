@@ -1,3 +1,11 @@
+---
+title: Probability and Statistics for Quants
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Probability and Statistics for Quants
 
 概率统计是量化程序员最基础的数学语言。

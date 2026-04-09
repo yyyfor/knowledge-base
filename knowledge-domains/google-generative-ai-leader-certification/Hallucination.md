@@ -1,3 +1,11 @@
+---
+title: Hallucination
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Hallucination
 
 Hallucination 指模型生成看似合理但实际上错误或无依据的信息。

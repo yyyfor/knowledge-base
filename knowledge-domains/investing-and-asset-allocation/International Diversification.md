@@ -1,3 +1,11 @@
+---
+title: International Diversification
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # International Diversification
 
 国际分散化可以避免把全部结果绑在单一国家和单一货币风险上。

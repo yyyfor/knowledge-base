@@ -1,3 +1,11 @@
+---
+title: Model Validation and Controls
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Model Validation and Controls
 
 量化模型进入生产环境之前，需要验证和控制框架。

@@ -1,3 +1,11 @@
+---
+title: Responsible AI
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Responsible AI
 
 Responsible AI 是企业部署 AI 时必须考虑的治理与风险框架。

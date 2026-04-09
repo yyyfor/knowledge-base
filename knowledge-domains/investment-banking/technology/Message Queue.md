@@ -1,3 +1,11 @@
+---
+title: Message Queue
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Message Queue
 
 Message Queue 是系统之间异步传递消息和事件的基础设施。

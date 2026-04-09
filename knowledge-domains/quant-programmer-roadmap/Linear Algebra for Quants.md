@@ -1,3 +1,11 @@
+---
+title: Linear Algebra for Quants
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Linear Algebra for Quants
 
 线性代数是多因子模型、优化和机器学习的基础。

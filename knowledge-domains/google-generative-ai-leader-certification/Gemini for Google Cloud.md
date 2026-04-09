@@ -1,3 +1,11 @@
+---
+title: Gemini for Google Cloud
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Gemini for Google Cloud
 
 Gemini for Google Cloud 更偏企业开发、云上构建和运维辅助场景。

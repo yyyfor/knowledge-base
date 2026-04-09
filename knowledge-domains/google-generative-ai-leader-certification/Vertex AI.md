@@ -1,3 +1,11 @@
+---
+title: Vertex AI
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Vertex AI
 
 Vertex AI 是 Google Cloud 的企业级 AI 平台。

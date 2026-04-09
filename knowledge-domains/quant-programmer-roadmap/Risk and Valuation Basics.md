@@ -1,3 +1,11 @@
+---
+title: Risk and Valuation Basics
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Risk and Valuation Basics
 
 量化程序员需要理解“系统为什么要算这些数”。

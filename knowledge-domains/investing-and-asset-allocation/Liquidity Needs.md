@@ -1,3 +1,11 @@
+---
+title: Liquidity Needs
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Liquidity Needs
 
 流动性需求是资产配置中最容易被忽视但非常关键的约束。

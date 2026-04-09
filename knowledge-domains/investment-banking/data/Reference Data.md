@@ -1,3 +1,11 @@
+---
+title: Reference Data
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Reference Data
 
 Reference Data 是描述金融对象和系统主数据的静态或低频变化数据。

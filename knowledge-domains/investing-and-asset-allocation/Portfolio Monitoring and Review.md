@@ -1,3 +1,11 @@
+---
+title: Portfolio Monitoring and Review
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Portfolio Monitoring and Review
 
 好的投资不是天天看盘，而是按清晰频率检查组合是否仍符合目标。

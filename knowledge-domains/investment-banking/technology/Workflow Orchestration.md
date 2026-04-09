@@ -1,3 +1,11 @@
+---
+title: Workflow Orchestration
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Workflow Orchestration
 
 Workflow Orchestration 是对批处理和多阶段任务进行编排、调度和监控的能力。

@@ -1,3 +1,11 @@
+---
+title: Equities
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Equities
 
 股票通常是长期增长型投资组合的核心资产类别。

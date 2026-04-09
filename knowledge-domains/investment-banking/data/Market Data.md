@@ -1,3 +1,11 @@
+---
+title: Market Data
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Market Data
 
 金融模型的输入数据。

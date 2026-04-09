@@ -1,3 +1,11 @@
+---
+title: Low-Code and No-Code AI Tools
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Low-Code and No-Code AI Tools
 
 课程材料明确提到 Apps Script 和 AppSheet 这类低代码/无代码工具。

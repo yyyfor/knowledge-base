@@ -1,3 +1,11 @@
+---
+title: Options
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Options
 
 期权赋予买方在未来某一时间或期间，以约定价格买入或卖出标的资产的权利，而非义务。

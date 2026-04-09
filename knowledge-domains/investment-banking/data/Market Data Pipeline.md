@@ -1,3 +1,11 @@
+---
+title: Market Data Pipeline
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Market Data Pipeline
 
 Market Data Pipeline 是把外部行情和内部加工结果稳定输送到定价与风险系统的链路。

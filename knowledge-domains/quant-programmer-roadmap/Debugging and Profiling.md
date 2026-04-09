@@ -1,3 +1,11 @@
+---
+title: Debugging and Profiling
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Debugging and Profiling
 
 量化程序员的价值不只在于写代码，也在于快速定位问题。

@@ -1,3 +1,11 @@
+---
+title: Result Store
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Result Store
 
 Result Store 是集中存储风险、估值和解释结果的系统或数据层。

@@ -1,3 +1,11 @@
+---
+title: Risk Platform
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Risk Platform
 
 风险系统平台。

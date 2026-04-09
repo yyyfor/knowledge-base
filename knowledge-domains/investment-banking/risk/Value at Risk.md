@@ -1,3 +1,11 @@
+---
+title: Value at Risk
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Value at Risk
 
 VaR 衡量投资组合在一定置信度下的最大潜在损失。

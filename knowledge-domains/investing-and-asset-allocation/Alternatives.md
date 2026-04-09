@@ -1,3 +1,11 @@
+---
+title: Alternatives
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Alternatives
 
 另类资产包括私募、对冲基金、大宗商品、部分绝对收益策略等。

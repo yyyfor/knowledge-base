@@ -1,3 +1,11 @@
+---
+title: Risk Tolerance and Time Horizon
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Risk Tolerance and Time Horizon
 
 投资组合必须适合你的承受能力和使用期限。

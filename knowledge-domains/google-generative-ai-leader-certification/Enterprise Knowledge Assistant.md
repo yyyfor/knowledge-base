@@ -1,3 +1,11 @@
+---
+title: Enterprise Knowledge Assistant
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Enterprise Knowledge Assistant
 
 企业知识助手是最常见的 GenAI 企业场景之一。

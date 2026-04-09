@@ -1,3 +1,11 @@
+---
+title: Veo
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Veo
 
 Veo 是 Google 的视频生成模型方向之一。

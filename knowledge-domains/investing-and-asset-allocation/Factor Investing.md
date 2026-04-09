@@ -1,3 +1,11 @@
+---
+title: Factor Investing
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Factor Investing
 
 因子投资是按系统性风险特征而不是按单个故事来组织投资思路。

@@ -1,3 +1,11 @@
+---
+title: Valuation
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Valuation
 
 用于确定资产的公允价值。

@@ -1,3 +1,11 @@
+---
+title: Quant Trading Foundations from Prediction Markets
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Quant Trading Foundations from Prediction Markets
 
 这篇笔记基于 gemchanger 的 *How I'd Become a Quant If I Had to Start Over Tomorrow* 以及 MrRyanChi 的中文改写整理。它最有价值的地方，不是给你一个“必胜策略”，而是把量化学习路径重新排成一个更贴近交易实战的顺序。

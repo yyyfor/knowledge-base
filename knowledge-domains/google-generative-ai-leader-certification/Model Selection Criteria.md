@@ -1,3 +1,11 @@
+---
+title: Model Selection Criteria
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Model Selection Criteria
 
 企业选择 GenAI 模型时，需要综合考虑性能、成本、延迟和上下文能力。

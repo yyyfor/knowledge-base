@@ -1,3 +1,11 @@
+---
+title: NotebookLM
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # NotebookLM
 
 NotebookLM 是面向知识理解与资料分析的 AI 助手。

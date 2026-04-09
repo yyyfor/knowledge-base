@@ -1,3 +1,11 @@
+---
+title: Low-Latency and Performance Engineering
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Low-Latency and Performance Engineering
 
 如果工作接近交易、做市或高频系统，性能工程是核心竞争力。

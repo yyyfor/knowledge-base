@@ -1,3 +1,11 @@
+---
+title: Event-Driven Architecture
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Event-Driven Architecture
 
 Event-Driven Architecture 用事件而不是同步调用作为系统之间协作的主要机制。

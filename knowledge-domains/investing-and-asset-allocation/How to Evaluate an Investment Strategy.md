@@ -1,3 +1,11 @@
+---
+title: How to Evaluate an Investment Strategy
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # How to Evaluate an Investment Strategy
 
 评估策略时，不能只看收益率。

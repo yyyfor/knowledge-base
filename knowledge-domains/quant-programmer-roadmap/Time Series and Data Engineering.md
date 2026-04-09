@@ -1,3 +1,11 @@
+---
+title: Time Series and Data Engineering
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Time Series and Data Engineering
 
 量化开发的大量工作其实是把数据链路做对。

@@ -1,3 +1,11 @@
+---
+title: Four Primary GenAI Use Cases
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Four Primary GenAI Use Cases
 
 Google 官方课程中最核心的框架之一，是把 GenAI 使用方式分成四类。

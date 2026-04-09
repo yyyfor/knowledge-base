@@ -1,3 +1,11 @@
+---
+title: Quant Interview Notes
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Quant Interview Notes
 
 用于整理 Quant / Risk Tech 面试常见问题与答题框架。

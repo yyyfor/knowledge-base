@@ -1,3 +1,11 @@
+---
+title: Local Volatility Model
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Local Volatility Model
 
 Local Volatility Model 假设波动率是时间和标的价格的确定性函数。

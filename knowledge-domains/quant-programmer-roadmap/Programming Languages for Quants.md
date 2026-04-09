@@ -1,3 +1,11 @@
+---
+title: Programming Languages for Quants
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Programming Languages for Quants
 
 量化程序员通常至少要有一门高生产力语言和一门高性能语言。

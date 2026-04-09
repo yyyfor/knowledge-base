@@ -1,3 +1,11 @@
+---
+title: Stochastic Processes for Finance
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Stochastic Processes for Finance
 
 随机过程是很多金融模型的动态语言。

@@ -1,3 +1,11 @@
+---
+title: Structured Products
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Structured Products
 
 结构化产品是将多个基础金融工具或衍生品条款组合而成的定制化产品。

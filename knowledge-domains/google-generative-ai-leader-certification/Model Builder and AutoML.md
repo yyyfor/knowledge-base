@@ -1,3 +1,11 @@
+---
+title: Model Builder and AutoML
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Model Builder and AutoML
 
 Vertex AI 不只是提供现成模型，还支持自己构建和训练模型。

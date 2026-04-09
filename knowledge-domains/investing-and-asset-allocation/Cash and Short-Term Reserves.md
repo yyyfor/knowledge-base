@@ -1,3 +1,11 @@
+---
+title: Cash and Short-Term Reserves
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Cash and Short-Term Reserves
 
 现金和短久期储备是资产配置中的安全垫，而不是回报引擎。

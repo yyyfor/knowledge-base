@@ -1,3 +1,11 @@
+---
+title: Data Lineage
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Data Lineage
 
 Data Lineage 用于追踪数据从源头到结果的来源、变换和依赖关系。

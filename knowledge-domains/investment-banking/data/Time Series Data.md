@@ -1,3 +1,11 @@
+---
+title: Time Series Data
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Time Series Data
 
 金融数据通常按时间序列存储。

@@ -1,3 +1,11 @@
+---
+title: Machine Learning for Quants
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Machine Learning for Quants
 
 机器学习对量化程序员有价值，但应该放在扎实基础之后。

@@ -1,3 +1,11 @@
+---
+title: AI and ML Basics
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # AI and ML Basics
 
 官方 study guide 仍要求理解传统 AI / ML 的基本分类，即使考试不考建模细节。

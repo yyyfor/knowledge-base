@@ -1,3 +1,11 @@
+---
+title: Swaps
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Swaps
 
 Swap 是双方约定在未来一段时间内交换现金流的 OTC 衍生品。

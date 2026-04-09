@@ -1,3 +1,11 @@
+---
+title: Derivatives
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Derivatives
 
 金融衍生品是投资银行核心交易产品。

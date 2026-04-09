@@ -1,3 +1,11 @@
+---
+title: Numerical Methods
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Numerical Methods
 
 数值方法是把金融模型变成可计算结果的桥梁。

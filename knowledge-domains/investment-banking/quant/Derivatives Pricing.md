@@ -1,3 +1,11 @@
+---
+title: Derivatives Pricing
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Derivatives Pricing
 
 衍生品定价用于计算金融产品理论价格。

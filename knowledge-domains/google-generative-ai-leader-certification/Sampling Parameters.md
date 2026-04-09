@@ -1,3 +1,11 @@
+---
+title: Sampling Parameters
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Sampling Parameters
 
 Sampling Parameters 用于控制模型输出的随机性和多样性。

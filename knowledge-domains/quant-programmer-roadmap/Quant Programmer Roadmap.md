@@ -1,13 +1,13 @@
 ---
 title: Quant Programmer Roadmap
-tags: [quant, programming, roadmap, finance]
+tags: ["quant", "programming", "roadmap", "finance"]
 difficulty: advanced
 estimated_time: 2 hours
-last_reviewed: 2025-04-09
-prerequisites: [[Probability and Statistics for Quants], [Linear Algebra for Quants]]
+last_reviewed: 2026-04-09
+prerequisites: ["[Probability and Statistics for Quants]", "[Linear Algebra for Quants]"]
 math_level: advanced
-applications: [algorithmic-trading, risk-management, option-pricing]
-related_tools: [Python, C++, NumPy, Pandas]
+applications: ["algorithmic-trading", "risk-management", "option-pricing"]
+related_tools: ["Python", "C++", "NumPy", "Pandas"]
 ---
 
 # Quant Programmer Roadmap

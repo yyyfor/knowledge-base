@@ -1,3 +1,11 @@
+---
+title: Expected Exposure
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Expected Exposure
 
 Expected Exposure 是未来某个时间点上交易组合正向暴露的期望值。

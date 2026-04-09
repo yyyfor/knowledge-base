@@ -1,3 +1,11 @@
+---
+title: AI Agent
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # AI Agent
 
 AI Agent 可以概括为 LLM + tools + reasoning。

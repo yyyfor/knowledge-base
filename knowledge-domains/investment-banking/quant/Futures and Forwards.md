@@ -1,3 +1,11 @@
+---
+title: Futures and Forwards
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Futures and Forwards
 
 期货与远期都是约定未来以特定价格交易标的资产的合约。

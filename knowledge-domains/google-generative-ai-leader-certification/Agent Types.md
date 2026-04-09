@@ -1,3 +1,11 @@
+---
+title: Agent Types
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Agent Types
 
 官方 study guide 提到 agent 可以按实现方式区分为 deterministic、generative 或 hybrid。

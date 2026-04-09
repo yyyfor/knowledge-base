@@ -1,3 +1,11 @@
+---
+title: Prediction Markets and LMSR
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Prediction Markets and LMSR
 
 Prediction market 可以看成一种以概率报价的事件衍生品市场。对投行语境来说，它不是主流产品，但它把定价、做市、库存风险和执行速度这些核心问题压缩到了一个更容易观察的实验场里。

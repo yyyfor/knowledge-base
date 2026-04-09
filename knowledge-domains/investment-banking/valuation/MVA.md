@@ -1,3 +1,11 @@
+---
+title: MVA
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # MVA
 
 Margin Valuation Adjustment

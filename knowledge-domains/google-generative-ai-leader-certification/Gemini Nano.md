@@ -1,3 +1,11 @@
+---
+title: Gemini Nano
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Gemini Nano
 
 Gemini Nano 是面向设备端和 edge 场景的更轻量模型形态。

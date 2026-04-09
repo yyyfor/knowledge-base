@@ -1,3 +1,11 @@
+---
+title: Risk Calculation
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Risk Calculation
 
 风险计算是从市场数据与交易数据出发，生成敏感度、情景损失和聚合风险指标的过程。

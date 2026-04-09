@@ -3,7 +3,7 @@ title: System Design for Quant Trading Systems
 tags: [system-design, quant, finance, low-latency, architecture]
 difficulty: advanced
 estimated_time: 1 hour
-last_reviewed: 2025-04-09
+last_reviewed: 2026-04-09
 prerequisites: [[Low-Latency and Performance Engineering], [Market Microstructure], [Distributed Systems for Finance]]
 applications: [high-frequency-trading, algorithmic-trading, risk-management]
 related_companies: [Citadel, Two Sigma, Jane Street, Jump Trading]

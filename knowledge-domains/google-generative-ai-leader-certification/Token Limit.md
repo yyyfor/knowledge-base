@@ -1,3 +1,11 @@
+---
+title: Token Limit
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Token Limit
 
 Token Limit 是模型输入输出 token 数量的限制。

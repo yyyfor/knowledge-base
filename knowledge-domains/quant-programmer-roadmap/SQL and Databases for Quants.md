@@ -1,3 +1,11 @@
+---
+title: SQL and Databases for Quants
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # SQL and Databases for Quants
 
 量化程序员几乎一定要会 SQL 和基本数据库设计。

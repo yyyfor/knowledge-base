@@ -1,3 +1,11 @@
+---
+title: Bond Duration and Credit Risk
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Bond Duration and Credit Risk
 
 债券风险的核心并不只是“会不会亏”，还包括久期和信用两条主线。

@@ -1,3 +1,11 @@
+---
+title: Distributed Systems for Finance
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Distributed Systems for Finance
 
 金融计算经常是多系统、多作业、多数据源协作的问题。

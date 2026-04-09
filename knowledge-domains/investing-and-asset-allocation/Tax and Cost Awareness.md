@@ -1,3 +1,11 @@
+---
+title: Tax and Cost Awareness
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Tax and Cost Awareness
 
 费用和税务会持续侵蚀长期收益。

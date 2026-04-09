@@ -1,3 +1,11 @@
+---
+title: Google AI Product Stack
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Google AI Product Stack
 
 Google AI 产品体系是考试里的高频识别题。

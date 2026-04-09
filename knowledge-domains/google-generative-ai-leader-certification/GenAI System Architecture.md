@@ -1,3 +1,11 @@
+---
+title: GenAI System Architecture
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # GenAI System Architecture
 
 GenAI 系统架构是考试里的综合高频题。

@@ -1,3 +1,11 @@
+---
+title: Market Microstructure
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Market Microstructure
 
 市场微观结构研究订单、交易和价格形成机制。

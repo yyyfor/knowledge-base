@@ -1,3 +1,11 @@
+---
+title: Planning and Reasoning
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Planning and Reasoning
 
 Planning and Reasoning 指 agent 将任务分解并逐步决策的能力。

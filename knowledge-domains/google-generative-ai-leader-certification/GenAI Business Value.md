@@ -1,3 +1,11 @@
+---
+title: GenAI Business Value
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # GenAI Business Value
 
 Google Generative AI Leader Certification 强调先理解生成式 AI 的商业价值，而不是只把它看成聊天机器人。

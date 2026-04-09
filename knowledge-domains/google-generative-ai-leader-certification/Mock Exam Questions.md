@@ -1,3 +1,11 @@
+---
+title: Mock Exam Questions
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Mock Exam Questions
 
 这些题型非常接近真实考试风格。

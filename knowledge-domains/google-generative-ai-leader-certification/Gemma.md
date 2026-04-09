@@ -1,3 +1,11 @@
+---
+title: Gemma
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Gemma
 
 Gemma 是 Google 生态中的开放模型系列之一。

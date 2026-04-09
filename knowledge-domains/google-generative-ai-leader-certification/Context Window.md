@@ -1,3 +1,11 @@
+---
+title: Context Window
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Context Window
 
 Context Window 是模型一次能处理的上下文范围。

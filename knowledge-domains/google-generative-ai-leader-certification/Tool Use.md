@@ -1,3 +1,11 @@
+---
+title: Tool Use
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Tool Use
 
 Tool Use 指 agent 调用外部工具、API 或系统完成任务。

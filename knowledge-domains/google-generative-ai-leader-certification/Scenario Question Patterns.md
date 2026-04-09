@@ -1,3 +1,11 @@
+---
+title: Scenario Question Patterns
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Scenario Question Patterns
 
 Google Generative AI Leader Certification 很多题都是情景题，而不是记忆题。

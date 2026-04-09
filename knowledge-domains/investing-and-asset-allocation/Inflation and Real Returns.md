@@ -1,3 +1,11 @@
+---
+title: Inflation and Real Returns
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Inflation and Real Returns
 
 投资回报要看真实购买力，而不是只看名义收益率。

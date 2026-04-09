@@ -1,3 +1,11 @@
+---
+title: Google AI Studio
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Google AI Studio
 
 Google AI Studio 主要用于快速测试模型和 prompt experimentation。

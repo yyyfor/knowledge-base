@@ -1,3 +1,11 @@
+---
+title: Collateral and CSA
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Collateral and CSA
 
 Collateral 是为降低交易对手风险而交换的担保品，CSA 通常指衍生品主协议下的 collateral annex。

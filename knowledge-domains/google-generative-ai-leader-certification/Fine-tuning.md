@@ -1,3 +1,11 @@
+---
+title: Fine-tuning
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Fine-tuning
 
 Fine-tuning 是使用特定数据进一步调整预训练模型。

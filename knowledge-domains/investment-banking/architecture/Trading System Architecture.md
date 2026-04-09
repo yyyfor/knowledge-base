@@ -1,3 +1,11 @@
+---
+title: Trading System Architecture
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Trading System Architecture
 
 交易系统架构连接前台定价、中台风险、后台数据与报表。

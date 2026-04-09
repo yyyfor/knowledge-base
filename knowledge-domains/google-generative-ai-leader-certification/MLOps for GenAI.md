@@ -1,3 +1,11 @@
+---
+title: MLOps for GenAI
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # MLOps for GenAI
 
 MLOps for GenAI 关注模型从实验到生产的协作、监控和持续改进。

@@ -1,3 +1,11 @@
+---
+title: Google Cloud Infrastructure for GenAI
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Google Cloud Infrastructure for GenAI
 
 基础设施层是 GenAI landscape 的底座。

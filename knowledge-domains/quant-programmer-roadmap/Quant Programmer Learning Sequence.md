@@ -1,3 +1,11 @@
+---
+title: Quant Programmer Learning Sequence
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Quant Programmer Learning Sequence
 
 如果从零到一规划学习路径，建议按以下顺序推进。

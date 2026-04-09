@@ -3,7 +3,7 @@ title: Career Development for Technical Professionals
 tags: [career, development, soft-skills, leadership]
 difficulty: intermediate
 estimated_time: 45 min
-last_reviewed: 2025-04-09
+last_reviewed: 2026-04-09
 prerequisites: [[Coding Interview Playbook], [System Design Knowledge Map]]
 applications: [career-growth, promotion, job-search, negotiation]
 ---

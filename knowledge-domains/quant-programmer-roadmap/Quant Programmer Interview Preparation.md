@@ -1,3 +1,11 @@
+---
+title: Quant Programmer Interview Preparation
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Quant Programmer Interview Preparation
 
 量化程序员面试通常是数学、编程、金融理解和系统思维的组合。

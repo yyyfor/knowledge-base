@@ -1,3 +1,11 @@
+---
+title: Shortest Path to Pass
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Shortest Path to Pass
 
 如果时间有限，最短复习路径如下：

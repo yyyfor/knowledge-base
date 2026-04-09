@@ -1,3 +1,11 @@
+---
+title: PnL Explain
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # PnL Explain
 
 解释每日盈亏变化。

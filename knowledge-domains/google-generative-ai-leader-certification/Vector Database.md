@@ -1,3 +1,11 @@
+---
+title: Vector Database
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Vector Database
 
 Vector Database 是专门存储和检索 embeddings 的数据库。

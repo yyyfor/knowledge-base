@@ -1,3 +1,11 @@
+---
+title: Gems
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Gems
 
 Gems 可以理解为 Gemini 内部面向特定任务的 AI agents 或定制助手能力。

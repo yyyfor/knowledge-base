@@ -1,3 +1,11 @@
+---
+title: Data Structures and Algorithms for Quants
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Data Structures and Algorithms for Quants
 
 量化程序员仍然需要扎实的基础算法能力。

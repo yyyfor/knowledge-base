@@ -1,3 +1,11 @@
+---
+title: Agent Architecture
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Agent Architecture
 
 Agent Architecture 是对 AI agent 工作流程的结构化描述。

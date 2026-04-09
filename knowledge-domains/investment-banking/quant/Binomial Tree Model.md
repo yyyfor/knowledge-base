@@ -1,3 +1,11 @@
+---
+title: Binomial Tree Model
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Binomial Tree Model
 
 Binomial Tree Model 用离散时间树结构近似标的价格路径，并据此定价衍生品。

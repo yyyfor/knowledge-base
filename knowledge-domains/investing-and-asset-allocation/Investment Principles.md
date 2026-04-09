@@ -1,3 +1,11 @@
+---
+title: Investment Principles
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Investment Principles
 
 做好投资首先不是找“最聪明的产品”，而是建立正确原则。

@@ -1,3 +1,11 @@
+---
+title: Top-Down and Bottom-Up Adoption
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Top-Down and Bottom-Up Adoption
 
 PDF 课程里明确提到企业导入 GenAI 时，最有效的方式通常不是纯 top-down 或纯 bottom-up，而是两者结合。

@@ -1,3 +1,11 @@
+---
+title: Trade Capture
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Trade Capture
 
 Trade Capture 是把交易员、销售或电子平台产生的交易记录正式写入系统的过程。

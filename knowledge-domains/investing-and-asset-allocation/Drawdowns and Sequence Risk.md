@@ -1,3 +1,11 @@
+---
+title: Drawdowns and Sequence Risk
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Drawdowns and Sequence Risk
 
 回撤和收益发生顺序，会深刻影响真实投资体验。

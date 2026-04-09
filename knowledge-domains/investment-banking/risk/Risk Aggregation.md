@@ -1,3 +1,11 @@
+---
+title: Risk Aggregation
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Risk Aggregation
 
 风险聚合用于计算组合整体风险。

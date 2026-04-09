@@ -1,3 +1,11 @@
+---
+title: Human-in-the-Loop
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Human-in-the-Loop
 
 Human-in-the-Loop 指人在 AI 工作流中保留审核、反馈或最终决策环节。

@@ -1,3 +1,11 @@
+---
+title: Gemini Advanced
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Gemini Advanced
 
 Gemini Advanced 可以理解为更强能力层级的 Gemini 使用形态。

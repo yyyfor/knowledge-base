@@ -1,3 +1,11 @@
+---
+title: LLM
+tags: ["genai", "machine-learning"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # LLM
 
 LLM 是 Large Language Model，大语言模型。

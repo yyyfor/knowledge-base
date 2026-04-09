@@ -1,3 +1,11 @@
+---
+title: Initial Margin
+tags: ["investment-banking", "finance"]
+difficulty: intermediate
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Initial Margin
 
 Initial Margin 是为覆盖潜在未来风险而预先缴纳的保证金。

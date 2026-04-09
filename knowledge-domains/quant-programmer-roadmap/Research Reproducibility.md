@@ -1,3 +1,11 @@
+---
+title: Research Reproducibility
+tags: ["quant", "programming"]
+difficulty: advanced
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Research Reproducibility
 
 可复现性是区分“演示结果”和“可信研究”的关键。

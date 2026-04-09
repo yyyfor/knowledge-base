@@ -1,3 +1,11 @@
+---
+title: Index Funds and ETFs
+tags: ["investing", "asset-allocation"]
+difficulty: beginner
+estimated_time: 1 min
+last_reviewed: 2026-04-09
+---
+
 # Index Funds and ETFs
 
 指数基金和 ETF 是很多长期投资者最实用的工具。
