@@ -3,7 +3,7 @@ title: Coding Interview Knowledge Map
 tags: ["coding-interview", "knowledge-map"]
 difficulty: intermediate
 estimated_time: 1 min
-last_reviewed: 2026-04-09
+last_reviewed: 2026-04-10
 ---
 
 # Coding Interview Knowledge Map
@@ -46,3 +46,9 @@ last_reviewed: 2026-04-09
 - [[Top K Problems]]
 - [[Permutations and Backtracking]]
 - [[Dijkstra and Shortest Path]]
+
+## Practice and Review
+
+- [[Two Sum Pattern Quiz]]
+- [[Coding Interview Pattern Recognition Quiz]]
+- [[Coding Interview Mock Review]]

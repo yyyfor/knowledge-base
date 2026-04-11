@@ -538,6 +538,10 @@ function isQuizNote(title) {
   return /Quiz$/.test(title) || /Mock Exam Questions/.test(title);
 }
 
+function isPracticeNote(title) {
+  return isQuizNote(title) || /Drill$/.test(title) || /Review$/.test(title);
+}
+
 function isOverviewNote(title) {
   return ["Architecture", "Data", "Quant", "Risk", "Technology", "Glossary", "Topic Index"].includes(title);
 }
@@ -545,7 +549,8 @@ function isOverviewNote(title) {
 function noteSectionPolicy(note) {
   const title = note.title;
   const group = groupKey(note);
-  const mapLike = isKnowledgeMapNote(title) || isRoadmapNote(title) || isQuizNote(title) || isOverviewNote(title);
+  const practiceLike = isPracticeNote(title);
+  const mapLike = isKnowledgeMapNote(title) || isRoadmapNote(title) || practiceLike || isOverviewNote(title);
   const isCareer = group === "career-development";
   const allowUseCases = !mapLike && !isCareer;
   const allowPitfalls = allowUseCases && !isCareer;
@@ -557,7 +562,7 @@ function noteSectionPolicy(note) {
       group === "coding-interview-playbook" ||
       /Interview|Offer-Level|Playbook/.test(title)
     );
-  const allowSupplemental = !isQuizNote(title);
+  const allowSupplemental = !practiceLike;
 
   return {
     useCases: allowUseCases,

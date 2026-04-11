@@ -3,7 +3,7 @@ title: System Design Knowledge Map
 tags: ["system-design", "architecture", "engineering", "scalability"]
 difficulty: intermediate
 estimated_time: 30 min
-last_reviewed: 2026-04-09
+last_reviewed: 2026-04-10
 prerequisites: ["[What is System Design]"]
 scale: ["million-users", "billion-users"]
 related_companies: ["Google", "Meta", "Amazon", "Uber"]
@@ -67,3 +67,9 @@ related_companies: ["Google", "Meta", "Amazon", "Uber"]
 - [[How to Approach a System Design Interview]]
 - [[System Design Trade-offs]]
 - [[System Design Offer-Level Playbook]]
+
+## Practice and Review
+
+- [[System Design Fundamentals Quiz]]
+- [[System Design Failure Modes Drill]]
+- [[System Design Trade-off Review]]

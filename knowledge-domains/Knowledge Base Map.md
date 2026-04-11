@@ -3,7 +3,7 @@ title: Knowledge Base Map
 tags: ["knowledge-base"]
 difficulty: beginner
 estimated_time: 10 min
-last_reviewed: 2026-04-09
+last_reviewed: 2026-04-10
 ---
 
 # Knowledge Base Map
@@ -35,7 +35,11 @@ last_reviewed: 2026-04-09
 ## Practice and Review
 
 - [[Two Sum Pattern Quiz]]
+- [[Coding Interview Pattern Recognition Quiz]]
+- [[Coding Interview Mock Review]]
 - [[System Design Fundamentals Quiz]]
+- [[System Design Failure Modes Drill]]
+- [[System Design Trade-off Review]]
 
 ## Suggested Paths
 
