@@ -2,7 +2,7 @@
 title: Data Partitioning and Sharding
 tags: ["system-design", "architecture"]
 difficulty: intermediate
-estimated_time: 1 min
+estimated_time: 45 min
 last_reviewed: 2026-04-09
 ---
 
@@ -147,9 +147,24 @@ graph TB
    - 缺点：可能数据分布不均
    - 适合：全球部署的应用
 
+## Common Failure Modes
+
+- 分片键只按数据量均匀选择，却没有匹配主要查询模式，导致大量 scatter-gather 查询。
+- 按时间 range sharding 后，所有新写入集中到最新分片，形成写热点。
+- 跨分片事务没有边界控制，订单、支付、库存更新被拆到多个 shard 后一致性复杂度暴涨。
+- rebalancing 没有在线迁移方案，只能停机搬数据。
+- shard mapping 缓存不一致，路由层把请求打到旧 shard。
+
+## Interview Guidance
+
+- 先说明为什么需要分片：容量、QPS、热点、合规或地域延迟。
+- 分片键要从查询模式推导，不要只说 hash user_id。
+- 主动讲跨分片查询、全局唯一 ID、rebalancing、热点 shard 和 shard mapping。
+- 如果业务核心是订单或聊天，优先保证同一用户、同一会话或同一订单相关数据尽量共址。
+- 收尾补 observability：per-shard QPS、storage、latency、hot key、migration lag 和 routing error。
+
 相关：
 
 - [[Database Choices]]
 - [[Scalability]]
 - [[Replication and Fault Tolerance]]
-

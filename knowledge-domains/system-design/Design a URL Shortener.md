@@ -2,7 +2,7 @@
 title: Design a URL Shortener
 tags: ["system-design", "architecture"]
 difficulty: intermediate
-estimated_time: 1 min
+estimated_time: 45 min
 last_reviewed: 2026-04-09
 ---
 
@@ -139,15 +139,40 @@ erDiagram
     ANALYTICS {
         bigint id PK
         bigint url_mapping_id FK
-        ip_address
-        user_agent
-        referrer
-        country
-        clicked_at
+        varchar ip_address
+        text user_agent
+        varchar referrer
+        varchar country
+        datetime clicked_at
     }
 
     URL_MAPPING ||--o{ ANALYTICS : "has many"
 ```
+
+## Storage Estimation
+
+假设：
+
+- 每月 100 million 新短链。
+- 每条 URL mapping 平均 1 KB，包括 long_url、short_code、user_id、TTL、状态和索引 overhead。
+- 每天 1 billion redirects。
+- 每条 click analytics event 500 bytes，原始点击日志保留 1 年，聚合报表长期保留。
+- URL mapping 三副本，analytics 日志三副本，缓存只保存热点 20% mapping。
+
+估算：
+
+- 每月 mapping 原始写入：100M * 1 KB = 100 GB/month。
+- 三副本 mapping：300 GB/month，一年约 3.6 TB。
+- 每日点击日志：1B * 500 B = 500 GB/day。
+- 三副本点击日志：1.5 TB/day，一年约 547.5 TB。
+- 热点缓存：100M monthly active mappings * 20% * 1 KB = 20 GB，双副本和 overhead 后可按 50 到 80 GB Redis 起步。
+- 聚合统计如果按 short_code + day 存 PV/UV/country/referrer，通常远小于原始日志，可以按每天数 GB 级别估。
+
+面试表达：
+
+- 短链长期存储瓶颈通常不是 mapping 表，而是 click analytics 原始日志。
+- redirect 主链路只需要读取 mapping，点击统计应异步写日志或流系统。
+- 如果题目要求隐私合规，要说明 IP/user-agent 的保留周期和脱敏策略。
 
 ## Key Components
 

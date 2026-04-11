@@ -2,7 +2,7 @@
 title: Design a Chat System
 tags: ["system-design", "architecture"]
 difficulty: intermediate
-estimated_time: 1 min
+estimated_time: 45 min
 last_reviewed: 2026-04-09
 ---
 
@@ -154,6 +154,32 @@ graph TB
         Receiver2 -->|Fetch| GroupInbox
     end
 ```
+
+## Storage Estimation
+
+假设：
+
+- 10 million DAU。
+- 每个 DAU 每天发送 40 条消息。
+- 平均消息正文 200 bytes，metadata 300 bytes，包括 message_id、conversation_id、sender_id、timestamp、status、device_id 和索引 overhead。
+- 消息三副本，热消息保留在缓存 7 天，历史消息长期保留 1 年。
+- 在线状态记录 200 bytes per active device，平均每个用户 1.5 台设备在线峰值。
+
+估算：
+
+- 每日消息数：10M * 40 = 400M messages/day。
+- 每条消息总量：200 B + 300 B = 500 B。
+- 每日消息原始存储：400M * 500 B = 200 GB/day。
+- 三副本：600 GB/day，一年约 219 TB。
+- 热消息缓存 7 天：200 GB/day * 7 = 1.4 TB，考虑副本和 overhead 可按 3 到 4 TB cache/storage tier 估。
+- 在线状态峰值：10M * 1.5 * 200 B = 3 GB，Redis overhead 和副本后可按 10 到 20 GB 估。
+- 群聊 fan-out on write 会放大 inbox 存储，例如平均 fan-out 20，则 inbox index 可能比原始消息大得多；大群要考虑 fan-out on read 或混合方案。
+
+面试表达：
+
+- 消息正文、消息索引、会话 inbox 和附件要分开估。
+- 附件不要放进 message store，只存 object key 和 metadata。
+- 群聊规模会改变存储模型，小群可写扩散，大群应避免为每个成员复制完整消息。
 
 ## Key Components
 

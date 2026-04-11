@@ -2,7 +2,7 @@
 title: Design an Expedia-like Travel Booking System
 tags: ["system-design", "architecture"]
 difficulty: intermediate
-estimated_time: 2 min
+estimated_time: 60 min
 last_reviewed: 2026-04-09
 ---
 
@@ -54,6 +54,141 @@ Expedia 类 system design 的核心，不是把旅游业务讲得多全，而是
 - 深挖时优先讲搜索链路为什么不能每次实时打所有 supplier、booking 链路为什么必须做 revalidation + hold + confirm，以及如何避免超卖。
 - Trade-off 要主动讲清楚：搜索实时性 vs 延迟、库存正确性 vs 吞吐、预占时长 vs 库存利用率、同步关键路径 vs 异步边缘链路。
 - 收尾时补状态机、Saga、幂等键、监控指标和未来怎样从酒店扩展到机票、门票和租车。
+
+## Travel Booking Architecture
+
+```mermaid
+graph TB
+    Client[Client]
+    Gateway[API Gateway]
+    Search[Search Service]
+    Metadata[Hotel Metadata Service]
+    Pricing[Availability and Pricing Aggregator]
+    Supplier[Supplier Adapters]
+    Booking[Booking Service]
+    Inventory[Inventory Service]
+    Payment[Payment Service]
+    Order[Order Service]
+    Notify[Notification Service]
+    SearchIndex[(Search Index)]
+    Cache[(Price and Availability Cache)]
+    DB[(Order DB)]
+    Bus[Event Bus]
+
+    Client --> Gateway
+    Gateway --> Search
+    Gateway --> Booking
+    Search --> Metadata
+    Search --> SearchIndex
+    Search --> Pricing
+    Pricing --> Cache
+    Pricing --> Supplier
+    Booking --> Pricing
+    Booking --> Inventory
+    Booking --> Payment
+    Booking --> Order
+    Booking --> Supplier
+    Order --> DB
+    Booking --> Bus
+    Bus --> Notify
+    Bus --> Inventory
+```
+
+## Search to Booking Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Search as Search Service
+    participant Pricing as Pricing Aggregator
+    participant Supplier as Supplier Adapter
+    participant Booking as Booking Service
+    participant Payment as Payment Service
+    participant Order as Order Service
+
+    User->>Search: Search city and dates
+    Search->>Pricing: Enrich candidate hotels
+    Pricing->>Supplier: Fetch availability and price
+    Supplier-->>Pricing: Quote data
+    Pricing-->>Search: quote_id with expiry
+    Search-->>User: Results with room and price
+    User->>Booking: Book with quote_id
+    Booking->>Pricing: Revalidate quote
+    Pricing->>Supplier: Confirm latest price and inventory
+    Supplier-->>Pricing: Valid
+    Booking->>Order: Create pending order
+    Booking->>Payment: Authorize payment
+    Payment-->>Booking: Authorized
+    Booking->>Supplier: Confirm reservation
+    Supplier-->>Booking: Confirmation number
+    Booking->>Order: Mark confirmed
+    Booking-->>User: Booking confirmed
+```
+
+## Booking State Machine
+
+```mermaid
+stateDiagram-v2
+    [*] --> QuoteCreated
+    QuoteCreated --> QuoteExpired
+    QuoteCreated --> PendingBooking
+    PendingBooking --> PaymentAuthorized
+    PendingBooking --> BookingFailed
+    PaymentAuthorized --> SupplierConfirmed
+    PaymentAuthorized --> SupplierFailed
+    SupplierFailed --> RefundPending
+    RefundPending --> Refunded
+    SupplierConfirmed --> Confirmed
+    Confirmed --> CancelRequested
+    CancelRequested --> Cancelled
+    QuoteExpired --> [*]
+    BookingFailed --> [*]
+    Refunded --> [*]
+    Cancelled --> [*]
+```
+
+## Storage Estimation
+
+假设：
+
+- 20 million MAU，每人每月 20 次搜索。
+- 每次搜索平均返回并缓存 100 个 hotel-rate candidates，单条 quote/cache record 1 KB，TTL 15 min。
+- 搜索转化率 2%，即每月 8 million booking attempts。
+- 每个 booking/order/payment/supplier record 合计约 8 KB。
+- 订单数据保留 7 年，搜索 quote/cache 只短期保留。
+
+估算：
+
+- 每月搜索次数：20M * 20 = 400M searches。
+- 短期 quote/cache 写入：400M * 100 * 1 KB = 40 TB/month 写入量。
+- 因 TTL 15 min，常驻缓存取决于 QPS。若 400M/month 约 154 QPS，每次 100 KB，15 min 常驻约 154 * 100 KB * 900 = 13.9 GB，实际加热点和副本可按 50 到 100 GB Redis/kv cache 估。
+- 每月 booking attempts：400M * 2% = 8M。
+- 每月订单存储：8M * 8 KB = 64 GB，三副本约 192 GB/month。
+- 7 年订单：64 GB * 12 * 7 = 5.38 TB，三副本约 16.1 TB。
+- 供应商原始响应和审计日志若每次 booking attempt 20 KB，每月约 160 GB，7 年约 13.4 TB，适合对象存储或日志湖。
+
+面试表达：
+
+- Expedia 类系统的长期存储主要是订单、支付、审计和供应商确认，不是搜索缓存。
+- 搜索缓存写入量很大但 TTL 短，估算时要区分写入吞吐和常驻容量。
+- 订单和支付数据要按合规保留期估，不能只看当月容量。
+
+## Key Components
+
+- **Search Service**: 召回候选酒店，处理筛选、排序和分页。
+- **Availability and Pricing Aggregator**: 聚合供应商价格库存，生成短期 quote。
+- **Supplier Adapter**: 屏蔽供应商 API 差异，处理重试、超时、熔断和幂等。
+- **Booking Service**: 编排 revalidate、hold、payment、confirm 和补偿。
+- **Inventory Service**: 管理本地库存视图、hold TTL 和释放。
+- **Order Service**: 管理订单状态机、确认号、取消退款和审计记录。
+- **Payment Service**: 做授权、扣款、退款和支付回调幂等。
+
+## Design Trade-offs
+
+- **实时供应商查询 vs 缓存**: 搜索阶段缓存降低延迟，下单阶段必须重新校验。
+- **库存 hold 时长 vs 转化率**: hold 太短影响支付完成，太长浪费库存。
+- **同步确认 vs Saga**: 用户确认页需要强结果，但通知、发票、积分等边缘链路可异步。
+- **本地库存 vs supplier authoritative source**: 自营库存可本地强一致，第三方库存必须尊重 supplier 最终确认。
 
 从哪里继续看：
 
