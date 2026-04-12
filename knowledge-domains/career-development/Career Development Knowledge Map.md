@@ -29,6 +29,7 @@ flowchart TD
 
     Comm --> Writing[Technical Writing]
     Comm --> XFN[Cross-functional Collaboration]
+    Comm --> Behavioral[Behavioral and Stakeholder Interview Preparation]
 
     Lead --> TL[Technical Leadership]
     Lead --> Mentor[Mentoring and Coaching]
@@ -65,6 +66,7 @@ flowchart TD
 - Public Speaking and Presentations
 - Effective Meetings
 - [[Cross-functional Collaboration]]
+- [[Behavioral and Stakeholder Interview Preparation]]
 
 ### Leadership
 
@@ -116,20 +118,23 @@ Focus on technical skills, execution, and learning
 Focus on autonomy, scope, and influence
 1. [[Promotion Readiness]]
 2. [[Cross-functional Collaboration]]
-3. [[Technical Leadership]]
-4. [[Mentoring and Coaching]]
-5. [[Building Personal Brand]]
+3. [[Behavioral and Stakeholder Interview Preparation]]
+4. [[Technical Leadership]]
+5. [[Mentoring and Coaching]]
+6. [[Building Personal Brand]]
 
 ### For Senior Engineers (5+ years)
 Focus on strategic thinking, leadership, and business impact
 1. [[Technical Leadership]]
-2. [[Salary Negotiation]]
-3. Career Transitions
-4. Building and Leading Teams
+2. [[Behavioral and Stakeholder Interview Preparation]]
+3. [[Salary Negotiation]]
+4. Career Transitions
+5. Building and Leading Teams
 
 ### For Career Transitions
 Focus on market positioning and value demonstration
 1. [[Job Search Strategy]]
 2. [[Promotion Readiness]]
-3. [[Building Personal Brand]]
-4. Career Transitions
+3. [[Behavioral and Stakeholder Interview Preparation]]
+4. [[Building Personal Brand]]
+5. Career Transitions
