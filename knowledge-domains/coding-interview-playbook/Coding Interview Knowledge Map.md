@@ -22,6 +22,7 @@ last_reviewed: 2026-04-10
 - [[Follow-up Strategy]]
 - [[Common Coding Interview Mistakes]]
 - [[Offer-Level Coding Phrases]]
+- [[Java Interview Questions]]
 
 ## Core Models
 

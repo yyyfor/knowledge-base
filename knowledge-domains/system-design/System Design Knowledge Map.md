@@ -67,6 +67,7 @@ related_companies: ["Google", "Meta", "Amazon", "Uber"]
 - [[How to Approach a System Design Interview]]
 - [[System Design Trade-offs]]
 - [[System Design Offer-Level Playbook]]
+- [[System Design Interview Practicum]]
 
 ## Practice and Review
 

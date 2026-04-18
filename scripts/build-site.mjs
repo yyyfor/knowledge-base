@@ -23,7 +23,8 @@ const miniappDomainMap = {
   "coding-interview-playbook": "coding-interview",
   "quant-programmer-roadmap": "quant-programmer",
   "investing-and-asset-allocation": "investing-allocation",
-  "google-generative-ai-leader-certification": "genai-leader"
+  "google-generative-ai-leader-certification": "genai-leader",
+  "finance-career-interviews": "finance-career"
 };
 
 const domainProfiles = {
@@ -75,6 +76,13 @@ const domainProfiles = {
     scenario: "适用于职业规划、晋升准备、求职切换和长期成长相关场景。",
     pitfall: "常见误区是把职业发展理解成单纯刷技术点，而忽略业务影响、沟通和可见度。",
     interview: "回答时先讲目标和阶段，再讲证据、动作和结果。"
+  },
+  "finance-career-interviews": {
+    label: "Finance Career Interviews",
+    workflow: "四大经验定位、岗位题库、面试流程和故事库准备",
+    scenario: "适用于四大 S3、Manager、高级经理转甲方、互联网财务、审计、内审和内控岗位。",
+    pitfall: "常见误区是只讲审计流程，不把经验翻译成业务理解、风险治理和落地结果。",
+    interview: "回答时先讲业务背景和风险，再讲判断、推动、结果和可迁移价值。"
   }
 };
 

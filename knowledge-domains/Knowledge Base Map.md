@@ -8,7 +8,7 @@ last_reviewed: 2026-04-10
 
 # Knowledge Base Map
 
-这个仓库目前包含七个主要知识目录，以及若干索引、学习路径和练习材料。
+这个仓库目前包含八个主要知识目录，以及若干索引、学习路径和练习材料。
 
 ## Domain Libraries
 
@@ -19,6 +19,7 @@ last_reviewed: 2026-04-10
 - [[System Design Knowledge Map]]
 - [[Coding Interview Knowledge Map]]
 - [[Career Development Knowledge Map]]
+- [[Finance Career Interview Knowledge Map]]
 
 ## Reference Tools
 
@@ -50,3 +51,4 @@ last_reviewed: 2026-04-10
 - 系统设计学习：从 [[System Design Knowledge Map]] 开始
 
 - 编码面试与算法题：从 [[Coding Interview Knowledge Map]] 开始
+- 四大转甲方/互联网财务审计面试：从 [[Finance Career Interview Knowledge Map]] 开始
