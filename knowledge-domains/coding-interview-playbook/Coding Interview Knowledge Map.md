@@ -22,18 +22,6 @@ last_reviewed: 2026-04-10
 - [[Follow-up Strategy]]
 - [[Common Coding Interview Mistakes]]
 - [[Offer-Level Coding Phrases]]
-- [[Java Interview Questions]]
-- [[Java Core Interview Answers]]
-- [[Java Collections Interview Answers]]
-- [[Java Concurrency Interview Answers]]
-- [[Java JVM Interview Answers]]
-- [[Java Spring Interview Answers]]
-- [[Java IO and Network Interview Answers]]
-- [[Java Database and Persistence Interview Answers]]
-- [[Java Redis Interview Answers]]
-- [[Java Security Interview Answers]]
-- [[Java Distributed Systems Interview Answers]]
-- [[Java Production Engineering Interview Answers]]
 
 ## Core Models
 
@@ -64,3 +52,8 @@ last_reviewed: 2026-04-10
 - [[Two Sum Pattern Quiz]]
 - [[Coding Interview Pattern Recognition Quiz]]
 - [[Coding Interview Mock Review]]
+
+## Related Interview Prep
+
+- [[Interview Prep Knowledge Map]]
+- [[Java Interview Questions]]

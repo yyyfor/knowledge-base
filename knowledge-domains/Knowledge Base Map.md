@@ -13,13 +13,13 @@ last_reviewed: 2026-04-10
 ## Domain Libraries
 
 - [[Investment Banking Knowledge Map]]
-- [[Google Generative AI Leader Certification Knowledge Map]]
 - [[Quant Programmer Roadmap]]
 - [[Investing and Asset Allocation Knowledge Map]]
 - [[System Design Knowledge Map]]
+- [[Interview Prep Knowledge Map]]
+- [[Finance Career Interview Knowledge Map]]
 - [[Coding Interview Knowledge Map]]
 - [[Career Development Knowledge Map]]
-- [[Finance Career Interview Knowledge Map]]
 
 ## Reference Tools
 
@@ -45,10 +45,13 @@ last_reviewed: 2026-04-10
 ## Suggested Paths
 
 - 金融量化与投行系统：从 [[Investment Banking Knowledge Map]] 开始
-- Google GenAI 认证复习：从 [[Google Generative AI Leader Certification Knowledge Map]] 开始
 - 成为量化程序员：从 [[Quant Programmer Roadmap]] 开始
 - 投资与资产配置：从 [[Investing and Asset Allocation Knowledge Map]] 开始
 - 系统设计学习：从 [[System Design Knowledge Map]] 开始
-
+- 面试准备：从 [[Interview Prep Knowledge Map]] 开始
 - 编码面试与算法题：从 [[Coding Interview Knowledge Map]] 开始
 - 四大转甲方/互联网财务审计面试：从 [[Finance Career Interview Knowledge Map]] 开始
+
+## Archived
+
+- [[Google Generative AI Leader Certification Knowledge Map]]

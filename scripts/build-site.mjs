@@ -20,6 +20,7 @@ try {
 const miniappDomainMap = {
   "investment-banking": "investment-banking",
   "system-design": "system-design",
+  "interview-prep": "interview-prep",
   "coding-interview-playbook": "coding-interview",
   "quant-programmer-roadmap": "quant-programmer",
   "investing-and-asset-allocation": "investing-allocation",
@@ -41,6 +42,13 @@ const domainProfiles = {
     scenario: "适用于需要拆组件、扩容量、降延迟或提可靠性的系统设计场景。",
     pitfall: "常见误区是只堆组件名，却没有说明请求链路、数据流和 trade-off。",
     interview: "回答时先澄清约束，再讲主链路、瓶颈、可靠性和演进路径。"
+  },
+  "interview-prep": {
+    label: "Interview Prep",
+    workflow: "题型拆解、参考答案、故事库和面试表达",
+    scenario: "适用于 Java 后端、AI 应用开发、后端工程和技术面试准备场景。",
+    pitfall: "常见误区是把面试内容分散到各业务学习目录里，复习时找不到统一路径。",
+    interview: "回答时先识别题型，再套用对应模块的判断框架、参考答案和 follow-up。"
   },
   "coding-interview-playbook": {
     label: "Coding Interview",

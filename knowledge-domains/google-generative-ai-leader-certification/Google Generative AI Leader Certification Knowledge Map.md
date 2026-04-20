@@ -84,7 +84,6 @@ last_reviewed: 2026-04-09
 
 ## Cross-Cutting Topics
 
-- [[AI Application Development Interview Questions]]
 - [[GenAI System Architecture]]
 - [[Google AI Product Stack]]
 - [[Responsible AI]]
@@ -98,3 +97,8 @@ last_reviewed: 2026-04-09
 - [[Scenario Question Patterns]]
 - [[Mock Exam Questions]]
 - [[Shortest Path to Pass]]
+
+## Related Interview Prep
+
+- [[Interview Prep Knowledge Map]]
+- [[AI Application Development Interview Questions]]
