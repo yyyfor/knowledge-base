@@ -13,6 +13,12 @@ last_reviewed: 2026-04-20
 ## Technical Interview
 
 - [[Java Interview Questions]]
+- [[Computer Fundamentals Interview Answers]]
+- [[Operating System Interview Answers]]
+- [[Computer Network Interview Answers]]
+- [[Database Cache MQ Interview Answers]]
+- [[Distributed Systems Interview Answers]]
+- [[High Performance High Availability Interview Answers]]
 - [[AI Application Development Interview Questions]]
 
 ## Java Backend Interview
@@ -28,6 +34,28 @@ last_reviewed: 2026-04-20
 - [[Java Security Interview Answers]]
 - [[Java Distributed Systems Interview Answers]]
 - [[Java Production Engineering Interview Answers]]
+- [[Java Production Follow-up Interview Answers]]
+
+## Computer Basics
+
+- [[Computer Fundamentals Interview Answers]]
+- [[Operating System Interview Answers]]
+- [[Computer Network Interview Answers]]
+
+## Backend Middleware
+
+- [[Database Cache MQ Interview Answers]]
+- [[Java Database and Persistence Interview Answers]]
+- [[Java Redis Interview Answers]]
+- [[Queues and Asynchronous Processing]]
+
+## Distributed and Performance
+
+- [[Distributed Systems Interview Answers]]
+- [[High Performance High Availability Interview Answers]]
+- [[Java Distributed Systems Interview Answers]]
+- [[Java Production Engineering Interview Answers]]
+- [[Java Production Follow-up Interview Answers]]
 
 ## AI Application Development Interview
 
@@ -56,6 +84,8 @@ AI 应用开发面试重点不是“会不会调模型 API”，而是能不能�
 ## Suggested Paths
 
 - Java 后端面试：从 [[Java Interview Questions]] 开始，再按 Core、Collections、Concurrency、JVM、Spring、Database、Redis、Distributed、Production 顺序复习。
+- 后端基础面试：从 [[Computer Fundamentals Interview Answers]] 开始，再看 [[Operating System Interview Answers]]、[[Computer Network Interview Answers]]、[[Database Cache MQ Interview Answers]]。
+- 分布式和高性能面试：先看 [[Distributed Systems Interview Answers]]，再看 [[High Performance High Availability Interview Answers]] 和 [[Java Production Follow-up Interview Answers]]。
 - AI 应用开发面试：从 [[AI Application Development Interview Questions]] 开始，重点准备 RAG、Agent、MCP/tool、evaluation、安全和上线治理。
 ## Related
 

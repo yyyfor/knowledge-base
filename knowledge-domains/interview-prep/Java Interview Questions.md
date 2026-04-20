@@ -29,6 +29,7 @@ Java 后端面试通常分成 11 类：
 - [[Java Security Interview Answers]]：认证授权、JWT、SSO、权限模型、数据脱敏、接口防刷。
 - [[Java Distributed Systems Interview Answers]]：CAP、RPC、分布式 ID、分布式事务、配置中心、网关。
 - [[Java Production Engineering Interview Answers]]：限流、重试、幂等、日志、监控、线上排障。
+- [[Java Production Follow-up Interview Answers]]：流量突增、线程池/连接池打满、p99、GC、hot key、重复写、死锁和故障恢复。
 
 ## 答题方式
 
@@ -45,6 +46,8 @@ Java 后端面试通常分成 11 类：
 线程池不是“把任务丢进去异步执行”这么简单。它的核心是控制并发、复用线程、隔离资源和提供背压。设计线程池时我会先判断任务是 CPU-bound 还是 IO-bound，再设置有界队列、拒绝策略、超时和监控指标，避免任务无限堆积导致 OOM。
 
 ## 高频 Follow-up
+
+这类问题建议直接看 [[Java Production Follow-up Interview Answers]]，重点不是背单点结论，而是讲清排查顺序、止血动作和长期治理。
 
 - 如果流量突然涨 10 倍，这个 Java service 会先在哪里出问题？
 - 线程池队列满了怎么办？
@@ -83,6 +86,7 @@ Java 后端面试通常分成 11 类：
 - [[Database Choices]]
 - [[Caching]]
 - [[Queues and Asynchronous Processing]]
+- [[Java Production Follow-up Interview Answers]]
 
 ## 参考
 
