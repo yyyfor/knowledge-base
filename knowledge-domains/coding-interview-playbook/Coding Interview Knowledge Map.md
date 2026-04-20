@@ -23,6 +23,17 @@ last_reviewed: 2026-04-10
 - [[Common Coding Interview Mistakes]]
 - [[Offer-Level Coding Phrases]]
 - [[Java Interview Questions]]
+- [[Java Core Interview Answers]]
+- [[Java Collections Interview Answers]]
+- [[Java Concurrency Interview Answers]]
+- [[Java JVM Interview Answers]]
+- [[Java Spring Interview Answers]]
+- [[Java IO and Network Interview Answers]]
+- [[Java Database and Persistence Interview Answers]]
+- [[Java Redis Interview Answers]]
+- [[Java Security Interview Answers]]
+- [[Java Distributed Systems Interview Answers]]
+- [[Java Production Engineering Interview Answers]]
 
 ## Core Models
 
