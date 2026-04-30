@@ -61,6 +61,8 @@ related_companies: ["Google", "Meta", "Amazon", "Uber"]
 - [[Design a Recommendation System]]
 - [[Design a File Storage System]]
 - [[Design a 10 Million QPS System]]
+- [[Design a Crypto Price System]]
+- [[Design a Risk Calculation Platform]]
 
 ## Interview Preparation
 
@@ -68,6 +70,7 @@ related_companies: ["Google", "Meta", "Amazon", "Uber"]
 - [[System Design Trade-offs]]
 - [[System Design Offer-Level Playbook]]
 - [[System Design Interview Practicum]]
+- [[System Design Project Storytelling Template]]
 
 ## Practice and Review
 

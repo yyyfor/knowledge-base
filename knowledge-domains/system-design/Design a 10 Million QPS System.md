@@ -145,9 +145,32 @@ flowchart TD
 - **同步写 vs 异步写**: 计数、日志和分析适合异步；用户可见状态变更要谨慎。
 - **全量日志 vs 采样日志**: 10M QPS 下全量日志很贵，通常要采样并保留错误全量。
 
+## 高频追问与标准回答
+
+Q1：如果 Redis 或分布式缓存整体不可用怎么办？
+
+A：不能让所有 miss 直接打到数据库。先启用 local cache 和 stale cache 兜底，再对回源做 request coalescing、限流和分级降级。非核心资源返回默认值或静态兜底，核心资源只允许受控比例回源。
+
+Q2：热点 key 怎么处理？
+
+A：热点 key 不是简单加机器就能解决，因为单 key 仍可能集中到一个分片。常见方案是 local cache、hot key replica、逻辑分片、推模式预热和短时间 coalescing，同时监控 per-key QPS 和单分片负载。
+
+Q3：为什么 10M QPS 题要先讲回源比例？
+
+A：因为 10M QPS 的核心是把请求挡在便宜层。每 1% 回源就是 100K QPS，足以压垮很多存储系统。面试中要量化 CDN hit rate、service QPS、storage QPS 和带宽。
+
+Q4：缓存雪崩时如何恢复？
+
+A：避免同一时间大量 key 过期，使用 TTL jitter、cache prewarming、logical expiration 和 background refresh。恢复阶段要限制回源并逐步预热，不能让所有服务同时重建缓存。
+
+Q5：如何证明系统真的能扛住？
+
+A：要看分层指标而不是只看总 QPS，包括 CDN hit rate、origin QPS、cache hit rate、hot key distribution、P99 latency、error rate、queue lag、storage QPS 和降级触发次数。
+
 相关：
 
 - [[Multi-Level Caching Strategies]]
 - [[Graceful Degradation and Load Shedding]]
 - [[Capacity Estimation for System Design]]
 - [[Bottleneck Analysis in Distributed Systems]]
+- [[System Design Project Storytelling Template]]

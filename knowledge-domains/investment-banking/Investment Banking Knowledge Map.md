@@ -64,6 +64,7 @@ last_reviewed: 2026-04-09
 - [[Risk Platform]]
 - [[Distributed Computing]]
 - [[Risk Calculation System]]
+- [[HSBC Risk System Interview Knowledge Base]]
 - [[Trading System Architecture]]
 - [[Workflow Orchestration]]
 - [[Event-Driven Architecture]]

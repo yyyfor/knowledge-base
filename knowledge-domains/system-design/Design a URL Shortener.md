@@ -191,8 +191,31 @@ erDiagram
 - **UUID**: 全局唯一但较长，不适合短链
 - **Custom Base62**: 将数字 ID 转换为更短的字符串
 
+## 高频追问与标准回答
+
+Q1：短码冲突怎么处理？
+
+A：如果用全局 ID + Base62，理论上不会冲突，瓶颈在 ID 生成器；如果允许 custom alias 或随机短码，就必须对 short_code 建唯一索引，冲突时重试或提示用户换 alias。
+
+Q2：为什么点击统计要异步？
+
+A：redirect 主链路的目标是极低延迟。点击统计、地理解析、referrer 分析都不是跳转必要条件，应该写入 queue/log 后异步处理，避免 analytics 慢查询影响用户跳转。
+
+Q3：如何防 cache penetration？
+
+A：对不存在 shortCode 使用 Bloom filter 或 negative cache，快速拒绝明显不存在的请求。还要配合 rate limit 和 abuse detection，防止攻击者随机扫短码打穿数据库。
+
+Q4：热点短链怎么处理？
+
+A：热点 mapping 应该进入 CDN、local cache 和 Redis，多级缓存共同承担读流量。统计事件不能同步写单行 counter，应该写 append-only log 或按时间 bucket 聚合。
+
+Q5：删除或禁用短链后缓存怎么一致？
+
+A：source of truth 里的 status 先变更，再通过主动失效或版本化 cache key 清理缓存。短 TTL 可以作为兜底，但不能只依赖 TTL，否则禁用链接在过期前仍可能可访问。
+
 相关：
 
 - [[Database Choices]]
 - [[Caching]]
 - [[Scalability]]
+- [[System Design Project Storytelling Template]]

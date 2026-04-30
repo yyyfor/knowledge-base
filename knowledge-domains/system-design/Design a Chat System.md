@@ -192,8 +192,31 @@ graph TB
 - **Push Service**: 向离线用户推送通知
 - **Cache Layer**: 缓存最近消息和在线状态
 
+## 高频追问与标准回答
+
+Q1：WebSocket 推送成功是否代表消息发送成功？
+
+A：不代表。消息成功的标准应该是写入 message store 并生成 committed message id。WebSocket push 只是派生投递路径，可能失败、重复或延迟，客户端要用 ack 和 cursor 做补拉。
+
+Q2：如何保证消息顺序？
+
+A：通常只保证 conversation 内顺序，不保证全局顺序。可以按 conversation_id 分区写入消息日志，由服务端生成递增 message_id 或 logical sequence，客户端按 sequence 展示。
+
+Q3：群聊 fanout-on-write 和 fanout-on-read 怎么选？
+
+A：小群适合 fanout-on-write，读快且离线 inbox 简单；超大群适合 fanout-on-read 或混合方案，避免为每个成员复制完整消息。面试中要根据群规模和读写比例选择。
+
+Q4：慢客户端怎么办？
+
+A：每个连接设置 bounded outbound buffer。缓冲区满时可以丢弃 presence/typing 这类非关键事件，消息事件则要求客户端用 cursor 补拉；持续慢连接可以断开并让客户端重连。
+
+Q5：重复发送怎么处理？
+
+A：发送 API 带 clientMessageId，服务端对 `(sender_id, clientMessageId)` 建唯一约束。重复请求返回同一个 committed message，而不是创建新消息。
+
 相关：
 
 - [[Load Balancing]]
 - [[Queues and Asynchronous Processing]]
 - [[Availability and Reliability]]
+- [[System Design Project Storytelling Template]]

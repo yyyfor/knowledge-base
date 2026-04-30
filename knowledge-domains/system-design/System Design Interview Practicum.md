@@ -20,6 +20,8 @@ System design 面试的实战关键，不是把组件名堆满，而是能把每
 
 ## 通用实战模板
 
+如果题目来自个人项目或真实系统，不要只按组件顺序讲。推荐使用 [[System Design Project Storytelling Template]] 的结构：项目一句话定位、面试开场版本、架构图、核心难点、真实 case、面试表达、可追问答案和亮点总结。
+
 ### 1. Clarify Requirements
 
 先问：
@@ -360,6 +362,103 @@ Trade-off：
 - 缓存越激进，越要说明新鲜度和失效策略。
 - 热点、雪崩、穿透、击穿必须提前处理。
 
+## 题型 9：Crypto Price System
+
+核心问题：多外部数据源、实时价格聚合、乱序事件、异常价格过滤、热门 symbol、高 fanout WebSocket、历史价格查询。
+
+API：
+
+- `GET /prices/latest?symbols=BTC-USDT,ETH-USDT`：读取最新价格。
+- `GET /prices/history?symbol=&interval=1m&from=&to=`：读取图表数据。
+- `POST /alerts`：创建价格告警。
+- WebSocket：`subscribe.price`、`price.update`、`heartbeat`。
+- Internal ingest：`POST /internal/price-events` 或 stream consumer 接收 adapter 事件。
+
+Database：
+
+- `price_events(event_id, source, symbol, price, volume, source_ts, ingestion_ts, status)`
+- `latest_prices(symbol, price, source_set, event_ts, updated_at)` 可由 Redis 承载读路径。
+- `price_buckets(symbol, interval, bucket_start, open, high, low, close, volume)`
+- `source_health(source, status, last_seen_at, latency_ms, error_rate)`
+- 原始 tick 可以短期保留在 stream/object storage，bucket 是图表查询视图。
+
+Data structures：
+
+- HashMap：`symbol -> latest price`，`connectionId -> subscriptions`。
+- Time bucket：按 symbol + interval 聚合 OHLCV。
+- Sliding window：异常 spike 检测和 rolling median。
+- Queue/stream partition：按 symbol 分区保证 symbol 内顺序。
+- Bounded buffer：WebSocket 慢客户端隔离。
+- Dedup set：按 eventId 或 source sequence 去重。
+
+Trade-off：
+
+- latest price 要稳定，不能被 late event 或单源异常价格轻易回滚。
+- 每 tick 推送所有用户成本很高，通常要 coalescing 和降频。
+- Redis 是低延迟视图，不是唯一真相；历史和审计要能从事件日志重建。
+
+面试追问：
+
+Q：source timestamp 和 ingestion timestamp 有什么区别？
+
+A：source timestamp 表示市场事件发生时间，用于历史图表和事件排序；ingestion timestamp 表示系统收到时间，用于 SLA、延迟监控和 late event 判断。
+
+Q：如何处理异常价格 spike？
+
+A：用 rolling window、median deviation 和 multi-source confirmation。可疑价格先 quarantine，不立即更新 canonical latest price；多个可信源确认后再接受。
+
+Q：RabbitMQ 和 Kafka 怎么选？
+
+A：RabbitMQ 更适合任务分发和确认；Kafka 更适合高吞吐、可回放、按 symbol 分区顺序和多消费者组。行情系统如果需要回放和审计，stream log 通常更有优势。
+
+## 题型 10：Risk Calculation Platform
+
+核心问题：高成本分布式计算、数据快照一致性、Greeks / VaR scenario explosion、task-level retry、幂等写入、lineage、batch SLA 和分析型结果存储。
+
+API / Interfaces：
+
+- `POST /risk-runs`：创建 risk run，字段包括 valuationDate、riskTypes、portfolioScope、snapshotPolicy。
+- `GET /risk-runs/{runId}`：查询 run 状态、进度、失败原因和 SLA 信息。
+- `POST /risk-runs/{runId}/rerun`：按 failed task、portfolio 或 risk type 做 partial rerun。
+- `GET /risk-results?runId=&portfolioId=&riskType=&scenarioId=`：查询明细或聚合结果。
+- Model interface：`price(trade, marketSnapshot, modelConfig, scenario)` 输出 PV、Greeks 或 scenario PnL。
+
+Database：
+
+- `risk_runs(run_id, valuation_date, status, trade_snapshot_id, market_snapshot_id, ref_data_version, model_version, created_at)`
+- `risk_tasks(task_id, run_id, portfolio_id, risk_type, scenario_range, status, retry_count, estimated_cost)`
+- `risk_results(run_id, task_id, portfolio_id, trade_id, risk_type, scenario_id, risk_factor, value, quality_flag)`
+- `run_lineage(run_id, snapshot_ids, scenario_set_id, model_version, rerun_flag)`
+- result store 按 valuation_date partition，按 portfolio_id、risk_type、scenario_id、product_type clustering。
+
+Data structures：
+
+- Task DAG：risk run -> task plan -> worker execution -> aggregation。
+- Cost profile map：product/model/scenario -> expected runtime。
+- Snapshot registry：run_id -> trade / market / reference data version。
+- Dedup key：run_id + task_id + scenario_id + risk_type。
+- Columnar result cube：portfolio、risk type、scenario、date 多维分析。
+
+Trade-off：
+
+- 按 portfolio 拆任务业务上清晰，但计算成本可能不均；cost-based partitioning 更复杂但能减少 straggler。
+- latest data 更实时，但 snapshot data 才可审计、可重跑。
+- 明细结果保留更多 lineage，存储成本更高；summary table 查询快但不能替代明细审计。
+
+面试追问：
+
+Q：为什么 risk run 必须固定 snapshot？
+
+A：同一次 run 如果混用不同 market data 或 trade version，结果无法解释，也无法重跑。snapshot id 是 risk result 的核心不变量。
+
+Q：Greeks 为什么会任务爆炸？
+
+A：Greeks 需要对 risk factors 做 bump 并重新定价，任务规模约等于 trade count × risk factor count × scenario count。系统需要 scenario batching、risk factor grouping 和 market data object reuse。
+
+Q：VaR 为什么不能把 trade-level VaR 相加？
+
+A：portfolio risk 受相关性和净额效应影响。VaR 要在 portfolio level 生成 PnL distribution，再取 percentile。
+
 ## 面试里的高分表达
 
 - “I’ll first define the APIs because they force us to clarify the access pattern.”
@@ -368,6 +467,7 @@ Trade-off：
 - “This table is the source of truth; the cache and search index are derived views.”
 - “For this system, I would guarantee ordering only within this boundary, not globally.”
 - “I would keep the first version simple, then add cache, queue, sharding, and search only when the bottleneck requires them.”
+- “For a project-based question, I would describe one real failure mode and the exact mitigation, instead of listing generic components.”
 
 ## 常见扣分点
 
@@ -382,6 +482,9 @@ Trade-off：
 
 - [[How to Approach a System Design Interview]]
 - [[System Design Offer-Level Playbook]]
+- [[System Design Project Storytelling Template]]
+- [[Design a Crypto Price System]]
+- [[Design a Risk Calculation Platform]]
 - [[Database Choices]]
 - [[API Gateway and Service Boundaries]]
 - [[Data Partitioning and Sharding]]

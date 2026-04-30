@@ -8,7 +8,7 @@ last_reviewed: 2026-04-10
 
 # Knowledge Base Map
 
-这个仓库目前包含八个主要知识目录，以及若干索引、学习路径和练习材料。
+这个仓库目前包含多个主要知识目录，以及若干索引、学习路径、架构框架和练习材料。
 
 ## Domain Libraries
 
@@ -20,6 +20,7 @@ last_reviewed: 2026-04-10
 - [[Finance Career Interview Knowledge Map]]
 - [[Coding Interview Knowledge Map]]
 - [[Career Development Knowledge Map]]
+- [[Senior Architecture Knowledge Map]]
 
 ## Reference Tools
 
@@ -32,6 +33,9 @@ last_reviewed: 2026-04-10
 - [[2-Month Coding Interview Track]]
 - [[3-Month System Design Track]]
 - [[System Design for Quant Trading Systems]]
+- [[Senior Architecture Decision Framework]]
+- [[Cross-Domain System Flow Patterns]]
+- [[Domain Architecture Playbooks]]
 
 ## Practice and Review
 
@@ -51,6 +55,7 @@ last_reviewed: 2026-04-10
 - 面试准备：从 [[Interview Prep Knowledge Map]] 开始
 - 编码面试与算法题：从 [[Coding Interview Knowledge Map]] 开始
 - 四大转甲方/互联网财务审计面试：从 [[Finance Career Interview Knowledge Map]] 开始
+- Senior 架构与高阶面试：从 [[Senior Architecture Knowledge Map]] 开始
 
 ## Archived
 
