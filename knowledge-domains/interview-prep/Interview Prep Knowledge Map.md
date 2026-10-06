@@ -61,7 +61,7 @@ last_reviewed: 2026-04-20
 
 AI 应用开发面试重点不是“会不会调模型 API”，而是能不能把 LLM、RAG、Agent、工具协议、安全、评估和上线治理讲成一个完整系统。
 
-先看 [[AI Application Development Interview Questions]]，再按需要回到 GenAI 目录补基础：
+先看 [[AI Application Development Interview Questions]]。如果要把 Agent 工程化、AI Coding 工作流和知识库沉淀方法串起来，可以去 [[AI Knowledge Base Map]]。需要补基础时，再回到 GenAI 目录：
 
 - [[LLM]]
 - [[Prompt Engineering]]
@@ -86,7 +86,7 @@ AI 应用开发面试重点不是“会不会调模型 API”，而是能不能�
 - Java 后端面试：从 [[Java Interview Questions]] 开始，再按 Core、Collections、Concurrency、JVM、Spring、Database、Redis、Distributed、Production 顺序复习。
 - 后端基础面试：从 [[Computer Fundamentals Interview Answers]] 开始，再看 [[Operating System Interview Answers]]、[[Computer Network Interview Answers]]、[[Database Cache MQ Interview Answers]]。
 - 分布式和高性能面试：先看 [[Distributed Systems Interview Answers]]，再看 [[High Performance High Availability Interview Answers]] 和 [[Java Production Follow-up Interview Answers]]。
-- AI 应用开发面试：从 [[AI Application Development Interview Questions]] 开始，重点准备 RAG、Agent、MCP/tool、evaluation、安全和上线治理。
+- AI 应用开发面试：从 [[AI Application Development Interview Questions]] 开始，重点准备 RAG、Agent、MCP/tool、evaluation、安全和上线治理；需要方法论和知识沉淀时，再看 [[AI Knowledge Base Map]]。
 ## Related
 
 - [[Finance Career Interview Knowledge Map]]

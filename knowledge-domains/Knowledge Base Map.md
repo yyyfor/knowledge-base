@@ -12,6 +12,8 @@ last_reviewed: 2026-04-10
 
 ## Domain Libraries
 
+- [[AI Knowledge Base Map]]
+
 - [[Investment Banking Knowledge Map]]
 - [[Quant Programmer Roadmap]]
 - [[Investing and Asset Allocation Knowledge Map]]

@@ -137,6 +137,9 @@ function stripFrontmatter(content) {
 
 function escapeHtml(value) {
   return String(value || "")
+    .replace(/HSBC Risk System Interview Knowledge Base/g, 'Risk System Engineering Interview Guide')
+    .replace(/\b(?:HSBC|CIB|CDD)\b/gi, '企业业务')
+    .replace(/汇丰/g, '企业')
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -260,7 +263,7 @@ function noteHrefFromTitle(currentNote, targetTitle, notesByTitle) {
 function inlineFormat(text, note, notesByTitle) {
   let html = escapeHtml(text);
   html = html.replace(/\[\[([^\]]+)\]\]/g, (_, rawTarget) => {
-    const target = notesByTitle.get(rawTarget.trim());
+    const target = notesByTitle.get(rawTarget.trim()) || (rawTarget.trim() === 'Risk System Engineering Interview Guide' ? notesByTitle.get('HSBC Risk System Interview Knowledge Base') : null);
     if (!target) {
       return `<span class="broken-link">${escapeHtml(rawTarget.trim())}</span>`;
     }
@@ -268,6 +271,8 @@ function inlineFormat(text, note, notesByTitle) {
   });
   html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+  html = html.replace(/\[([^\]]+)\]\((https:\/\/[^\s)]+)\)/g, (_, label, href) =>
+    `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`);
   return html;
 }
 
@@ -703,7 +708,7 @@ function buildDirectoryOrder(notesByTitle) {
   }
 
   for (const note of notesByTitle.values()) {
-    if (!note.title.endsWith("Knowledge Map") || note.title === "Knowledge Base Map") {
+    if ((!note.title.endsWith("Knowledge Map") && note.title !== "AI Knowledge Base Map") || note.title === "Knowledge Base Map") {
       continue;
     }
     order.set(groupKey(note), parseDirectorySections(note));
@@ -882,6 +887,7 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
   const rawBody = renderMarkdownBody(note, notesByTitle);
   const directoryHtml = renderSidebarDirectory(note, notesByTitle);
   const pagerHtml = renderPrevNextNavigation(note, notesByTitle);
+  const sourceComplete = groupKey(note) === 'ai-knowledge-base' && /^source_complete:\s*true\s*$/m.test(note.content);
 
   return `<!doctype html>
 <html lang="zh-CN">
@@ -945,7 +951,7 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
           </div>
         </section>
 
-        <section class="detail-section detail-section-explain">
+        ${sourceComplete ? '' : `<section class="detail-section detail-section-explain">
           <h2>详细说明</h2>
           <div class="detail-stack">
             ${renderCardList(details.body.length ? details.body : [details.summary], note, notesByTitle)}
@@ -991,7 +997,7 @@ function renderStructuredNote(note, notesByTitle, backlinksByTitle) {
           </div>
         </section>` : ""}
 
-        ${renderSolutions(note, details)}
+        ${renderSolutions(note, details)}`}
 
         <section class="detail-section">
           <h2>相关条目</h2>
